@@ -1,0 +1,41 @@
+{
+  "name": "bright-liu-portfolio",
+  "description": "Personal portfolio website for Bright Liu - Harvard CS/Statistics student, AWS ML Engineer",
+  "version": "1.0.0",
+  "author": "Bright Liu <brightliu@college.harvard.edu>",
+  "homepage": "https://bright-l01.github.io/my_website",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Bright-L01/my_website.git"
+  },
+  "keywords": [
+    "portfolio",
+    "resume",
+    "harvard",
+    "machine-learning",
+    "aws",
+    "svelte"
+  ],
+  "license": "MIT",
+  "private": false,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "deploy": "npm run build && gh-pages -d dist",
+    "check": "svelte-check --tsconfig ./tsconfig.app.json && tsc -p tsconfig.node.json"
+  },
+  "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "^6.0.0",
+    "@tsconfig/svelte": "^5.0.4",
+    "gh-pages": "^6.3.0",
+    "svelte": "^5.35.5",
+    "svelte-check": "^4.2.2",
+    "typescript": "~5.8.3",
+    "vite": "^7.0.4"
+  },
+  "dependencies": {
+    "svelte-ts-template": "github:KentoNishi/exio"
+  }
+}
