@@ -1,47 +1,123 @@
-# Svelte + TS + Vite
+# Bright Liu's Portfolio Website
 
-This template should help get you started developing with Svelte and TypeScript in Vite.
+A modern, responsive portfolio website built with Svelte, TypeScript, and Vite. Features a clean design with dark mode support, smooth animations, and interactive components.
 
-## Recommended IDE Setup
+## 🚀 Features
 
-[VS Code](https://code.visualstudio.com/) + [Svelte](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode).
+- **Modern Design**: Clean, professional layout with glassmorphism effects
+- **Dark/Light Mode**: Automatic theme detection with manual toggle
+- **Responsive**: Mobile-first design that works on all devices
+- **Interactive**: Smooth scrolling, hover effects, and scroll-triggered animations
+- **Performance**: Optimized build with code splitting and lazy loading
+- **SEO Optimized**: Meta tags, structured data, and semantic HTML
 
-## Need an official Svelte framework?
+## 🛠️ Tech Stack
 
-Check out [SvelteKit](https://github.com/sveltejs/kit#readme), which is also powered by Vite. Deploy anywhere with its serverless-first approach and adapt to various platforms, with out of the box support for TypeScript, SCSS, and Less, and easily-added support for mdsvex, GraphQL, PostCSS, Tailwind CSS, and more.
+- **Framework**: [Svelte](https://svelte.dev/) with TypeScript
+- **Build Tool**: [Vite](https://vitejs.dev/)
+- **Styling**: CSS with custom properties and animations
+- **Deployment**: GitHub Pages with GitHub Actions
 
-## Technical considerations
+## 🏃‍♂️ Getting Started
 
-**Why use this over SvelteKit?**
+### Prerequisites
 
-- It brings its own routing solution which might not be preferable for some users.
-- It is first and foremost a framework that just happens to use Vite under the hood, not a Vite app.
+- Node.js 18+ 
+- npm or yarn
 
-This template contains as little as possible to get started with Vite + TypeScript + Svelte, while taking into account the developer experience with regards to HMR and intellisense. It demonstrates capabilities on par with the other `create-vite` templates and is a good starting point for beginners dipping their toes into a Vite + Svelte project.
+### Installation
 
-Should you later need the extended capabilities and extensibility provided by SvelteKit, the template has been structured similarly to SvelteKit so that it is easy to migrate.
-
-**Why `global.d.ts` instead of `compilerOptions.types` inside `jsconfig.json` or `tsconfig.json`?**
-
-Setting `compilerOptions.types` shuts out all other types not explicitly listed in the configuration. Using triple-slash references keeps the default TypeScript setting of accepting type information from the entire workspace, while also adding `svelte` and `vite/client` type information.
-
-**Why include `.vscode/extensions.json`?**
-
-Other templates indirectly recommend extensions via the README, but this file allows VS Code to prompt the user to install the recommended extension upon opening the project.
-
-**Why enable `allowJs` in the TS template?**
-
-While `allowJs: false` would indeed prevent the use of `.js` files in the project, it does not prevent the use of JavaScript syntax in `.svelte` files. In addition, it would force `checkJs: false`, bringing the worst of both worlds: not being able to guarantee the entire codebase is TypeScript, and also having worse typechecking for the existing JavaScript. In addition, there are valid use cases in which a mixed codebase may be relevant.
-
-**Why is HMR not preserving my local component state?**
-
-HMR state preservation comes with a number of gotchas! It has been disabled by default in both `svelte-hmr` and `@sveltejs/vite-plugin-svelte` due to its often surprising behavior. You can read the details [here](https://github.com/rixo/svelte-hmr#svelte-hmr).
-
-If you have state that's important to retain within a component, consider creating an external store which would not be replaced by HMR.
-
-```ts
-// store.ts
-// An extremely simple external store
-import { writable } from 'svelte/store'
-export default writable(0)
+1. Clone the repository:
+```bash
+git clone https://github.com/Bright-L01/my_website.git
+cd my_website
 ```
+
+2. Install dependencies:
+```bash
+npm install
+```
+
+3. Start the development server:
+```bash
+npm run dev
+```
+
+4. Open http://localhost:5173 in your browser
+
+### Building for Production
+
+```bash
+npm run build
+```
+
+The built files will be in the `dist` directory.
+
+### Preview Production Build
+
+```bash
+npm run preview
+```
+
+## 📁 Project Structure
+
+```
+my_website/
+├── src/
+│   ├── lib/          # Svelte components
+│   │   ├── Header.svelte
+│   │   ├── Navigation.svelte
+│   │   ├── Education.svelte
+│   │   ├── Experience.svelte
+│   │   ├── Projects.svelte
+│   │   ├── Honors.svelte
+│   │   ├── Skills.svelte
+│   │   ├── animations.ts
+│   │   └── stores.ts
+│   ├── assets/       # Static assets
+│   ├── App.svelte    # Root component
+│   ├── main.ts       # Entry point
+│   └── app.css       # Global styles
+├── public/           # Public assets
+├── .github/          # GitHub Actions workflows
+└── dist/             # Build output (git ignored)
+```
+
+## 🚀 Deployment
+
+This site is automatically deployed to GitHub Pages when changes are pushed to the main branch.
+
+### Manual Deployment
+
+```bash
+npm run build
+npm run deploy
+```
+
+## 🎨 Customization
+
+### Updating Content
+
+- Edit component files in `src/lib/` to update content
+- Modify `src/App.svelte` for global styles and layout
+- Update `index.html` for meta tags and SEO
+
+### Styling
+
+- CSS custom properties are defined in `src/App.svelte`
+- Dark/light themes are controlled by `data-theme` attribute
+- Animations are defined in `src/lib/animations.ts`
+
+## 📝 License
+
+MIT License - feel free to use this code for your own portfolio!
+
+## 🤝 Contact
+
+- Email: [brightliu@college.harvard.edu](mailto:brightliu@college.harvard.edu)
+- LinkedIn: [bright-liu-701174216](https://www.linkedin.com/in/bright-liu-701174216)
+- GitHub: [Bright-L01](https://github.com/Bright-L01)
+
+---
+
+Built with ❤️ using Svelte and Vite
