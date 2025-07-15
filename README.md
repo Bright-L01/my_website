@@ -1,5 +1,8 @@
 # Bright Liu's Portfolio Website
 
+[![Deploy to GitHub Pages](https://github.com/Bright-L01/my_website/actions/workflows/deploy.yml/badge.svg)](https://github.com/Bright-L01/my_website/actions/workflows/deploy.yml)
+[![Live Site](https://img.shields.io/badge/Live-bright--l01.github.io-blue)](https://bright-l01.github.io/my_website/)
+
 A modern, responsive portfolio website built with Svelte, TypeScript, and Vite. Features a clean design with dark mode support, smooth animations, and interactive components.
 
 ## 🚀 Features
