@@ -34,7 +34,8 @@
   <div class="hero-content" class:visible={isVisible}>
     <div class="hero-text">
       <h1 class="hero-title">
-        <span class="title-line">Bright Liu</span>
+        <span class="wave-emoji" aria-label="waving hand">👋</span>
+        <span class="title-line">Hi, I'm Bright!</span>
       </h1>
       
       <div class="hero-subtitle">
@@ -43,9 +44,9 @@
       </div>
       
       <p class="hero-description">
-        AI/ML Engineer at AWS • Deep Learning Researcher • Harvard Class of 2026
+        I'm passionate about <span class="highlight">mathematics</span>, <span class="highlight">machine learning</span>, and building <span class="highlight">impactful software</span>.
         <br>
-        Building the future through mathematics, machine learning, and innovative software engineering
+        Currently exploring the intersection of AI and optimization at Harvard & AWS.
       </p>
       
       <div class="hero-cta">
@@ -83,11 +84,6 @@
         </svg>
       </a>
       
-      <a href="tel:(202)826-9287" class="contact-link" aria-label="Phone">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-        </svg>
-      </a>
     </div>
   </div>
   
@@ -133,7 +129,7 @@
   .orb-1 {
     width: 300px;
     height: 300px;
-    background: linear-gradient(135deg, #3b82f6, #6366f1);
+    background: var(--accent-gradient-warm);
     top: 10%;
     left: 10%;
     animation-delay: 0s;
@@ -142,7 +138,7 @@
   .orb-2 {
     width: 200px;
     height: 200px;
-    background: linear-gradient(135deg, #8b5cf6, #a855f7);
+    background: var(--accent-gradient-cool);
     top: 60%;
     right: 20%;
     animation-delay: -2s;
@@ -151,7 +147,7 @@
   .orb-3 {
     width: 150px;
     height: 150px;
-    background: linear-gradient(135deg, #06b6d4, #3b82f6);
+    background: var(--accent-gradient);
     bottom: 20%;
     left: 60%;
     animation-delay: -4s;
@@ -184,8 +180,32 @@
   .hero-title {
     font-size: clamp(3rem, 8vw, 6rem);
     font-weight: 900;
-    line-height: 0.9;
+    line-height: 1.2;
     margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .wave-emoji {
+    font-size: 0.8em;
+    display: inline-block;
+    animation: wave 2.5s ease-in-out infinite;
+    transform-origin: 70% 70%;
+  }
+
+  @keyframes wave {
+    0%, 100% { transform: rotate(0deg); }
+    10% { transform: rotate(14deg); }
+    20% { transform: rotate(-8deg); }
+    30% { transform: rotate(14deg); }
+    40% { transform: rotate(-4deg); }
+    50% { transform: rotate(10deg); }
+    60%, 100% { transform: rotate(0deg); }
+  }
+
+  .title-line {
     background: var(--accent-gradient);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -223,6 +243,17 @@
     line-height: 1.6;
   }
 
+  .highlight {
+    color: var(--accent-primary);
+    font-weight: 600;
+    position: relative;
+    transition: color 0.3s ease;
+  }
+
+  .highlight:hover {
+    color: var(--accent-secondary);
+  }
+
   .hero-cta {
     display: flex;
     gap: 1rem;
@@ -242,12 +273,12 @@
     font-weight: 600;
     font-size: 1.1rem;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 4px 20px rgba(59, 130, 246, 0.4);
+    box-shadow: 0 4px 20px rgba(255, 107, 107, 0.4);
   }
 
   .cta-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 30px rgba(59, 130, 246, 0.6);
+    box-shadow: 0 8px 30px rgba(255, 107, 107, 0.6);
     color: white;
   }
 
@@ -291,7 +322,7 @@
     background: var(--accent-primary);
     color: white;
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.4);
+    box-shadow: 0 8px 20px rgba(255, 107, 107, 0.4);
   }
 
   .scroll-indicator {

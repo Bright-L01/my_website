@@ -5,7 +5,7 @@
     {
       id: 'languages',
       title: 'Programming Languages',
-      icon: '💻',
+      icon: '🚀',
       skills: [
         { name: 'Python', level: 95, frameworks: ['TensorFlow', 'PyTorch', 'NumPy', 'Pandas'] },
         { name: 'C++', level: 85, frameworks: ['STL', 'CUDA'] },
@@ -16,7 +16,7 @@
     {
       id: 'cloud-ml',
       title: 'Cloud & ML Tools',
-      icon: '☁️',
+      icon: '⚡',
       skills: [
         { name: 'AWS', level: 90, frameworks: ['EC2', 'S3', 'Lambda', 'Bedrock'] },
         { name: 'PyTorch', level: 95, frameworks: ['Lightning', 'TorchScript'] },
@@ -28,7 +28,7 @@
     {
       id: 'mathematics',
       title: 'Mathematical Expertise',
-      icon: '📊',
+      icon: '🧮',
       skills: [
         { name: 'Statistics', level: 95, frameworks: ['Martingale Theory', 'Stochastic Processes'] },
         { name: 'Machine Learning', level: 90, frameworks: ['Deep Learning', 'Computer Vision'] },
@@ -39,13 +39,13 @@
   ];
 
   const activities = [
-    'Harvard Undergraduate Quantitative Traders',
-    'Harvard MIT Math Tournament',
-    'Harvard Poker Club',
-    'Harvard Science Olympiad',
-    'Cambridge Half Marathon',
-    'Harvard Ultimate Frisbee',
-    'Founder of Harvard Book Club'
+    'Quantitative Trading & Finance',
+    'Mathematics Competitions',
+    'Strategic Games & Probability',
+    'Science Olympiads',
+    'Distance Running',
+    'Team Sports',
+    'Reading & Literary Discussion'
   ];
 
   let hoveredSkill: string | null = null;
@@ -120,7 +120,13 @@
             class="activity-item"
             use:scrollAnimation={{ animation: 'slideLeft', delay: 600 + index * 50 }}
           >
-            <div class="activity-icon">🎯</div>
+            <div class="activity-icon">{activity === 'Quantitative Trading & Finance' ? '📈' : 
+                                activity === 'Mathematics Competitions' ? '🏆' :
+                                activity === 'Strategic Games & Probability' ? '♟️' :
+                                activity === 'Science Olympiads' ? '🔬' :
+                                activity === 'Distance Running' ? '🏃' :
+                                activity === 'Team Sports' ? '⚽' :
+                                '📚'}</div>
             <span class="activity-text">{activity}</span>
           </div>
         {/each}

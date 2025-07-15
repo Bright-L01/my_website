@@ -23,7 +23,6 @@
       <div>
         <div class="item-title">Harvard University</div>
         <div class="item-org">Bachelor of Arts in Mathematics and Computer Science</div>
-        <div class="gpa">GPA: 3.81</div>
       </div>
       <div class="item-right">
         <div class="item-location">Cambridge, MA</div>
@@ -41,18 +40,6 @@
 <style>
   .item-right {
     text-align: right;
-  }
-
-  .gpa {
-    color: var(--accent-primary);
-    font-weight: 600;
-    margin-top: 0.5rem;
-    padding: 0.25rem 0.75rem;
-    background: var(--bg-tertiary);
-    border-radius: 12px;
-    display: inline-block;
-    border: 1px solid var(--border-color);
-    font-size: 0.9rem;
   }
 
   @media (max-width: 768px) {

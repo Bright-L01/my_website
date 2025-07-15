@@ -33,43 +33,51 @@
 <style>
   /* CSS Custom Properties for Theming */
   :global(:root) {
-    /* Light Theme */
-    --bg-primary: #ffffff;
-    --bg-secondary: #f8fafc;
-    --bg-tertiary: #f1f5f9;
-    --text-primary: #1e293b;
-    --text-secondary: #64748b;
-    --text-tertiary: #94a3b8;
-    --accent-primary: #3b82f6;
-    --accent-secondary: #6366f1;
-    --accent-gradient: linear-gradient(135deg, #3b82f6 0%, #6366f1 100%);
-    --border-color: #e2e8f0;
-    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-    --glass-bg: rgba(255, 255, 255, 0.8);
-    --glass-border: rgba(255, 255, 255, 0.2);
+    /* Light Theme - Warm & Personable */
+    --bg-primary: #fffaf0;
+    --bg-secondary: #fff5e6;
+    --bg-tertiary: #ffefd5;
+    --text-primary: #2c1810;
+    --text-secondary: #5c4033;
+    --text-tertiary: #8b6f5c;
+    --accent-primary: #ff6b6b;
+    --accent-secondary: #4ecdc4;
+    --accent-tertiary: #45b7d1;
+    --accent-warm: #f7b731;
+    --accent-gradient: linear-gradient(135deg, #ff6b6b 0%, #4ecdc4 50%, #45b7d1 100%);
+    --accent-gradient-warm: linear-gradient(135deg, #ff6b6b 0%, #f7b731 100%);
+    --accent-gradient-cool: linear-gradient(135deg, #4ecdc4 0%, #45b7d1 100%);
+    --border-color: #f0d4b8;
+    --shadow-sm: 0 1px 2px 0 rgba(255, 107, 107, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(255, 107, 107, 0.1), 0 2px 4px -1px rgba(255, 107, 107, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(255, 107, 107, 0.1), 0 4px 6px -2px rgba(255, 107, 107, 0.05);
+    --shadow-xl: 0 20px 25px -5px rgba(255, 107, 107, 0.1), 0 10px 10px -5px rgba(255, 107, 107, 0.04);
+    --glass-bg: rgba(255, 250, 240, 0.85);
+    --glass-border: rgba(255, 183, 77, 0.2);
   }
 
   :global([data-theme="dark"]) {
-    /* Dark Theme */
-    --bg-primary: #0f172a;
-    --bg-secondary: #1e293b;
-    --bg-tertiary: #334155;
-    --text-primary: #f8fafc;
-    --text-secondary: #cbd5e1;
-    --text-tertiary: #94a3b8;
-    --accent-primary: #60a5fa;
-    --accent-secondary: #818cf8;
-    --accent-gradient: linear-gradient(135deg, #60a5fa 0%, #818cf8 100%);
-    --border-color: #334155;
-    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
-    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
-    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
-    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 10px 10px -5px rgba(0, 0, 0, 0.4);
-    --glass-bg: rgba(15, 23, 42, 0.8);
-    --glass-border: rgba(255, 255, 255, 0.1);
+    /* Dark Theme - Deep Ocean */
+    --bg-primary: #0a0e27;
+    --bg-secondary: #151932;
+    --bg-tertiary: #1f2347;
+    --text-primary: #e8eaed;
+    --text-secondary: #b2bec3;
+    --text-tertiary: #74818a;
+    --accent-primary: #ff7979;
+    --accent-secondary: #6dd5d1;
+    --accent-tertiary: #54c0db;
+    --accent-warm: #f9ca24;
+    --accent-gradient: linear-gradient(135deg, #ff7979 0%, #6dd5d1 50%, #54c0db 100%);
+    --accent-gradient-warm: linear-gradient(135deg, #ff7979 0%, #f9ca24 100%);
+    --accent-gradient-cool: linear-gradient(135deg, #6dd5d1 0%, #54c0db 100%);
+    --border-color: #2d3561;
+    --shadow-sm: 0 1px 2px 0 rgba(255, 121, 121, 0.1);
+    --shadow-md: 0 4px 6px -1px rgba(255, 121, 121, 0.15), 0 2px 4px -1px rgba(109, 213, 209, 0.1);
+    --shadow-lg: 0 10px 15px -3px rgba(255, 121, 121, 0.2), 0 4px 6px -2px rgba(109, 213, 209, 0.15);
+    --shadow-xl: 0 20px 25px -5px rgba(255, 121, 121, 0.25), 0 10px 10px -5px rgba(109, 213, 209, 0.2);
+    --glass-bg: rgba(10, 14, 39, 0.85);
+    --glass-border: rgba(109, 213, 209, 0.15);
   }
 
   /* Global Styles */
@@ -190,7 +198,7 @@
 
   :global(.section:hover) {
     transform: translateY(-4px);
-    box-shadow: var(--shadow-xl), 0 0 40px rgba(59, 130, 246, 0.15);
+    box-shadow: var(--shadow-xl), 0 0 40px rgba(255, 107, 107, 0.15);
   }
 
   /* Item Styles */

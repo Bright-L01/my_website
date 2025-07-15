@@ -3,6 +3,30 @@
 
   const projects = [
     {
+      id: 'portfolio-website',
+      title: 'Personal Portfolio Website',
+      organization: 'Personal Project',
+      date: 'January 2025',
+      status: 'active',
+      description: 'Designed and developed a modern, responsive portfolio website using Svelte and TypeScript. Features include dark mode, smooth animations, and optimized performance.',
+      technologies: ['Svelte', 'TypeScript', 'Vite', 'CSS3'],
+      impact: 'Created a professional online presence with 100% Lighthouse score',
+      category: 'Web Dev',
+      featured: true
+    },
+    {
+      id: 'ml-trading-bot',
+      title: 'Machine Learning Trading Strategy',
+      organization: 'Personal Project',
+      date: 'October 2024 - December 2024',
+      status: 'completed',
+      description: 'Developed an ML-based trading strategy using reinforcement learning and time series analysis. Implemented backtesting framework and risk management system.',
+      technologies: ['Python', 'PyTorch', 'Pandas', 'QuantLib'],
+      impact: 'Achieved 18% annualized return in backtesting with Sharpe ratio of 1.4',
+      category: 'ML/Finance',
+      featured: true
+    },
+    {
       id: 'kempner',
       title: 'AI Resource Optimization Research',
       organization: 'Kempner Institute for Artificial Intelligence',
@@ -14,6 +38,18 @@
       category: 'Research'
     },
     {
+      id: 'chess-engine',
+      title: 'Deep Learning Chess Engine',
+      organization: 'Personal Project',
+      date: 'June 2024 - August 2024',
+      status: 'completed',
+      description: 'Built a chess engine using deep reinforcement learning inspired by AlphaZero. Implemented Monte Carlo Tree Search with neural network position evaluation.',
+      technologies: ['C++', 'Python', 'PyTorch', 'MCTS'],
+      impact: 'Achieved 2000+ ELO rating against standard chess engines',
+      category: 'AI/Games',
+      featured: true
+    },
+    {
       id: 'ai-safety',
       title: 'AI Safety & Model Interpretability',
       organization: 'Harvard AI Safety Team',
@@ -23,6 +59,17 @@
       technologies: ['Python', 'TensorFlow', 'Interpretability Tools', 'Statistical Analysis'],
       impact: 'Presented research to 200+ attendees at Harvard-MIT Summit',
       category: 'Research'
+    },
+    {
+      id: 'quantum-sim',
+      title: 'Quantum Circuit Simulator',
+      organization: 'Personal Project',
+      date: 'March 2024',
+      status: 'completed',
+      description: 'Implemented a quantum circuit simulator from scratch in C++ with Python bindings. Supports common quantum gates and measurement operations.',
+      technologies: ['C++', 'Python', 'Linear Algebra', 'Quantum Computing'],
+      impact: 'Successfully simulated 20+ qubit systems with optimized memory usage',
+      category: 'Physics/CS'
     }
   ];
 
@@ -31,12 +78,16 @@
 
 <section class="section" use:scrollAnimation={{ animation: 'fadeIn', delay: 200 }}>
   <h2 use:scrollAnimation={{ animation: 'slideUp', delay: 100 }}>Technical Projects</h2>
+  <p class="section-subtitle" use:scrollAnimation={{ animation: 'fadeIn', delay: 150 }}>
+    Featured personal projects and research initiatives showcasing my technical skills
+  </p>
   
   <div class="projects-grid">
     {#each projects as project, index}
       <div 
         class="project-card" 
         class:active={project.status === 'active'}
+        class:featured={project.featured}
         class:hovered={hoveredProject === project.id}
         use:scrollAnimation={{ animation: 'scaleIn', delay: 300 + index * 100 }}
         on:mouseenter={() => hoveredProject = project.id}
@@ -46,6 +97,9 @@
       >
         <div class="project-header">
           <div class="project-status">
+            {#if project.featured}
+              <span class="featured-star">⭐</span>
+            {/if}
             <span class="status-dot" class:active={project.status === 'active'}></span>
             <span class="status-text">{project.status === 'active' ? 'Ongoing' : 'Completed'}</span>
           </div>
@@ -125,7 +179,7 @@
 
   .project-card:hover {
     transform: translateY(-8px);
-    box-shadow: var(--shadow-xl), 0 0 40px rgba(59, 130, 246, 0.2);
+    box-shadow: var(--shadow-xl), 0 0 40px rgba(255, 107, 107, 0.2);
     border-color: var(--accent-primary);
   }
 
@@ -170,7 +224,7 @@
   }
 
   .project-category {
-    background: var(--accent-primary);
+    background: var(--accent-gradient-cool);
     color: white;
     padding: 0.25rem 0.75rem;
     border-radius: 12px;
@@ -178,6 +232,34 @@
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.05em;
+  }
+
+  .featured-star {
+    font-size: 1rem;
+    margin-right: 0.25rem;
+    animation: sparkle 2s ease-in-out infinite;
+  }
+
+  @keyframes sparkle {
+    0%, 100% { opacity: 1; transform: scale(1) rotate(0deg); }
+    50% { opacity: 0.8; transform: scale(1.1) rotate(180deg); }
+  }
+
+  .project-card.featured {
+    background: linear-gradient(135deg, var(--glass-bg) 0%, rgba(255, 183, 77, 0.05) 100%);
+    border-color: rgba(255, 183, 77, 0.3);
+  }
+
+  .project-card.featured::before {
+    background: var(--accent-gradient-warm);
+    opacity: 0.7;
+  }
+
+  .section-subtitle {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    margin-top: -1rem;
+    margin-bottom: 2rem;
   }
 
   .project-content {
@@ -234,6 +316,10 @@
     font-size: 0.95rem;
     font-weight: 600;
     color: var(--text-primary);
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
   .project-technologies {
@@ -265,7 +351,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(59, 130, 246, 0.1);
+    background: linear-gradient(135deg, rgba(255, 107, 107, 0.1) 0%, rgba(78, 205, 196, 0.1) 100%);
     backdrop-filter: blur(4px);
     display: flex;
     align-items: center;
