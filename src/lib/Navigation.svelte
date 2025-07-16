@@ -208,7 +208,6 @@
   .theme-toggle:hover {
     background: var(--accent-primary);
     color: white;
-    transform: scale(1.1);
   }
 
   .mobile-toggle {

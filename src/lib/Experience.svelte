@@ -1,11 +1,10 @@
 <script lang="ts">
-  import { scrollAnimation } from './animations';
 </script>
 
-<section class="section" use:scrollAnimation={{ animation: 'fadeIn', delay: 200 }}>
-  <h2 use:scrollAnimation={{ animation: 'slideUp', delay: 100 }}>Relevant Experience</h2>
+<section class="section">
+  <h2>Relevant Experience</h2>
   
-  <div class="item" use:scrollAnimation={{ animation: 'slideLeft', delay: 300 }}>
+  <div class="item">
     <div class="item-header">
       <div>
         <div class="item-title">AI/ML Software Engineering Intern</div>
@@ -25,7 +24,7 @@
     </div>
   </div>
 
-  <div class="item" use:scrollAnimation={{ animation: 'slideLeft', delay: 400 }}>
+  <div class="item">
     <div class="item-header">
       <div>
         <div class="item-title">Deep Learning Researcher</div>
@@ -44,7 +43,7 @@
     </div>
   </div>
 
-  <div class="item" use:scrollAnimation={{ animation: 'slideLeft', delay: 500 }}>
+  <div class="item">
     <div class="item-header">
       <div>
         <div class="item-title">Graduate TA – Evolutionary Dynamics & Game Theory</div>
@@ -62,7 +61,7 @@
     </div>
   </div>
 
-  <div class="item" use:scrollAnimation={{ animation: 'slideLeft', delay: 600 }}>
+  <div class="item">
     <div class="item-header">
       <div>
         <div class="item-title">Astrophysics Data Scientist</div>

@@ -37,51 +37,51 @@
 <style>
   /* CSS Custom Properties for Theming */
   :global(:root) {
-    /* Light Theme - Warm & Personable */
-    --bg-primary: #fffaf0;
-    --bg-secondary: #fff5e6;
-    --bg-tertiary: #ffefd5;
-    --text-primary: #2c1810;
-    --text-secondary: #5c4033;
-    --text-tertiary: #8b6f5c;
-    --accent-primary: #ff6b6b;
-    --accent-secondary: #4ecdc4;
-    --accent-tertiary: #45b7d1;
-    --accent-warm: #f7b731;
-    --accent-gradient: linear-gradient(135deg, #ff6b6b 0%, #4ecdc4 50%, #45b7d1 100%);
-    --accent-gradient-warm: linear-gradient(135deg, #ff6b6b 0%, #f7b731 100%);
-    --accent-gradient-cool: linear-gradient(135deg, #4ecdc4 0%, #45b7d1 100%);
-    --border-color: #f0d4b8;
-    --shadow-sm: 0 1px 2px 0 rgba(255, 107, 107, 0.05);
-    --shadow-md: 0 4px 6px -1px rgba(255, 107, 107, 0.1), 0 2px 4px -1px rgba(255, 107, 107, 0.06);
-    --shadow-lg: 0 10px 15px -3px rgba(255, 107, 107, 0.1), 0 4px 6px -2px rgba(255, 107, 107, 0.05);
-    --shadow-xl: 0 20px 25px -5px rgba(255, 107, 107, 0.1), 0 10px 10px -5px rgba(255, 107, 107, 0.04);
-    --glass-bg: rgba(255, 250, 240, 0.85);
-    --glass-border: rgba(255, 183, 77, 0.2);
+    /* Light Theme - Professional & Clean */
+    --bg-primary: #ffffff;
+    --bg-secondary: #f8f9fa;
+    --bg-tertiary: #e9ecef;
+    --text-primary: #2d3748;
+    --text-secondary: #4a5568;
+    --text-tertiary: #718096;
+    --accent-primary: #4a90e2;
+    --accent-secondary: #357abd;
+    --accent-tertiary: #2c5aa0;
+    --accent-warm: #4a90e2;
+    --accent-gradient: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
+    --accent-gradient-warm: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
+    --accent-gradient-cool: linear-gradient(135deg, #4a90e2 0%, #2c5aa0 100%);
+    --border-color: #e2e8f0;
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    --glass-bg: rgba(255, 255, 255, 0.95);
+    --glass-border: rgba(226, 232, 240, 0.6);
   }
 
   :global([data-theme="dark"]) {
-    /* Dark Theme - Deep Ocean */
-    --bg-primary: #0a0e27;
-    --bg-secondary: #151932;
-    --bg-tertiary: #1f2347;
-    --text-primary: #e8eaed;
-    --text-secondary: #b2bec3;
-    --text-tertiary: #74818a;
-    --accent-primary: #ff7979;
-    --accent-secondary: #6dd5d1;
-    --accent-tertiary: #54c0db;
-    --accent-warm: #f9ca24;
-    --accent-gradient: linear-gradient(135deg, #ff7979 0%, #6dd5d1 50%, #54c0db 100%);
-    --accent-gradient-warm: linear-gradient(135deg, #ff7979 0%, #f9ca24 100%);
-    --accent-gradient-cool: linear-gradient(135deg, #6dd5d1 0%, #54c0db 100%);
-    --border-color: #2d3561;
-    --shadow-sm: 0 1px 2px 0 rgba(255, 121, 121, 0.1);
-    --shadow-md: 0 4px 6px -1px rgba(255, 121, 121, 0.15), 0 2px 4px -1px rgba(109, 213, 209, 0.1);
-    --shadow-lg: 0 10px 15px -3px rgba(255, 121, 121, 0.2), 0 4px 6px -2px rgba(109, 213, 209, 0.15);
-    --shadow-xl: 0 20px 25px -5px rgba(255, 121, 121, 0.25), 0 10px 10px -5px rgba(109, 213, 209, 0.2);
-    --glass-bg: rgba(10, 14, 39, 0.85);
-    --glass-border: rgba(109, 213, 209, 0.15);
+    /* Dark Theme - Professional Navy */
+    --bg-primary: #1a202c;
+    --bg-secondary: #2d3748;
+    --bg-tertiary: #4a5568;
+    --text-primary: #f7fafc;
+    --text-secondary: #e2e8f0;
+    --text-tertiary: #a0aec0;
+    --accent-primary: #63b3ed;
+    --accent-secondary: #4299e1;
+    --accent-tertiary: #3182ce;
+    --accent-warm: #63b3ed;
+    --accent-gradient: linear-gradient(135deg, #63b3ed 0%, #4299e1 100%);
+    --accent-gradient-warm: linear-gradient(135deg, #63b3ed 0%, #4299e1 100%);
+    --accent-gradient-cool: linear-gradient(135deg, #63b3ed 0%, #3182ce 100%);
+    --border-color: #4a5568;
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.25), 0 2px 4px -1px rgba(0, 0, 0, 0.15);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.35), 0 10px 10px -5px rgba(0, 0, 0, 0.25);
+    --glass-bg: rgba(26, 32, 44, 0.95);
+    --glass-border: rgba(74, 85, 104, 0.6);
   }
 
   /* Global Styles */
@@ -118,25 +118,31 @@
     padding-right: 2rem;
   }
 
+  main section:first-child {
+    padding-top: 0;
+  }
+
   /* Typography */
   :global(h1, h2, h3, h4, h5, h6) {
     color: var(--text-primary);
     font-weight: 600;
     line-height: 1.2;
     margin: 0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   }
 
   :global(h1) {
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    font-weight: 800;
-    letter-spacing: -0.02em;
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    line-height: 1.1;
   }
 
   :global(h2) {
-    font-size: clamp(1.75rem, 3vw, 2.5rem);
-    font-weight: 700;
-    letter-spacing: -0.01em;
-    margin-bottom: 2rem;
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    margin-bottom: 1.5rem;
     position: relative;
   }
 
@@ -145,22 +151,24 @@
     position: absolute;
     bottom: -0.5rem;
     left: 0;
-    width: 4rem;
-    height: 3px;
-    background: var(--accent-gradient);
-    border-radius: 2px;
+    width: 3rem;
+    height: 2px;
+    background: var(--accent-primary);
+    border-radius: 1px;
   }
 
   :global(h3) {
     font-size: clamp(1.25rem, 2vw, 1.5rem);
     font-weight: 600;
     margin-bottom: 1rem;
+    letter-spacing: -0.01em;
   }
 
   :global(p) {
     color: var(--text-secondary);
-    line-height: 1.7;
+    line-height: 1.6;
     margin: 0 0 1rem 0;
+    font-size: 1rem;
   }
 
   :global(a) {
@@ -172,21 +180,19 @@
 
   :global(a:hover) {
     color: var(--accent-secondary);
-    transform: translateY(-1px);
   }
 
   /* Section Styles */
   :global(.section) {
     background: var(--glass-bg);
-    backdrop-filter: blur(20px);
+    backdrop-filter: blur(10px);
     border: 1px solid var(--glass-border);
-    border-radius: 24px;
+    border-radius: 16px;
     padding: 3rem;
-    margin: 3rem 0;
-    box-shadow: var(--shadow-xl);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    margin: 2rem 0;
+    box-shadow: var(--shadow-md);
+    transition: all 0.2s ease;
     position: relative;
-    overflow: hidden;
   }
 
   :global(.section::before) {
@@ -196,20 +202,19 @@
     left: 0;
     right: 0;
     height: 1px;
-    background: var(--accent-gradient);
-    opacity: 0.6;
+    background: var(--accent-primary);
+    opacity: 0.3;
   }
 
   :global(.section:hover) {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-xl), 0 0 40px rgba(255, 107, 107, 0.15);
+    box-shadow: var(--shadow-md);
   }
 
   /* Item Styles */
   :global(.item) {
     padding: 2rem 0;
     border-bottom: 1px solid var(--border-color);
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
     position: relative;
   }
 
@@ -218,7 +223,7 @@
   }
 
   :global(.item:hover) {
-    transform: translateX(8px);
+    background: var(--bg-secondary);
   }
 
   :global(.item-header) {
@@ -231,16 +236,17 @@
 
   :global(.item-title) {
     font-size: 1.25rem;
-    font-weight: 700;
+    font-weight: 600;
     color: var(--text-primary);
     margin-bottom: 0.25rem;
+    line-height: 1.3;
   }
 
   :global(.item-org) {
     font-size: 1.1rem;
     font-weight: 500;
     color: var(--accent-primary);
-    font-style: italic;
+    font-style: normal;
   }
 
   :global(.item-location) {
@@ -256,13 +262,13 @@
     white-space: nowrap;
     background: var(--bg-tertiary);
     padding: 0.25rem 0.75rem;
-    border-radius: 12px;
+    border-radius: 8px;
     border: 1px solid var(--border-color);
   }
 
   :global(.item-description) {
     color: var(--text-secondary);
-    line-height: 1.7;
+    line-height: 1.6;
   }
 
   :global(.item-description ul) {
@@ -275,17 +281,17 @@
     margin-bottom: 0.75rem;
     padding-left: 1.5rem;
     position: relative;
-    line-height: 1.7;
+    line-height: 1.6;
   }
 
   :global(.item-description li::before) {
     content: '';
     position: absolute;
     left: 0;
-    top: 0.6rem;
-    width: 6px;
-    height: 6px;
-    background: var(--accent-gradient);
+    top: 0.65rem;
+    width: 4px;
+    height: 4px;
+    background: var(--accent-primary);
     border-radius: 50%;
   }
 
@@ -329,11 +335,11 @@
     }
 
     :global(.item:hover) {
-      transform: none;
+      background: var(--bg-secondary);
     }
 
     :global(.section:hover) {
-      transform: none;
+      box-shadow: var(--shadow-md);
     }
   }
 

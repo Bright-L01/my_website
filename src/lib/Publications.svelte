@@ -1,136 +1,166 @@
 <script lang="ts">
-  import { scrollAnimation } from './animations';
 
-  const publications = [
+  // Academic work organized by category
+  const peerReviewedPublications = [];
+  
+  const technicalReports = [
     {
       id: 'latent-diffusion-models',
       title: 'Latent Diffusion Models for High-Resolution Image Generation',
-      authors: 'Bright Liu',
+      authors: ['Bright Liu'],
       date: '2024',
-      type: 'Research Paper',
+      type: 'Technical Report',
       category: 'Machine Learning',
-      abstract: 'This paper explores the application of latent diffusion models for generating high-resolution images. We investigate novel architectures and training techniques that improve both sample quality and computational efficiency compared to traditional GANs.',
+      abstract: 'Technical exploration of latent diffusion models for high-resolution image generation, examining architectural approaches and training methodologies.',
       keywords: ['Diffusion Models', 'Deep Learning', 'Computer Vision', 'Generative AI'],
       file: 'Latent_Diffusion_Models_Paper.pdf',
       size: '3.9 MB',
-      pages: '~25 pages',
+      pages: '6 pages',
       featured: true
     },
     {
       id: 'empirical-spectral-distributions',
       title: 'Empirical Spectral Distributions of Random Matrices',
-      authors: 'Bright Liu',
+      authors: ['Bright Liu'],
       date: '2024',
-      type: 'Research Paper', 
+      type: 'Technical Report',
       category: 'Random Matrix Theory',
-      abstract: 'We study the empirical spectral distributions of large random matrices, focusing on convergence properties and applications to high-dimensional statistics. Novel bounds are derived for the rate of convergence under various matrix ensembles.',
+      abstract: 'Study of empirical spectral distributions of large random matrices, focusing on convergence properties and applications to high-dimensional statistics.',
       keywords: ['Random Matrix Theory', 'Spectral Analysis', 'High-Dimensional Statistics'],
       file: 'Empirical_Spectral_Distributions_Of_Random_Matrices.pdf',
       size: '397 KB',
-      pages: '~18 pages',
+      pages: '12 pages',
       featured: true
     },
     {
       id: 'evolutionary-dynamics',
       title: 'Evolutionary Dynamics in Multi-Agent Systems',
-      authors: 'Bright Liu',
+      authors: ['Bright Liu'],
       date: '2024',
-      type: 'Research Paper',
+      type: 'Technical Report',
       category: 'Game Theory',
-      abstract: 'This work examines evolutionary game theory applied to multi-agent systems, with particular focus on strategy evolution under different selection pressures. We present simulation results and theoretical analysis of convergence behaviors.',
+      abstract: 'Analysis of evolutionary game theory applied to multi-agent systems, with focus on strategy evolution under different selection pressures.',
       keywords: ['Evolutionary Game Theory', 'Multi-Agent Systems', 'Nash Equilibrium'],
       file: 'Evolutionary_Dynamics_Paper.pdf',
-      size: '335 KB', 
-      pages: '~16 pages',
+      size: '335 KB',
+      pages: '10 pages',
       featured: false
     },
     {
       id: 'girko-circular-law',
       title: 'The Girko Method and Circular Law for Random Matrices',
-      authors: 'Bright Liu',
+      authors: ['Bright Liu'],
       date: '2024',
       type: 'Technical Report',
       category: 'Mathematical Analysis',
-      abstract: 'An exposition of Girko\'s method for proving the circular law in random matrix theory. We provide detailed proofs and discuss applications to understanding eigenvalue distributions of non-Hermitian random matrices.',
+      abstract: 'Exposition of Girko\'s method for proving the circular law in random matrix theory, with detailed proofs and applications.',
       keywords: ['Circular Law', 'Random Matrices', 'Complex Analysis', 'Eigenvalues'],
       file: 'Girko_Method_Circular_Law.pdf',
       size: '310 KB',
-      pages: '~14 pages',
+      pages: '9 pages',
       featured: false
     },
     {
       id: 'matrix-concentration',
       title: 'Matrix Concentration Inequalities and Applications',
-      authors: 'Bright Liu',
+      authors: ['Bright Liu'],
       date: '2024',
-      type: 'Survey Paper',
+      type: 'Survey',
       category: 'Probability Theory',
-      abstract: 'A comprehensive survey of matrix concentration inequalities, including recent developments in non-commutative probability. Applications to machine learning and high-dimensional data analysis are discussed.',
+      abstract: 'Survey of matrix concentration inequalities, including recent developments in non-commutative probability and applications to machine learning.',
       keywords: ['Concentration Inequalities', 'Matrix Analysis', 'Non-commutative Probability'],
       file: 'Matrix_Concentration_Inequalities.pdf',
       size: '290 KB',
-      pages: '~13 pages',
+      pages: '8 pages',
       featured: false
     },
     {
       id: 'election-forecasting',
       title: 'Election Forecasting with Sparse Statistical Models',
-      authors: 'Bright Liu',
+      authors: ['Bright Liu'],
       date: '2024',
-      type: 'Applied Research',
+      type: 'Technical Report',
       category: 'Political Statistics',
-      abstract: 'We develop sparse regression models for election forecasting, incorporating polling data, economic indicators, and demographic factors. Our approach demonstrates improved prediction accuracy over traditional methods.',
+      abstract: 'Development of sparse regression models for election forecasting, incorporating polling data, economic indicators, and demographic factors.',
       keywords: ['Political Forecasting', 'Sparse Regression', 'Statistical Modeling'],
       file: 'Election_Forecasting_Sparse_Models.pdf',
       size: '195 KB',
-      pages: '~12 pages',
-      featured: false
-    },
-    {
-      id: 'linear-algebra-notes',
-      title: 'Advanced Linear Algebra: Teaching Notes and Examples',
-      authors: 'Bright Liu',
-      date: '2024',
-      type: 'Teaching Material',
-      category: 'Mathematics Education',
-      abstract: 'Comprehensive teaching notes covering advanced topics in linear algebra including spectral theory, matrix decompositions, and applications to data science. Designed for graduate-level mathematics courses.',
-      keywords: ['Linear Algebra', 'Spectral Theory', 'Matrix Decompositions', 'Teaching'],
-      file: 'Advanced_Linear_Algebra_Teaching_Notes.pdf',
-      size: '287 KB',
-      pages: '~20 pages',
+      pages: '7 pages',
       featured: false
     }
   ];
+  
+  const teachingMaterials = [
+    {
+      id: 'linear-algebra-notes',
+      title: 'Advanced Linear Algebra: Teaching Notes and Examples',
+      authors: ['Bright Liu'],
+      date: '2024',
+      type: 'Teaching Material',
+      category: 'Mathematics Education',
+      abstract: 'Comprehensive teaching notes covering advanced topics in linear algebra including spectral theory, matrix decompositions, and applications to data science.',
+      keywords: ['Linear Algebra', 'Spectral Theory', 'Matrix Decompositions', 'Teaching'],
+      file: 'Advanced_Linear_Algebra_Teaching_Notes.pdf',
+      size: '287 KB',
+      pages: '15 pages',
+      featured: false
+    }
+  ];
+  
+  // Combine all publications for filtering
+  const allPublications = [...peerReviewedPublications, ...technicalReports, ...teachingMaterials];
 
   let selectedCategory = 'all';
+  let selectedType = 'all';
   const categories = ['all', 'machine learning', 'random matrix theory', 'game theory', 'mathematical analysis', 'probability theory', 'political statistics', 'mathematics education'];
+  const types = ['all', 'technical report', 'survey', 'teaching material'];
   
-  $: filteredPublications = selectedCategory === 'all' 
-    ? publications 
-    : publications.filter(pub => pub.category.toLowerCase() === selectedCategory);
+  $: filteredPublications = allPublications.filter(pub => {
+    const matchesCategory = selectedCategory === 'all' || pub.category.toLowerCase() === selectedCategory;
+    const matchesType = selectedType === 'all' || pub.type.toLowerCase() === selectedType;
+    return matchesCategory && matchesType;
+  });
 
   function openPaper(filename: string) {
     window.open(`/papers/${filename}`, '_blank');
   }
 </script>
 
-<section class="section" use:scrollAnimation={{ animation: 'fadeIn', delay: 200 }}>
-  <h2 use:scrollAnimation={{ animation: 'slideUp', delay: 100 }}>Research & Publications</h2>
-  <p class="section-subtitle" use:scrollAnimation={{ animation: 'fadeIn', delay: 150 }}>
-    Academic papers, research projects, and teaching materials
+<section class="section">
+  <h2>Research & Academic Work</h2>
+  <p class="section-subtitle">
+    Technical reports, surveys, and teaching materials
   </p>
   
-  <div class="filter-section" use:scrollAnimation={{ animation: 'slideUp', delay: 200 }}>
-    <div class="filter-tabs">
-      {#each categories as category}
-        <button 
-          class="filter-tab"
-          class:active={selectedCategory === category}
-          on:click={() => selectedCategory = category}
-        >
-          {category.replace(/\b\w/g, l => l.toUpperCase())}
-        </button>
-      {/each}
+  <div class="filter-section">
+    <div class="filter-group">
+      <div class="filter-label">Category:</div>
+      <div class="filter-tabs">
+        {#each categories as category}
+          <button 
+            class="filter-tab"
+            class:active={selectedCategory === category}
+            on:click={() => selectedCategory = category}
+          >
+            {category.replace(/\b\w/g, l => l.toUpperCase())}
+          </button>
+        {/each}
+      </div>
+    </div>
+    
+    <div class="filter-group">
+      <div class="filter-label">Type:</div>
+      <div class="filter-tabs">
+        {#each types as type}
+          <button 
+            class="filter-tab"
+            class:active={selectedType === type}
+            on:click={() => selectedType = type}
+          >
+            {type.replace(/\b\w/g, l => l.toUpperCase())}
+          </button>
+        {/each}
+      </div>
     </div>
   </div>
 
@@ -139,7 +169,6 @@
       <div 
         class="publication-card"
         class:featured={publication.featured}
-        use:scrollAnimation={{ animation: 'scaleIn', delay: 300 + index * 100 }}
         role="button"
         tabindex="0"
         on:click={() => openPaper(publication.file)}
@@ -168,7 +197,7 @@
         <div class="paper-content">
           <h3 class="paper-title">{publication.title}</h3>
           <div class="paper-meta">
-            <span class="paper-authors">{publication.authors}</span>
+            <span class="paper-authors">{publication.authors.join(', ')}</span>
             <span class="paper-date">{publication.date}</span>
           </div>
           
@@ -248,6 +277,17 @@
     margin-bottom: 2rem;
   }
 
+  .filter-group {
+    margin-bottom: 1rem;
+  }
+
+  .filter-label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+  }
+
   .filter-tabs {
     display: flex;
     gap: 0.5rem;
@@ -258,18 +298,19 @@
     padding: 0.5rem 1rem;
     background: var(--bg-secondary);
     border: 1px solid var(--border-color);
-    border-radius: 20px;
+    border-radius: 8px;
     font-size: 0.85rem;
     font-weight: 500;
     color: var(--text-secondary);
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
     text-transform: capitalize;
   }
 
   .filter-tab:hover {
     background: var(--bg-tertiary);
     border-color: var(--accent-primary);
+    color: var(--text-primary);
   }
 
   .filter-tab.active {
@@ -287,12 +328,12 @@
   .publication-card {
     position: relative;
     background: var(--glass-bg);
-    backdrop-filter: blur(20px);
+    backdrop-filter: blur(10px);
     border: 1px solid var(--glass-border);
-    border-radius: 20px;
+    border-radius: 12px;
     padding: 2rem;
     cursor: pointer;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.2s ease;
     overflow: hidden;
   }
 
@@ -302,10 +343,10 @@
     top: 0;
     left: 0;
     right: 0;
-    height: 3px;
-    background: var(--accent-gradient);
+    height: 2px;
+    background: var(--accent-primary);
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.2s ease;
   }
 
   .publication-card.featured::before {
@@ -313,8 +354,7 @@
   }
 
   .publication-card:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-xl), 0 0 40px rgba(255, 107, 107, 0.15);
+    box-shadow: var(--shadow-md);
     border-color: var(--accent-primary);
   }
 
@@ -322,11 +362,11 @@
     position: absolute;
     top: 1rem;
     right: 1rem;
-    background: var(--accent-gradient-warm);
+    background: var(--accent-primary);
     color: white;
     padding: 0.25rem 0.75rem;
-    border-radius: 12px;
-    font-size: 0.8rem;
+    border-radius: 8px;
+    font-size: 0.75rem;
     font-weight: 600;
     display: flex;
     align-items: center;
@@ -351,11 +391,11 @@
   }
 
   .paper-type {
-    background: var(--accent-secondary);
+    background: var(--accent-primary);
     color: white;
     padding: 0.25rem 0.75rem;
-    border-radius: 12px;
-    font-size: 0.8rem;
+    border-radius: 8px;
+    font-size: 0.75rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.05em;
@@ -448,16 +488,16 @@
     background: var(--bg-secondary);
     color: var(--text-secondary);
     padding: 0.2rem 0.6rem;
-    border-radius: 12px;
+    border-radius: 6px;
     font-size: 0.75rem;
     font-weight: 500;
     border: 1px solid var(--border-color);
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
   }
 
   .publication-card:hover .keyword-tag {
-    background: var(--accent-primary);
-    color: white;
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
     border-color: var(--accent-primary);
   }
 
@@ -491,7 +531,6 @@
 
   .action-button.primary:hover {
     background: var(--accent-secondary);
-    transform: translateY(-2px);
   }
 
   .action-button.secondary {
@@ -512,14 +551,14 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg, rgba(255, 107, 107, 0.1) 0%, rgba(78, 205, 196, 0.1) 100%);
-    backdrop-filter: blur(4px);
+    background: rgba(74, 144, 226, 0.05);
+    backdrop-filter: blur(2px);
     display: flex;
     align-items: center;
     justify-content: center;
     opacity: 0;
-    transition: all 0.3s ease;
-    border-radius: 20px;
+    transition: all 0.2s ease;
+    border-radius: 12px;
   }
 
   .publication-card:hover .paper-overlay {
@@ -533,7 +572,7 @@
     gap: 0.5rem;
     color: var(--accent-primary);
     font-weight: 600;
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
 
   @media (max-width: 768px) {
@@ -565,7 +604,7 @@
     }
 
     .publication-card:hover {
-      transform: none;
+      box-shadow: var(--shadow-md);
     }
 
     .paper-overlay {

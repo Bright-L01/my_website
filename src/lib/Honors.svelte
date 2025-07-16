@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { scrollAnimation } from './animations';
 
   const honors = [
     {
@@ -40,15 +39,14 @@
   let hoveredHonor: string | null = null;
 </script>
 
-<section class="section" use:scrollAnimation={{ animation: 'fadeIn', delay: 200 }}>
-  <h2 use:scrollAnimation={{ animation: 'slideUp', delay: 100 }}>Honors & Competitions</h2>
+<section class="section">
+  <h2>Honors & Competitions</h2>
   
   <div class="honors-grid">
     {#each honors as honor, index}
       <div 
         class="honor-card"
         class:hovered={hoveredHonor === honor.id}
-        use:scrollAnimation={{ animation: 'scaleIn', delay: 300 + index * 100 }}
         on:mouseenter={() => hoveredHonor = honor.id}
         on:mouseleave={() => hoveredHonor = null}
         role="button"
@@ -122,11 +120,7 @@
   }
 
   .honor-card:hover {
-    transform: translateY(-8px) scale(1.02);
-    box-shadow: 
-      var(--shadow-xl), 
-      0 0 50px rgba(255, 215, 0, 0.3),
-      0 0 100px rgba(255, 215, 0, 0.1);
+    box-shadow: var(--shadow-lg);
     border-color: #ffd700;
   }
 
@@ -146,12 +140,6 @@
   .medal {
     font-size: 3rem;
     filter: drop-shadow(0 4px 8px rgba(255, 215, 0, 0.4));
-    animation: gentle-bounce 3s ease-in-out infinite;
-  }
-
-  @keyframes gentle-bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-4px); }
   }
 
   .place-badge {
@@ -240,24 +228,7 @@
   }
 
   .honor-card.hovered .honor-glow {
-    opacity: 1;
-    animation: pulse-glow 2s ease-in-out infinite;
-  }
-
-  @keyframes pulse-glow {
-    0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.3; }
-    50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.1; }
-  }
-
-  .honor-card:hover .medal {
-    animation: celebration-bounce 0.6s ease-in-out;
-  }
-
-  @keyframes celebration-bounce {
-    0%, 100% { transform: translateY(0) rotate(0deg); }
-    25% { transform: translateY(-8px) rotate(-5deg); }
-    50% { transform: translateY(-12px) rotate(0deg); }
-    75% { transform: translateY(-4px) rotate(5deg); }
+    opacity: 0.3;
   }
 
   @media (max-width: 768px) {
@@ -281,7 +252,7 @@
     }
 
     .honor-card:hover {
-      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
     }
 
     .detail-item {

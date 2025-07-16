@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { scrollAnimation } from './animations';
 
   const skillCategories = [
     {
@@ -79,12 +78,12 @@
   let selectedCategory: string = 'languages';
 </script>
 
-<section class="section" use:scrollAnimation={{ animation: 'fadeIn', delay: 200 }}>
-  <h2 use:scrollAnimation={{ animation: 'slideUp', delay: 100 }}>Technical Skills & Interests</h2>
+<section class="section">
+  <h2>Technical Skills & Interests</h2>
   
   <div class="skills-container">
     <!-- Category Navigation -->
-    <div class="category-nav" use:scrollAnimation={{ animation: 'slideUp', delay: 200 }}>
+    <div class="category-nav">
       {#each skillCategories as category, index}
         <button 
           class="category-btn"
@@ -101,12 +100,11 @@
     <div class="skills-display">
       {#each skillCategories as category}
         {#if selectedCategory === category.id}
-          <div class="skills-grid" use:scrollAnimation={{ animation: 'fadeIn', delay: 300 }}>
+          <div class="skills-grid">
             {#each category.skills as skill, index}
               <div 
                 class="skill-card"
                 class:hovered={hoveredSkill === skill.name}
-                use:scrollAnimation={{ animation: 'scaleIn', delay: 400 + index * 100 }}
                 on:mouseenter={() => hoveredSkill = skill.name}
                 on:mouseleave={() => hoveredSkill = null}
                 role="button"
@@ -139,13 +137,12 @@
     </div>
 
     <!-- Activities Section -->
-    <div class="activities-section" use:scrollAnimation={{ animation: 'slideUp', delay: 500 }}>
+    <div class="activities-section">
       <h3>Activities & Interests</h3>
       <div class="activities-grid">
         {#each activities as activity, index}
           <div 
             class="activity-item"
-            use:scrollAnimation={{ animation: 'slideLeft', delay: 600 + index * 50 }}
           >
             <div class="activity-icon">{activity === 'Quantitative Trading & Alpha Research' ? '📊' : 
                                 activity === 'Competitive Programming (Codeforces Expert)' ? '💻' :
@@ -193,14 +190,11 @@
     background: var(--accent-gradient);
     border-color: var(--accent-primary);
     color: white;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
   }
 
   .category-btn:hover:not(.active) {
     border-color: var(--accent-primary);
     background: var(--bg-tertiary);
-    transform: translateY(-1px);
   }
 
   .category-icon {
@@ -234,8 +228,7 @@
   }
 
   .skill-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-lg), 0 0 30px rgba(59, 130, 246, 0.15);
+    box-shadow: var(--shadow-md);
     border-color: var(--accent-primary);
   }
 
@@ -279,21 +272,6 @@
     position: relative;
   }
 
-  .progress-bar::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-    animation: shimmer 2s infinite;
-  }
-
-  @keyframes shimmer {
-    0% { transform: translateX(-100%); }
-    100% { transform: translateX(100%); }
-  }
 
   .skill-frameworks {
     display: flex;
@@ -316,7 +294,6 @@
     background: var(--accent-primary);
     color: white;
     border-color: var(--accent-primary);
-    transform: scale(1.05);
   }
 
   .activities-section {
@@ -351,7 +328,6 @@
 
   .activity-item:hover {
     background: var(--bg-tertiary);
-    transform: translateX(8px);
     border-color: var(--accent-primary);
   }
 
@@ -394,7 +370,7 @@
     }
 
     .activity-item:hover {
-      transform: none;
+      background: var(--bg-tertiary);
     }
   }
 </style>

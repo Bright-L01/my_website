@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { scrollAnimation } from './animations';
 
   const projects = [
     {
@@ -37,9 +36,9 @@
   let hoveredProject: string | null = null;
 </script>
 
-<section class="section" use:scrollAnimation={{ animation: 'fadeIn', delay: 200 }}>
-  <h2 use:scrollAnimation={{ animation: 'slideUp', delay: 100 }}>Technical Projects</h2>
-  <p class="section-subtitle" use:scrollAnimation={{ animation: 'fadeIn', delay: 150 }}>
+<section class="section">
+  <h2>Technical Projects</h2>
+  <p class="section-subtitle">
     Featured personal projects and research initiatives showcasing my technical skills
   </p>
   
@@ -50,7 +49,6 @@
         class:active={project.status === 'active'}
         class:featured={project.featured}
         class:hovered={hoveredProject === project.id}
-        use:scrollAnimation={{ animation: 'scaleIn', delay: 300 + index * 100 }}
         on:mouseenter={() => hoveredProject = project.id}
         on:mouseleave={() => hoveredProject = null}
         role="button"
@@ -183,8 +181,7 @@
   }
 
   .project-card:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-xl), 0 0 40px rgba(255, 107, 107, 0.2);
+    box-shadow: var(--shadow-lg);
     border-color: var(--accent-primary);
   }
 
@@ -211,13 +208,6 @@
 
   .status-dot.active {
     background: #10b981;
-    box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
-    animation: pulse 2s infinite;
-  }
-
-  @keyframes pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.5; }
   }
 
   .status-text {
@@ -242,12 +232,6 @@
   .featured-star {
     font-size: 1rem;
     margin-right: 0.25rem;
-    animation: sparkle 2s ease-in-out infinite;
-  }
-
-  @keyframes sparkle {
-    0%, 100% { opacity: 1; transform: scale(1) rotate(0deg); }
-    50% { opacity: 0.8; transform: scale(1.1) rotate(180deg); }
   }
 
   .project-card.featured {
@@ -423,8 +407,6 @@
     background: var(--accent-primary);
     color: white;
     border-color: var(--accent-primary);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(255, 107, 107, 0.3);
   }
 
   .project-link svg {
@@ -495,7 +477,7 @@
     }
 
     .project-card:hover {
-      transform: none;
+      box-shadow: var(--shadow-md);
     }
 
     .project-overlay {
