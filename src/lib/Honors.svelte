@@ -25,39 +25,6 @@
       details: 'Achieved 15% speedup over classical solvers for 20-asset portfolios'
     },
     {
-      id: 'jane-street-etc-2024',
-      place: 'Top 10',
-      title: 'Jane Street Electronic Trading Challenge',
-      description: 'Built low-latency market making algorithm with sub-millisecond execution',
-      date: '2024',
-      participants: 'Top 10 out of 500+ teams globally',
-      category: 'Quantitative Trading',
-      medal: '🏆',
-      details: 'PnL: $2.3M simulated, Sharpe: 3.8, Max drawdown: 6%'
-    },
-    {
-      id: 'putnam-2023',
-      place: 'Top 100',
-      title: 'William Lowell Putnam Mathematical Competition',
-      description: 'Solved advanced mathematical problems in prestigious undergraduate competition',
-      date: '2023',
-      participants: 'Top 100 out of 3,400+ contestants',
-      category: 'Mathematics',
-      medal: '🎖️',
-      details: 'Score: 51/120, Harvard team rank: 5th'
-    },
-    {
-      id: 'icpc-regional-2024',
-      place: '3rd',
-      title: 'ACM-ICPC North America Northeast Regional',
-      description: 'Competitive programming contest focusing on algorithms and data structures',
-      date: '2024',
-      participants: 'Top 3 out of 120+ teams',
-      category: 'Algorithms',
-      medal: '🥉',
-      details: 'Solved 9/12 problems, qualified for North America Championship'
-    },
-    {
       id: 'mit-puzzle-2023',
       place: '1st',
       title: '2023 MIT Mystery Puzzle Hunt',

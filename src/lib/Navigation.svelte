@@ -10,7 +10,6 @@
     { id: 'education', label: 'Education' },
     { id: 'experience', label: 'Experience' },
     { id: 'projects', label: 'Projects' },
-    { id: 'publications', label: 'Research' },
     { id: 'honors', label: 'Honors' },
     { id: 'skills', label: 'Skills' }
   ];

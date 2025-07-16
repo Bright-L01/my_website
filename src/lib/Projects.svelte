@@ -3,44 +3,6 @@
 
   const projects = [
     {
-      id: 'statistical-arbitrage',
-      title: 'High-Frequency Statistical Arbitrage Engine',
-      organization: 'Personal Research Project',
-      date: 'November 2024 - Present',
-      status: 'active',
-      description: 'Developed a pairs trading system using cointegration analysis and Ornstein-Uhlenbeck processes. Implemented real-time signal generation with sub-millisecond latency using C++ and zero-copy networking.',
-      technologies: ['C++', 'Python', 'KDB+/Q', 'NumPy', 'Statsmodels'],
-      impact: 'Backtested on 5 years of tick data: Sharpe 2.3, max drawdown 12%, 10k+ trades/day',
-      metrics: {
-        sharpe: 2.3,
-        returns: '32% annualized',
-        maxDrawdown: '12%',
-        winRate: '68%'
-      },
-      category: 'Quant Finance',
-      featured: true,
-      github: 'https://github.com/Bright-L01/stat-arb-engine'
-    },
-    {
-      id: 'ml-trading-bot',
-      title: 'Machine Learning Trading Strategy',
-      organization: 'Personal Project',
-      date: 'October 2024 - December 2024',
-      status: 'completed',
-      description: 'Developed an ML-based trading strategy using reinforcement learning and time series analysis. Implemented backtesting framework and risk management system.',
-      technologies: ['Python', 'PyTorch', 'Pandas', 'QuantLib', 'Backtrader'],
-      impact: 'Achieved 18% annualized return in backtesting with Sharpe ratio of 1.4',
-      metrics: {
-        sharpe: 1.4,
-        returns: '18% annualized',
-        maxDrawdown: '8.5%',
-        calmar: 2.1
-      },
-      github: 'https://github.com/Bright-L01/ml-trading-bot',
-      category: 'ML/Finance',
-      featured: true
-    },
-    {
       id: 'kempner',
       title: 'AI Resource Optimization Research',
       organization: 'Kempner Institute for Artificial Intelligence',
@@ -55,26 +17,7 @@
         flopsReduction: '31%',
         memoryEfficiency: '42% reduction'
       },
-      paper: 'Coming soon to arXiv',
-      category: 'Research'
-    },
-    {
-      id: 'chess-engine',
-      title: 'Deep Learning Chess Engine',
-      organization: 'Personal Project',
-      date: 'June 2024 - August 2024',
-      status: 'completed',
-      description: 'Built a chess engine using deep reinforcement learning inspired by AlphaZero. Implemented Monte Carlo Tree Search with neural network position evaluation.',
-      technologies: ['C++', 'Python', 'PyTorch', 'CUDA', 'MCTS'],
-      impact: 'Achieved 2000+ ELO rating against standard chess engines',
-      metrics: {
-        elo: 2100,
-        winRate: '73% vs Stockfish level 6',
-        inferenceTime: '50ms per move',
-        modelSize: '150M parameters'
-      },
-      github: 'https://github.com/Bright-L01/alphazero-chess',
-      category: 'AI/Games',
+      category: 'AI Research',
       featured: true
     },
     {
@@ -86,99 +29,8 @@
       description: 'Analyzed failure modes of complex models, focusing on interpretability and alignment, presenting research at the Harvard-MIT Existential Risks Summit.',
       technologies: ['Python', 'TensorFlow', 'Interpretability Tools', 'Statistical Analysis'],
       impact: 'Presented research to 200+ attendees at Harvard-MIT Summit',
-      category: 'Research'
-    },
-    {
-      id: 'quantum-sim',
-      title: 'Quantum Circuit Simulator',
-      organization: 'Personal Project',
-      date: 'March 2024',
-      status: 'completed',
-      description: 'Implemented a quantum circuit simulator from scratch in C++ with Python bindings. Supports common quantum gates and measurement operations.',
-      technologies: ['C++', 'Python', 'Eigen', 'OpenMP', 'Quantum Computing'],
-      impact: 'Successfully simulated 24 qubit systems using tensor network optimization',
-      metrics: {
-        maxQubits: 24,
-        speedup: '10x vs Qiskit for 20 qubits',
-        memoryUsage: 'O(2^n/2) via SVD compression',
-        gateError: '<0.001'
-      },
-      github: 'https://github.com/Bright-L01/quantum-sim',
-      category: 'Physics/CS'
-    },
-    {
-      id: 'portfolio-optimizer',
-      title: 'Multi-Factor Portfolio Optimization Framework',
-      organization: 'Quantitative Research Project',
-      date: 'September 2024',
-      status: 'completed',
-      description: 'Built a portfolio optimization engine implementing Black-Litterman model with factor risk constraints. Includes CVaR optimization, transaction cost modeling, and real-time rebalancing signals.',
-      technologies: ['Python', 'cvxpy', 'NumPy', 'QuantLib', 'PostgreSQL'],
-      impact: 'Outperformed equal-weight benchmark by 450bps annually with 30% lower volatility',
-      metrics: {
-        excessReturn: '4.5%',
-        volReduction: '30%',
-        informationRatio: 1.8,
-        turnover: '120% annually'
-      },
-      category: 'Quant Finance',
-      github: 'https://github.com/Bright-L01/portfolio-optimizer'
-    },
-    {
-      id: 'transformer-architecture',
-      title: 'Novel Attention Mechanism for Long-Context LLMs',
-      organization: 'ML Research Project',
-      date: 'August 2024',
-      status: 'completed',
-      description: 'Designed a sparse attention mechanism reducing computational complexity from O(n²) to O(n log n) for sequences up to 100k tokens. Implemented custom CUDA kernels for efficient GPU computation.',
-      technologies: ['PyTorch', 'CUDA', 'Triton', 'C++', 'Weights & Biases'],
-      impact: 'Achieved 2.3x speedup on long-context benchmarks with <1% performance degradation',
-      metrics: {
-        speedup: '2.3x for 32k context',
-        memoryReduction: '65%',
-        perplexity: 'Within 0.8% of full attention',
-        flops: 'O(n log n) vs O(n²)'
-      },
-      category: 'ML Research',
-      paper: 'Preprint available on request'
-    },
-    {
-      id: 'market-microstructure',
-      title: 'Limit Order Book Dynamics & Price Impact Modeling',
-      organization: 'Computational Finance Project',
-      date: 'July 2024',
-      status: 'completed',
-      description: 'Analyzed high-frequency order book data to model price impact and optimal execution strategies. Implemented Almgren-Chriss framework with non-linear temporary and permanent impact functions.',
-      technologies: ['Python', 'KDB+/Q', 'C++', 'Apache Kafka', 'TimescaleDB'],
-      impact: 'Reduced execution costs by 18bps through optimal order splitting and timing',
-      metrics: {
-        costReduction: '18 basis points',
-        dataProcessed: '2TB daily tick data',
-        latency: '<100μs signal generation',
-        accuracy: 'R² = 0.87 for impact prediction'
-      },
-      category: 'Market Microstructure'
-    },
-    {
-      id: 'competitive-programming',
-      title: 'Algorithmic Competition Achievements',
-      organization: 'Various Platforms',
-      date: 'Ongoing',
-      status: 'active',
-      description: 'Active competitive programmer with focus on dynamic programming, graph algorithms, and computational geometry. Regular participant in Codeforces, AtCoder, and USACO contests.',
-      technologies: ['C++', 'Algorithms', 'Data Structures', 'Competitive Programming'],
-      impact: 'Codeforces Expert (1750+), USACO Platinum, 200+ problems solved',
-      metrics: {
-        codeforcesRating: 1750,
-        usacoLevel: 'Platinum',
-        problemsSolved: '200+',
-        contestsParticipated: '50+'
-      },
-      category: 'Algorithms',
-      profiles: {
-        codeforces: 'https://codeforces.com/profile/bright_liu',
-        leetcode: 'https://leetcode.com/bright_liu'
-      }
+      category: 'AI Safety',
+      featured: true
     }
   ];
 

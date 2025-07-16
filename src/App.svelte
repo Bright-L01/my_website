@@ -4,7 +4,6 @@
   import Education from './lib/Education.svelte';
   import Experience from './lib/Experience.svelte';
   import Projects from './lib/Projects.svelte';
-  import Publications from './lib/Publications.svelte';
   import Skills from './lib/Skills.svelte';
   import Honors from './lib/Honors.svelte';
 </script>
@@ -22,9 +21,6 @@
   </section>
   <section id="projects">
     <Projects />
-  </section>
-  <section id="publications">
-    <Publications />
   </section>
   <section id="honors">
     <Honors />
