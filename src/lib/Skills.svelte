@@ -82,78 +82,34 @@
   <h2>Technical Skills & Interests</h2>
   
   <div class="skills-container">
-    <!-- Category Navigation -->
-    <div class="category-nav">
-      {#each skillCategories as category, index}
-        <button 
-          class="category-btn"
-          class:active={selectedCategory === category.id}
-          on:click={() => selectedCategory = category.id}
-        >
-          <span class="category-icon">{category.icon}</span>
-          <span class="category-title">{category.title}</span>
-        </button>
-      {/each}
-    </div>
-
-    <!-- Skills Display -->
-    <div class="skills-display">
-      {#each skillCategories as category}
-        {#if selectedCategory === category.id}
-          <div class="skills-grid">
-            {#each category.skills as skill, index}
-              <div 
-                class="skill-card"
-                class:hovered={hoveredSkill === skill.name}
-                on:mouseenter={() => hoveredSkill = skill.name}
-                on:mouseleave={() => hoveredSkill = null}
-                role="button"
-                tabindex="0"
-              >
-                <div class="skill-header">
-                  <h4 class="skill-name">{skill.name}</h4>
-                  <div class="skill-level">
-                    <span class="level-text">{skill.level}%</span>
-                  </div>
-                </div>
-                
-                <div class="skill-progress">
-                  <div 
-                    class="progress-bar"
-                    style="width: {skill.level}%"
-                  ></div>
-                </div>
-                
-                <div class="skill-frameworks">
-                  {#each skill.frameworks as framework}
-                    <span class="framework-tag">{framework}</span>
-                  {/each}
-                </div>
+    <!-- All Skills Displayed -->
+    {#each skillCategories as category}
+      <div class="skill-category">
+        <h3 class="category-title">{category.title}</h3>
+        <div class="skills-list">
+          {#each category.skills as skill}
+            <div class="skill-item">
+              <div class="skill-header">
+                <span class="skill-name">{skill.name}</span>
+                <span class="skill-level">{skill.level}%</span>
               </div>
-            {/each}
-          </div>
-        {/if}
-      {/each}
-    </div>
+              <div class="skill-frameworks">
+                {#each skill.frameworks as framework}
+                  <span class="framework-tag">{framework}</span>
+                {/each}
+              </div>
+            </div>
+          {/each}
+        </div>
+      </div>
+    {/each}
 
     <!-- Activities Section -->
     <div class="activities-section">
       <h3>Activities & Interests</h3>
-      <div class="activities-grid">
-        {#each activities as activity, index}
-          <div 
-            class="activity-item"
-          >
-            <div class="activity-icon">{activity === 'Quantitative Trading & Alpha Research' ? '📊' : 
-                                activity === 'Competitive Programming (Codeforces Expert)' ? '💻' :
-                                activity === 'Open Source ML Contributions' ? '🤖' :
-                                activity === 'Mathematics Research & Competitions' ? '∑' :
-                                activity === 'Kaggle Competitions (Expert Tier)' ? '🏅' :
-                                activity === 'Options Trading & Market Analysis' ? '📈' :
-                                activity === 'Technical Writing & Research Papers' ? '📝' :
-                                '🎯'}</div>
-            <span class="activity-text">{activity}</span>
-          </div>
+      <div class="activities-list">
+        {#each activities as activity}
+          <div class="activity-item">{activity}</div>
         {/each}
       </div>
     </div>
