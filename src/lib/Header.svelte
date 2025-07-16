@@ -44,9 +44,9 @@
       </div>
       
       <p class="hero-description">
-        I'm passionate about <span class="highlight">mathematics</span>, <span class="highlight">machine learning</span>, and building <span class="highlight">impactful software</span>.
+        I'm passionate about <span class="highlight">quantitative finance</span>, <span class="highlight">machine learning</span>, and <span class="highlight">high-performance computing</span>.
         <br>
-        Currently exploring the intersection of AI and optimization at Harvard & AWS.
+        Currently researching AI optimization at Harvard's Kempner Institute and building ML infrastructure at AWS.
       </p>
       
       <div class="hero-cta">

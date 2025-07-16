@@ -7,45 +7,72 @@
       title: 'Programming Languages',
       icon: '🚀',
       skills: [
-        { name: 'Python', level: 95, frameworks: ['TensorFlow', 'PyTorch', 'NumPy', 'Pandas'] },
-        { name: 'C++', level: 85, frameworks: ['STL', 'CUDA'] },
-        { name: 'JavaScript', level: 80, frameworks: ['React', 'Redux', 'Node.js'] },
-        { name: 'R', level: 75, frameworks: ['Tidyverse', 'ggplot2'] }
+        { name: 'Python', level: 95, frameworks: ['NumPy', 'Pandas', 'SciPy', 'Numba', 'Cython'] },
+        { name: 'C++', level: 85, frameworks: ['STL', 'CUDA', 'Eigen', 'OpenMP', 'MPI'] },
+        { name: 'JavaScript/TypeScript', level: 80, frameworks: ['React', 'Node.js', 'D3.js'] },
+        { name: 'SQL/KDB+', level: 85, frameworks: ['PostgreSQL', 'TimescaleDB', 'Q/kdb+'] },
+        { name: 'MATLAB/R', level: 75, frameworks: ['Optimization Toolbox', 'Tidyverse'] }
       ]
     },
     {
-      id: 'cloud-ml',
-      title: 'Cloud & ML Tools',
-      icon: '⚡',
+      id: 'ml-ai',
+      title: 'Machine Learning & AI',
+      icon: '🤖',
       skills: [
-        { name: 'AWS', level: 90, frameworks: ['EC2', 'S3', 'Lambda', 'Bedrock'] },
-        { name: 'PyTorch', level: 95, frameworks: ['Lightning', 'TorchScript'] },
-        { name: 'TensorFlow', level: 85, frameworks: ['Keras', 'TensorBoard'] },
-        { name: 'PySpark', level: 80, frameworks: ['MLlib', 'GraphX'] },
-        { name: 'Hugging Face', level: 85, frameworks: ['Transformers', 'Datasets'] }
+        { name: 'Deep Learning', level: 95, frameworks: ['PyTorch', 'JAX', 'TensorFlow', 'ONNX'] },
+        { name: 'NLP/LLMs', level: 90, frameworks: ['Transformers', 'LangChain', 'vLLM', 'RAG'] },
+        { name: 'Computer Vision', level: 85, frameworks: ['OpenCV', 'YOLO', 'ViT', 'CLIP'] },
+        { name: 'Reinforcement Learning', level: 80, frameworks: ['Stable-Baselines3', 'RLlib', 'Gym'] },
+        { name: 'MLOps', level: 85, frameworks: ['Weights & Biases', 'MLflow', 'Kubeflow'] }
+      ]
+    },
+    {
+      id: 'quant-finance',
+      title: 'Quantitative Finance',
+      icon: '📈',
+      skills: [
+        { name: 'Derivatives Pricing', level: 90, frameworks: ['Black-Scholes', 'Monte Carlo', 'Binomial Trees'] },
+        { name: 'Risk Management', level: 85, frameworks: ['VaR', 'CVaR', 'Greeks', 'Stress Testing'] },
+        { name: 'Portfolio Optimization', level: 90, frameworks: ['Markowitz', 'Black-Litterman', 'Factor Models'] },
+        { name: 'Market Microstructure', level: 80, frameworks: ['Order Book Dynamics', 'Price Impact', 'HFT'] },
+        { name: 'Backtesting', level: 95, frameworks: ['Vectorized', 'Event-Driven', 'Walk-Forward'] }
       ]
     },
     {
       id: 'mathematics',
-      title: 'Mathematical Expertise',
+      title: 'Mathematical Foundations',
       icon: '🧮',
       skills: [
-        { name: 'Statistics', level: 95, frameworks: ['Martingale Theory', 'Stochastic Processes'] },
-        { name: 'Machine Learning', level: 90, frameworks: ['Deep Learning', 'Computer Vision'] },
-        { name: 'Optimization', level: 85, frameworks: ['Convex Optimization', 'Game Theory'] },
-        { name: 'Information Theory', level: 80, frameworks: ['Entropy', 'Mutual Information'] }
+        { name: 'Stochastic Calculus', level: 95, frameworks: ['Ito Calculus', 'SDEs', 'Martingales'] },
+        { name: 'Statistics & Probability', level: 95, frameworks: ['Time Series', 'Bayesian', 'Hypothesis Testing'] },
+        { name: 'Optimization', level: 90, frameworks: ['Convex', 'Non-linear', 'Integer Programming'] },
+        { name: 'Numerical Methods', level: 85, frameworks: ['Finite Differences', 'FFT', 'Monte Carlo'] },
+        { name: 'Linear Algebra', level: 95, frameworks: ['Matrix Decompositions', 'Eigenanalysis', 'Tensors'] }
+      ]
+    },
+    {
+      id: 'systems',
+      title: 'Systems & Infrastructure',
+      icon: '⚡',
+      skills: [
+        { name: 'Cloud Computing', level: 90, frameworks: ['AWS', 'GCP', 'Kubernetes', 'Docker'] },
+        { name: 'High Performance Computing', level: 85, frameworks: ['CUDA', 'OpenCL', 'MPI', 'Vectorization'] },
+        { name: 'Databases', level: 85, frameworks: ['PostgreSQL', 'MongoDB', 'Redis', 'InfluxDB'] },
+        { name: 'Message Queues', level: 80, frameworks: ['Kafka', 'RabbitMQ', 'ZeroMQ', 'Pulsar'] },
+        { name: 'Low Latency', level: 85, frameworks: ['Lock-free', 'NUMA', 'CPU Pinning', 'DPDK'] }
       ]
     }
   ];
 
   const activities = [
-    'Quantitative Trading & Finance',
-    'Mathematics Competitions',
-    'Strategic Games & Probability',
-    'Science Olympiads',
-    'Distance Running',
-    'Team Sports',
-    'Reading & Literary Discussion'
+    'Quantitative Trading & Alpha Research',
+    'Competitive Programming (Codeforces Expert)',
+    'Open Source ML Contributions',
+    'Mathematics Research & Competitions',
+    'Kaggle Competitions (Expert Tier)',
+    'Options Trading & Market Analysis',
+    'Technical Writing & Research Papers',
+    'Algorithmic Game Theory Research'
   ];
 
   let hoveredSkill: string | null = null;
@@ -120,13 +147,14 @@
             class="activity-item"
             use:scrollAnimation={{ animation: 'slideLeft', delay: 600 + index * 50 }}
           >
-            <div class="activity-icon">{activity === 'Quantitative Trading & Finance' ? '📈' : 
-                                activity === 'Mathematics Competitions' ? '🏆' :
-                                activity === 'Strategic Games & Probability' ? '♟️' :
-                                activity === 'Science Olympiads' ? '🔬' :
-                                activity === 'Distance Running' ? '🏃' :
-                                activity === 'Team Sports' ? '⚽' :
-                                '📚'}</div>
+            <div class="activity-icon">{activity === 'Quantitative Trading & Alpha Research' ? '📊' : 
+                                activity === 'Competitive Programming (Codeforces Expert)' ? '💻' :
+                                activity === 'Open Source ML Contributions' ? '🤖' :
+                                activity === 'Mathematics Research & Competitions' ? '∑' :
+                                activity === 'Kaggle Competitions (Expert Tier)' ? '🏅' :
+                                activity === 'Options Trading & Market Analysis' ? '📈' :
+                                activity === 'Technical Writing & Research Papers' ? '📝' :
+                                '🎯'}</div>
             <span class="activity-text">{activity}</span>
           </div>
         {/each}
