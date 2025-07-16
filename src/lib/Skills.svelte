@@ -73,9 +73,6 @@
     'Technical Writing & Research Papers',
     'Algorithmic Game Theory Research'
   ];
-
-  let hoveredSkill: string | null = null;
-  let selectedCategory: string = 'languages';
 </script>
 
 <section class="section">
@@ -118,116 +115,57 @@
 
 <style>
   .skills-container {
-    margin-top: 2rem;
-  }
-
-  .category-nav {
     display: flex;
-    gap: 1rem;
-    margin-bottom: 3rem;
-    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 3rem;
   }
 
-  .category-btn {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    padding: 1rem 1.5rem;
-    background: var(--bg-secondary);
-    border: 2px solid var(--border-color);
-    border-radius: 16px;
-    cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    color: var(--text-secondary);
-    font-weight: 500;
+  .skill-category {
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 2rem;
   }
 
-  .category-btn.active {
-    background: var(--accent-gradient);
-    border-color: var(--accent-primary);
-    color: white;
-  }
-
-  .category-btn:hover:not(.active) {
-    border-color: var(--accent-primary);
-    background: var(--bg-tertiary);
-  }
-
-  .category-icon {
-    font-size: 1.2rem;
+  .skill-category:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
   }
 
   .category-title {
-    font-size: 0.95rem;
-    font-weight: 600;
+    font-size: 1.125rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+    color: var(--text-primary);
   }
 
-  .skills-display {
-    min-height: 400px;
-    position: relative;
+  .skills-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
   }
 
-  .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem;
-  }
-
-  .skill-card {
-    background: var(--glass-bg);
-    backdrop-filter: blur(20px);
-    border: 1px solid var(--glass-border);
-    border-radius: 16px;
-    padding: 1.5rem;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    cursor: pointer;
-  }
-
-  .skill-card:hover {
-    box-shadow: var(--shadow-md);
-    border-color: var(--accent-primary);
+  .skill-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
   }
 
   .skill-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 1rem;
   }
 
   .skill-name {
-    font-size: 1.1rem;
-    font-weight: 700;
+    font-size: 1rem;
+    font-weight: 500;
     color: var(--text-primary);
-    margin: 0;
   }
 
   .skill-level {
-    background: var(--accent-primary);
-    color: white;
-    padding: 0.25rem 0.75rem;
-    border-radius: 12px;
-    font-size: 0.8rem;
-    font-weight: 600;
+    font-size: 0.875rem;
+    color: var(--text-tertiary);
+    font-weight: 400;
   }
-
-  .skill-progress {
-    width: 100%;
-    height: 6px;
-    background: var(--bg-tertiary);
-    border-radius: 3px;
-    overflow: hidden;
-    margin-bottom: 1rem;
-  }
-
-  .progress-bar {
-    height: 100%;
-    background: var(--accent-gradient);
-    border-radius: 3px;
-    transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
-  }
-
 
   .skill-frameworks {
     display: flex;
@@ -238,95 +176,50 @@
   .framework-tag {
     background: var(--bg-secondary);
     color: var(--text-secondary);
-    padding: 0.25rem 0.5rem;
-    border-radius: 8px;
-    font-size: 0.75rem;
-    font-weight: 500;
-    border: 1px solid var(--border-color);
-    transition: all 0.3s ease;
-  }
-
-  .skill-card.hovered .framework-tag {
-    background: var(--accent-primary);
-    color: white;
-    border-color: var(--accent-primary);
+    padding: 0.125rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 400;
   }
 
   .activities-section {
-    margin-top: 4rem;
-    padding-top: 3rem;
+    margin-top: 2rem;
+    padding-top: 2rem;
     border-top: 1px solid var(--border-color);
   }
 
   .activities-section h3 {
     color: var(--text-primary);
-    margin-bottom: 2rem;
-    font-size: 1.5rem;
-    font-weight: 700;
+    margin-bottom: 1.5rem;
+    font-size: 1.125rem;
+    font-weight: 500;
   }
 
-  .activities-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1rem;
+  .activities-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
   }
 
   .activity-item {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    padding: 1rem;
-    background: var(--bg-secondary);
-    border-radius: 12px;
-    border: 1px solid var(--border-color);
-    transition: all 0.3s ease;
-  }
-
-  .activity-item:hover {
-    background: var(--bg-tertiary);
-    border-color: var(--accent-primary);
-  }
-
-  .activity-icon {
-    font-size: 1.2rem;
-    flex-shrink: 0;
-  }
-
-  .activity-text {
     color: var(--text-secondary);
-    font-weight: 500;
-    line-height: 1.4;
+    font-size: 0.95rem;
+    line-height: 1.6;
   }
 
   @media (max-width: 768px) {
-    .category-nav {
-      gap: 0.75rem;
+    .skills-container {
+      gap: 2rem;
     }
 
-    .category-btn {
-      padding: 0.75rem 1rem;
-      font-size: 0.9rem;
+    .skill-category {
+      padding-bottom: 1.5rem;
     }
 
-    .category-title {
-      display: none;
-    }
-
-    .skills-grid {
-      grid-template-columns: 1fr;
-      gap: 1rem;
-    }
-
-    .skill-card {
-      padding: 1.25rem;
-    }
-
-    .activities-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .activity-item:hover {
-      background: var(--bg-tertiary);
+    .skill-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.25rem;
     }
   }
 </style>
