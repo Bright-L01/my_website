@@ -3,10 +3,10 @@
   "description": "Personal portfolio website for Bright Liu - Harvard CS/Statistics student, AWS ML Engineer",
   "version": "1.0.0",
   "author": "Bright Liu <brightliu@college.harvard.edu>",
-  "homepage": "https://bright-l01.github.io/my_website",
+  "homepage": "https://brightlikethelight.github.io/my_website",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Bright-L01/my_website.git"
+    "url": "https://github.com/brightlikethelight/my_website.git"
   },
   "keywords": [
     "portfolio",

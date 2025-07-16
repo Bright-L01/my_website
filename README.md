@@ -1,8 +1,8 @@
 # Bright Liu's Portfolio Website
 
-[![Deploy to GitHub Pages](https://github.com/Bright-L01/my_website/actions/workflows/deploy.yml/badge.svg)](https://github.com/Bright-L01/my_website/actions/workflows/deploy.yml)
-[![Live Site](https://img.shields.io/badge/Live-bright--l01.github.io-blue)](https://bright-l01.github.io/my_website/)
-[![Domain Available](https://img.shields.io/badge/Domain-brightliu.com-yellow)](https://bright-l01.github.io/my_website/) *(Available for registration)*
+[![Deploy to GitHub Pages](https://github.com/brightlikethelight/my_website/actions/workflows/deploy.yml/badge.svg)](https://github.com/brightlikethelight/my_website/actions/workflows/deploy.yml)
+[![Live Site](https://img.shields.io/badge/Live-brightlikethelight.github.io-blue)](https://brightlikethelight.github.io/my_website/)
+[![Domain Available](https://img.shields.io/badge/Domain-brightliu.com-yellow)](https://brightlikethelight.github.io/my_website/) *(Available for registration)*
 
 A modern, responsive portfolio website built with Svelte, TypeScript, and Vite. Features a clean design with dark mode support, smooth animations, and interactive components.
 
@@ -33,7 +33,7 @@ A modern, responsive portfolio website built with Svelte, TypeScript, and Vite. 
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/Bright-L01/my_website.git
+git clone https://github.com/brightlikethelight/my_website.git
 cd my_website
 ```
 
@@ -120,7 +120,7 @@ MIT License - feel free to use this code for your own portfolio!
 
 - Email: [brightliu@college.harvard.edu](mailto:brightliu@college.harvard.edu)
 - LinkedIn: [bright-liu-701174216](https://www.linkedin.com/in/bright-liu-701174216)
-- GitHub: [Bright-L01](https://github.com/Bright-L01)
+- GitHub: [brightlikethelight](https://github.com/brightlikethelight)
 
 ---
 

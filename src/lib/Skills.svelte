@@ -6,11 +6,11 @@
       title: 'Programming Languages',
       icon: '🚀',
       skills: [
-        { name: 'Python', level: 95, frameworks: ['NumPy', 'Pandas', 'SciPy', 'Numba', 'Cython'] },
-        { name: 'C++', level: 85, frameworks: ['STL', 'CUDA', 'Eigen', 'OpenMP', 'MPI'] },
-        { name: 'JavaScript/TypeScript', level: 80, frameworks: ['React', 'Node.js', 'D3.js'] },
-        { name: 'SQL/KDB+', level: 85, frameworks: ['PostgreSQL', 'TimescaleDB', 'Q/kdb+'] },
-        { name: 'MATLAB/R', level: 75, frameworks: ['Optimization Toolbox', 'Tidyverse'] }
+        { name: 'Python', experience: 'Proficient', frameworks: ['NumPy', 'Pandas', 'SciPy', 'PyTorch'] },
+        { name: 'C++', experience: 'Intermediate', frameworks: ['STL', 'CUDA', 'Eigen'] },
+        { name: 'JavaScript/TypeScript', experience: 'Intermediate', frameworks: ['React', 'Node.js', 'Svelte'] },
+        { name: 'SQL', experience: 'Intermediate', frameworks: ['PostgreSQL', 'SQLite'] },
+        { name: 'MATLAB/R', experience: 'Familiar', frameworks: ['Statistics Toolbox', 'Tidyverse'] }
       ]
     },
     {
@@ -18,11 +18,11 @@
       title: 'Machine Learning & AI',
       icon: '🤖',
       skills: [
-        { name: 'Deep Learning', level: 95, frameworks: ['PyTorch', 'JAX', 'TensorFlow', 'ONNX'] },
-        { name: 'NLP/LLMs', level: 90, frameworks: ['Transformers', 'LangChain', 'vLLM', 'RAG'] },
-        { name: 'Computer Vision', level: 85, frameworks: ['OpenCV', 'YOLO', 'ViT', 'CLIP'] },
-        { name: 'Reinforcement Learning', level: 80, frameworks: ['Stable-Baselines3', 'RLlib', 'Gym'] },
-        { name: 'MLOps', level: 85, frameworks: ['Weights & Biases', 'MLflow', 'Kubeflow'] }
+        { name: 'Deep Learning', experience: 'Intermediate', frameworks: ['PyTorch', 'TensorFlow', 'JAX'] },
+        { name: 'Statistical ML', experience: 'Proficient', frameworks: ['Scikit-learn', 'XGBoost', 'Statsmodels'] },
+        { name: 'Computer Vision', experience: 'Familiar', frameworks: ['OpenCV', 'PIL', 'Torchvision'] },
+        { name: 'NLP', experience: 'Familiar', frameworks: ['Transformers', 'spaCy', 'NLTK'] },
+        { name: 'MLOps', experience: 'Learning', frameworks: ['Weights & Biases', 'MLflow', 'Docker'] }
       ]
     },
     {
@@ -30,11 +30,11 @@
       title: 'Quantitative Finance',
       icon: '📈',
       skills: [
-        { name: 'Derivatives Pricing', level: 90, frameworks: ['Black-Scholes', 'Monte Carlo', 'Binomial Trees'] },
-        { name: 'Risk Management', level: 85, frameworks: ['VaR', 'CVaR', 'Greeks', 'Stress Testing'] },
-        { name: 'Portfolio Optimization', level: 90, frameworks: ['Markowitz', 'Black-Litterman', 'Factor Models'] },
-        { name: 'Market Microstructure', level: 80, frameworks: ['Order Book Dynamics', 'Price Impact', 'HFT'] },
-        { name: 'Backtesting', level: 95, frameworks: ['Vectorized', 'Event-Driven', 'Walk-Forward'] }
+        { name: 'Derivatives Pricing', experience: 'Intermediate', frameworks: ['Black-Scholes', 'Monte Carlo', 'Binomial Trees'] },
+        { name: 'Portfolio Theory', experience: 'Intermediate', frameworks: ['Markowitz', 'CAPM', 'Factor Models'] },
+        { name: 'Risk Management', experience: 'Familiar', frameworks: ['VaR', 'CVaR', 'Greeks'] },
+        { name: 'Time Series Analysis', experience: 'Proficient', frameworks: ['ARIMA', 'GARCH', 'Kalman Filters'] },
+        { name: 'Algorithmic Trading', experience: 'Learning', frameworks: ['Backtesting', 'Strategy Development'] }
       ]
     },
     {
@@ -42,11 +42,11 @@
       title: 'Mathematical Foundations',
       icon: '🧮',
       skills: [
-        { name: 'Stochastic Calculus', level: 95, frameworks: ['Ito Calculus', 'SDEs', 'Martingales'] },
-        { name: 'Statistics & Probability', level: 95, frameworks: ['Time Series', 'Bayesian', 'Hypothesis Testing'] },
-        { name: 'Optimization', level: 90, frameworks: ['Convex', 'Non-linear', 'Integer Programming'] },
-        { name: 'Numerical Methods', level: 85, frameworks: ['Finite Differences', 'FFT', 'Monte Carlo'] },
-        { name: 'Linear Algebra', level: 95, frameworks: ['Matrix Decompositions', 'Eigenanalysis', 'Tensors'] }
+        { name: 'Stochastic Calculus', experience: 'Intermediate', frameworks: ['Ito Calculus', 'SDEs', 'Martingales'] },
+        { name: 'Statistics & Probability', experience: 'Proficient', frameworks: ['Bayesian Methods', 'Hypothesis Testing', 'Regression'] },
+        { name: 'Optimization', experience: 'Intermediate', frameworks: ['Convex Optimization', 'Linear Programming'] },
+        { name: 'Linear Algebra', experience: 'Proficient', frameworks: ['Matrix Theory', 'Eigenanalysis', 'SVD'] },
+        { name: 'Real Analysis', experience: 'Intermediate', frameworks: ['Measure Theory', 'Functional Analysis'] }
       ]
     },
     {
@@ -54,24 +54,24 @@
       title: 'Systems & Infrastructure',
       icon: '⚡',
       skills: [
-        { name: 'Cloud Computing', level: 90, frameworks: ['AWS', 'GCP', 'Kubernetes', 'Docker'] },
-        { name: 'High Performance Computing', level: 85, frameworks: ['CUDA', 'OpenCL', 'MPI', 'Vectorization'] },
-        { name: 'Databases', level: 85, frameworks: ['PostgreSQL', 'MongoDB', 'Redis', 'InfluxDB'] },
-        { name: 'Message Queues', level: 80, frameworks: ['Kafka', 'RabbitMQ', 'ZeroMQ', 'Pulsar'] },
-        { name: 'Low Latency', level: 85, frameworks: ['Lock-free', 'NUMA', 'CPU Pinning', 'DPDK'] }
+        { name: 'Cloud Computing', experience: 'Intermediate', frameworks: ['AWS', 'Docker', 'Kubernetes'] },
+        { name: 'Databases', experience: 'Familiar', frameworks: ['PostgreSQL', 'MongoDB', 'Redis'] },
+        { name: 'Version Control', experience: 'Proficient', frameworks: ['Git', 'GitHub', 'GitLab'] },
+        { name: 'Linux/Unix', experience: 'Intermediate', frameworks: ['Bash', 'SSH', 'System Administration'] },
+        { name: 'High Performance Computing', experience: 'Learning', frameworks: ['CUDA', 'Parallel Computing'] }
       ]
     }
   ];
 
   const activities = [
-    'Quantitative Trading & Alpha Research',
-    'Competitive Programming (Codeforces Expert)',
-    'Open Source ML Contributions',
-    'Mathematics Research & Competitions',
-    'Kaggle Competitions (Expert Tier)',
-    'Options Trading & Market Analysis',
-    'Technical Writing & Research Papers',
-    'Algorithmic Game Theory Research'
+    'Harvard Mathematics Coursework & Research',
+    'AWS Intern - Machine Learning Infrastructure',
+    'Harvard Kempner Institute - AI Research Assistant',
+    'Personal Trading & Market Analysis',
+    'Open Source Contributions',
+    'Academic Paper Reading & Implementation',
+    'Mathematics Tutoring & Teaching',
+    'Competitive Programming Practice'
   ];
 </script>
 
@@ -88,7 +88,7 @@
             <div class="skill-item">
               <div class="skill-header">
                 <span class="skill-name">{skill.name}</span>
-                <span class="skill-level">{skill.level}%</span>
+                <span class="skill-experience">{skill.experience}</span>
               </div>
               <div class="skill-frameworks">
                 {#each skill.frameworks as framework}
@@ -161,10 +161,14 @@
     color: var(--text-primary);
   }
 
-  .skill-level {
+  .skill-experience {
     font-size: 0.875rem;
-    color: var(--text-tertiary);
-    font-weight: 400;
+    color: var(--accent-primary);
+    font-weight: 500;
+    background: var(--bg-secondary);
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
   }
 
   .skill-frameworks {

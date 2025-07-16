@@ -39,11 +39,16 @@
 <style>
   .item-right {
     text-align: right;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.25rem;
   }
 
   @media (max-width: 768px) {
     .item-right {
       text-align: left;
+      align-items: flex-start;
     }
   }
 </style>
