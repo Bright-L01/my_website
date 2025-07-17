@@ -1,37 +1,82 @@
 <script lang="ts">
+  import { onMount } from 'svelte';
   import Navigation from './lib/Navigation.svelte';
   import Header from './lib/Header.svelte';
+  import LazySection from './lib/LazySection.svelte';
   import Education from './lib/Education.svelte';
   import Experience from './lib/Experience.svelte';
   import Projects from './lib/Projects.svelte';
   import Publications from './lib/Publications.svelte';
   import Skills from './lib/Skills.svelte';
   import Honors from './lib/Honors.svelte';
+  import { measureWebVitals } from './lib/utils/intersectionObserver';
+  import analytics from './lib/utils/analytics';
+
+  onMount(() => {
+    // Initialize web vitals monitoring
+    measureWebVitals();
+    
+    // Track initial page view
+    analytics.trackPageView('home');
+    
+    // Log current performance metrics
+    setTimeout(() => {
+      const metrics = analytics.getMetrics();
+      console.log('📊 Performance Metrics:', metrics);
+    }, 2000);
+  });
 </script>
 
+<!-- Skip to content link for accessibility -->
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
 <Navigation />
-<main>
+<main id="main-content">
   <section id="home">
     <Header />
   </section>
-  <section id="education">
-    <Education />
-  </section>
-  <section id="experience">
-    <Experience />
-  </section>
-  <section id="projects">
-    <Projects />
-  </section>
-  <section id="publications">
-    <Publications />
-  </section>
-  <section id="honors">
-    <Honors />
-  </section>
-  <section id="skills">
-    <Skills />
-  </section>
+  
+  <LazySection 
+    sectionId="education" 
+    component={Education} 
+    threshold={0.1}
+    rootMargin="100px"
+  />
+  
+  <LazySection 
+    sectionId="experience" 
+    component={Experience} 
+    threshold={0.1}
+    rootMargin="100px"
+  />
+  
+  <LazySection 
+    sectionId="projects" 
+    component={Projects} 
+    threshold={0.1}
+    rootMargin="100px"
+  />
+  
+  <LazySection 
+    sectionId="publications" 
+    component={Publications} 
+    threshold={0.1}
+    rootMargin="100px"
+  />
+  
+  <LazySection 
+    sectionId="honors" 
+    component={Honors} 
+    threshold={0.1}
+    rootMargin="100px"
+  />
+  
+  <LazySection 
+    sectionId="skills" 
+    component={Skills} 
+    threshold={0.1}
+    rootMargin="100px"
+  />
 </main>
 
 <style>
@@ -299,6 +344,31 @@
       padding-top: 2rem;
       padding-bottom: 2rem;
     }
+  }
+
+  /* Accessibility - Skip link */
+  .skip-link {
+    position: absolute;
+    top: -40px;
+    left: 6px;
+    background: var(--accent-primary);
+    color: var(--bg-primary);
+    padding: 8px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    z-index: 10000;
+    transition: all 0.3s ease;
+  }
+
+  .skip-link:focus {
+    top: 6px;
+    outline: 2px solid var(--accent-secondary);
+    outline-offset: 2px;
+  }
+
+  .skip-link:hover {
+    background: var(--accent-secondary);
   }
 
   /* Smooth Animations */

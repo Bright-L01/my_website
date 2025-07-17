@@ -1,5 +1,10 @@
 <script lang="ts">
-
+  import ProjectFilter from './ProjectFilter.svelte';
+  import ProjectCard from './ProjectCard.svelte';
+  
+  let filteredProjects = [];
+  let activeFilter = 'all';
+  
   const projects = [
     {
       id: 'iquhack-2025',
@@ -99,6 +104,40 @@
       featured: true
     }
   ];
+  
+  // Get unique categories for filtering
+  const categories = [...new Set(projects.map(p => p.category))];
+  
+  // Initialize filtered projects
+  filteredProjects = projects;
+  
+  function handleFilter(event) {
+    const filter = event.detail;
+    activeFilter = filter;
+    
+    if (filter === 'all') {
+      filteredProjects = projects;
+    } else {
+      filteredProjects = projects.filter(p => p.category === filter);
+    }
+  }
+  
+  function handleSearch(event) {
+    const searchTerm = event.target.value.toLowerCase();
+    
+    let baseProjects = activeFilter === 'all' ? projects : projects.filter(p => p.category === activeFilter);
+    
+    if (searchTerm) {
+      filteredProjects = baseProjects.filter(p => 
+        p.title.toLowerCase().includes(searchTerm) ||
+        p.description.toLowerCase().includes(searchTerm) ||
+        p.organization.toLowerCase().includes(searchTerm) ||
+        p.technologies.some(tech => tech.toLowerCase().includes(searchTerm))
+      );
+    } else {
+      filteredProjects = baseProjects;
+    }
+  }
 </script>
 
 <section class="section">
@@ -107,50 +146,36 @@
     Featured personal projects and research initiatives showcasing my technical skills
   </p>
   
-  <div class="projects-list">
-    {#each projects as project}
-      <div class="item">
-        <div class="item-header">
-          <div>
-            <div class="item-title">
-              {#if project.githubUrl}
-                <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" class="project-link">
-                  {project.title}
-                </a>
-              {:else}
-                {project.title}
-              {/if}
-            </div>
-            <div class="item-org">{project.organization}</div>
-          </div>
-          <div class="item-right">
-            <div class="item-date">{project.date}</div>
-            <div class="project-status">{project.status === 'active' ? 'Ongoing' : 'Completed'}</div>
-          </div>
-        </div>
-        
-        <div class="item-description">
-          <p>{project.description}</p>
-          
-          <div class="project-impact">
-            <strong>Impact:</strong> {project.impact}
-          </div>
-          
-          {#if project.metrics}
-          <div class="project-metrics">
-            <strong>Performance:</strong>
-            {#each Object.entries(project.metrics) as [key, value]}
-              <span class="metric">{key.replace(/([A-Z])/g, ' $1').trim()}: {value}</span>
-            {/each}
-          </div>
-          {/if}
-          
-          <div class="project-technologies">
-            {#each project.technologies as tech}
-              <span class="tech-tag">{tech}</span>
-            {/each}
-          </div>
-        </div>
+  <div class="projects-controls">
+    <ProjectFilter 
+      {categories}
+      {activeFilter}
+      on:filter={handleFilter}
+    />
+    
+    <div class="search-container">
+      <label for="project-search" class="sr-only">Search projects</label>
+      <input
+        id="project-search"
+        type="text"
+        placeholder="Search projects..."
+        class="search-input"
+        on:input={handleSearch}
+        aria-label="Search through projects"
+      />
+      <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <circle cx="11" cy="11" r="8"/>
+        <path d="m21 21-4.35-4.35"/>
+      </svg>
+    </div>
+  </div>
+  
+  <div class="projects-grid">
+    {#each filteredProjects as project (project.id)}
+      <ProjectCard {project} />
+    {:else}
+      <div class="no-projects">
+        <p>No projects found matching your criteria.</p>
       </div>
     {/each}
   </div>
@@ -164,79 +189,97 @@
     font-weight: 400;
   }
 
-  .project-link {
+  .projects-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .search-container {
+    position: relative;
+    flex: 0 0 300px;
+  }
+
+  .search-input {
+    width: 100%;
+    padding: 0.75rem 1rem 0.75rem 2.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background: var(--bg-secondary);
     color: var(--text-primary);
-    text-decoration: none;
-    transition: color 0.2s ease;
-  }
-
-  .project-link:hover {
-    color: var(--accent-primary);
-    text-decoration: underline;
-  }
-
-  .item-right {
-    text-align: right;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 0.25rem;
-  }
-
-  .project-status {
-    font-size: 0.8rem;
-    font-weight: 500;
-    color: var(--accent-primary);
-    background: var(--bg-secondary);
-    padding: 0.25rem 0.75rem;
-    border-radius: 4px;
-    border: 1px solid var(--border-color);
-  }
-
-  .project-impact {
-    color: var(--text-secondary);
     font-size: 0.9rem;
-    margin: 1rem 0;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
   }
 
-  .project-metrics {
+  .search-input:focus {
+    outline: none;
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1);
+  }
+
+  .search-input::placeholder {
+    color: var(--text-tertiary);
+  }
+
+  .search-icon {
+    position: absolute;
+    left: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-tertiary);
+    pointer-events: none;
+  }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  .no-projects {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 4rem 2rem;
     color: var(--text-secondary);
-    font-size: 0.9rem;
-    margin: 1rem 0;
-  }
-
-  .metric {
-    display: inline-block;
-    margin-right: 1rem;
-    margin-bottom: 0.25rem;
-  }
-
-  .project-technologies {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-top: 1rem;
-  }
-
-  .tech-tag {
     background: var(--bg-secondary);
-    color: var(--text-secondary);
-    padding: 0.125rem 0.5rem;
-    border-radius: 4px;
-    font-size: 0.8rem;
-    font-weight: 400;
     border: 1px solid var(--border-color);
+    border-radius: 8px;
   }
+
+  .no-projects p {
+    margin: 0;
+    font-size: 1.1rem;
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
 
   @media (max-width: 768px) {
-    .item-right {
-      text-align: left;
-      align-items: flex-start;
+    .projects-controls {
+      flex-direction: column;
+      gap: 1.5rem;
     }
 
-    .metric {
-      display: block;
-      margin-right: 0;
+    .search-container {
+      flex: 1;
+    }
+
+    .projects-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
     }
   }
 </style>

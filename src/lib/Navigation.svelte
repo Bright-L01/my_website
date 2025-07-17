@@ -1,6 +1,7 @@
 <script lang="ts">
   import { onMount } from 'svelte';
-  import { theme, activeSection } from './stores';
+  import { activeSection } from './stores';
+  import ThemeToggle from './ThemeToggle.svelte';
 
   let isScrolled = false;
   let isMobileMenuOpen = false;
@@ -41,7 +42,6 @@
   }
 
   onMount(() => {
-    theme.init();
     window.addEventListener('scroll', handleScroll);
     handleScroll(); // Initial call
     
@@ -51,54 +51,50 @@
   });
 </script>
 
-<nav class="nav" class:scrolled={isScrolled}>
+<nav class="nav" class:scrolled={isScrolled} aria-label="Main navigation">
   <div class="nav-container">
     <div class="nav-brand">
-      <button on:click={() => scrollToSection('home')} class="brand-link">
+      <button 
+        on:click={() => scrollToSection('home')} 
+        class="brand-link"
+        aria-label="Go to home section"
+      >
         Bright Liu
       </button>
     </div>
     
-    <div class="nav-links" class:mobile-open={isMobileMenuOpen}>
+    <div 
+      class="nav-links" 
+      class:mobile-open={isMobileMenuOpen}
+      role="menubar"
+      aria-label="Portfolio sections"
+    >
       {#each sections.slice(1) as section}
         <button 
           class="nav-link" 
           class:active={$activeSection === section.id}
           on:click={() => scrollToSection(section.id)}
+          role="menuitem"
+          aria-label="Go to {section.label.toLowerCase()} section"
+          aria-current={$activeSection === section.id ? 'page' : undefined}
         >
           {section.label}
         </button>
       {/each}
       
-      <button class="theme-toggle" on:click={theme.toggle} aria-label="Toggle theme">
-        {#if $theme === 'dark'}
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="12" cy="12" r="5"/>
-            <line x1="12" y1="1" x2="12" y2="3"/>
-            <line x1="12" y1="21" x2="12" y2="23"/>
-            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
-            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-            <line x1="1" y1="12" x2="3" y2="12"/>
-            <line x1="21" y1="12" x2="23" y2="12"/>
-            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
-            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
-          </svg>
-        {:else}
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-          </svg>
-        {/if}
-      </button>
+      <ThemeToggle />
     </div>
     
     <button 
       class="mobile-toggle"
       on:click={() => isMobileMenuOpen = !isMobileMenuOpen}
-      aria-label="Toggle menu"
+      aria-label="Toggle mobile menu"
+      aria-expanded={isMobileMenuOpen}
+      aria-controls="mobile-menu"
     >
-      <span></span>
-      <span></span>
-      <span></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
     </button>
   </div>
 </nav>
@@ -191,24 +187,6 @@
     border-radius: 1px;
   }
 
-  .theme-toggle {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 2.5rem;
-    height: 2.5rem;
-    border: none;
-    border-radius: 50%;
-    background: var(--bg-secondary);
-    color: var(--text-primary);
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-
-  .theme-toggle:hover {
-    background: var(--accent-primary);
-    color: white;
-  }
 
   .mobile-toggle {
     display: none;
@@ -229,6 +207,19 @@
     background: var(--text-primary);
     transition: all 0.3s ease;
     border-radius: 1px;
+  }
+
+  /* Screen reader only content */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
   }
 
   @media (max-width: 768px) {

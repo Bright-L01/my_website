@@ -28,10 +28,16 @@
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     
-    <!-- Fonts -->
+    <!-- Fonts with preloading -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="/src/main.ts" as="script">
+    <link rel="preload" href="/src/App.svelte" as="script">
+    <link rel="preload" href="/src/lib/Navigation.svelte" as="script">
     
     <!-- Theme -->
     <meta name="theme-color" content="#1a1a1a" />
@@ -57,8 +63,53 @@
         "@type": "Organization",
         "name": "Harvard University"
       },
-      "email": "brightliu@college.harvard.edu"
+      "email": "brightliu@college.harvard.edu",
+      "knowsAbout": [
+        "Machine Learning",
+        "Artificial Intelligence",
+        "Quantitative Finance",
+        "Deep Learning",
+        "Python Programming",
+        "Statistics",
+        "Mathematics"
+      ],
+      "hasOccupation": {
+        "@type": "Occupation",
+        "name": "Software Engineer",
+        "occupationLocation": {
+          "@type": "City",
+          "name": "Boston"
+        }
+      }
     }
+    </script>
+    
+    <!-- Performance monitoring -->
+    <script>
+      // Web Vitals measurement
+      if ('PerformanceObserver' in window) {
+        // LCP measurement
+        const lcpObserver = new PerformanceObserver((list) => {
+          const entries = list.getEntries();
+          const lastEntry = entries[entries.length - 1];
+          if (lastEntry && lastEntry.startTime) {
+            console.log('LCP:', lastEntry.startTime);
+          }
+        });
+        lcpObserver.observe({ entryTypes: ['largest-contentful-paint'] });
+        
+        // CLS measurement
+        let cumulativeLayoutShift = 0;
+        const clsObserver = new PerformanceObserver((list) => {
+          list.getEntries().forEach((entry) => {
+            if (!entry.hadRecentInput) {
+              cumulativeLayoutShift += entry.value;
+            }
+          });
+          console.log('CLS:', cumulativeLayoutShift);
+        });
+        clsObserver.observe({ entryTypes: ['layout-shift'] });
+      }
     </script>
   </head>
   <body>

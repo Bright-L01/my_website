@@ -1,4 +1,24 @@
 <script lang="ts">
+  import { slide } from 'svelte/transition';
+  import ResumeDownload from './ResumeDownload.svelte';
+  import ContactForm from './ContactForm.svelte';
+  
+  let showContactForm = false;
+  let showResumeDownload = false;
+  
+  function toggleContactForm() {
+    showContactForm = !showContactForm;
+    if (showContactForm) {
+      showResumeDownload = false;
+    }
+  }
+  
+  function toggleResumeDownload() {
+    showResumeDownload = !showResumeDownload;
+    if (showResumeDownload) {
+      showContactForm = false;
+    }
+  }
 </script>
 
 <div class="hero">
@@ -15,12 +35,40 @@
     </p>
     
     <div class="hero-links">
-      <a href="mailto:brightliu@college.harvard.edu" class="contact-link">Contact</a>
+      <button 
+        on:click={toggleContactForm} 
+        class="contact-link"
+        class:active={showContactForm}
+        aria-label="Toggle contact form"
+      >
+        Contact
+      </button>
+      <button 
+        on:click={toggleResumeDownload} 
+        class="contact-link"
+        class:active={showResumeDownload}
+        aria-label="Toggle resume download options"
+      >
+        Resume
+      </button>
       <a href="https://www.linkedin.com/in/bright-liu-701174216" target="_blank" rel="noopener" class="contact-link">LinkedIn</a>
       <a href="https://github.com/brightlikethelight" target="_blank" rel="noopener" class="contact-link">GitHub</a>
     </div>
   </div>
 </div>
+
+<!-- Dynamic sections -->
+{#if showContactForm}
+  <div class="dynamic-section" transition:slide>
+    <ContactForm />
+  </div>
+{/if}
+
+{#if showResumeDownload}
+  <div class="dynamic-section" transition:slide>
+    <ResumeDownload />
+  </div>
+{/if}
 
 <style>
   .hero {
@@ -100,6 +148,18 @@
     background: var(--accent-primary);
     color: white;
     border-color: var(--accent-primary);
+  }
+
+  .contact-link.active {
+    background: var(--accent-primary);
+    color: white;
+    border-color: var(--accent-primary);
+  }
+
+  .dynamic-section {
+    max-width: 800px;
+    margin: 2rem auto 0;
+    padding: 0 2rem;
   }
 
 
