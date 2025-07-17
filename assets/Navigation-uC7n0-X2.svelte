@@ -11,7 +11,6 @@
     { id: 'education', label: 'Education' },
     { id: 'experience', label: 'Experience' },
     { id: 'projects', label: 'Projects' },
-    { id: 'blog', label: 'Blog' },
     { id: 'publications', label: 'Publications' },
     { id: 'honors', label: 'Honors' },
     { id: 'skills', label: 'Skills' }

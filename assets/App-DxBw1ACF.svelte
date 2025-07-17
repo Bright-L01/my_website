@@ -9,7 +9,6 @@
   import Publications from './lib/Publications.svelte';
   import Skills from './lib/Skills.svelte';
   import Honors from './lib/Honors.svelte';
-  import TechBlog from './lib/TechBlog.svelte';
   import { measureWebVitals } from './lib/utils/intersectionObserver';
 
   onMount(async () => {
@@ -90,13 +89,6 @@
   <LazySection 
     sectionId="projects" 
     component={Projects} 
-    threshold={0.1}
-    rootMargin="100px"
-  />
-  
-  <LazySection 
-    sectionId="blog" 
-    component={TechBlog} 
     threshold={0.1}
     rootMargin="100px"
   />
