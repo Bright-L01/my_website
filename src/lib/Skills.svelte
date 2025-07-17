@@ -36,7 +36,6 @@
         'Undergraduate Advisory Board Member - Harvard SEAS',
         'Harvard Wolfram Ambassador (2023-2024)',
         'Event Organizer & Test Writer - Harvard Science Olympiad',
-        'Social Committee Member - Harvard College in Asia Program',
         'Founder of Harvard Book Club'
       ]
     },
@@ -46,7 +45,7 @@
         'Harvard Ultimate Frisbee Team',
         'Cambridge Half Marathon Runner',
         'Harvard Poker Club Member',
-        'Harvard MIT Mathematics Tournament Participant'
+        'Harvard MIT Mathematics Tournament Volunteer'
       ]
     },
     {
@@ -63,7 +62,7 @@
       activities: [
         'Choir, Guitar & Piano Performance',
         'Backyard Astronomy & Stargazing',
-        'Meditation, Reading & Hiking'
+        'Calisthenics, Meditation, Reading & Hiking'
       ]
     }
   ];
@@ -115,7 +114,7 @@
 
   .skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(5, 1fr);
     gap: 1.5rem;
   }
 
@@ -220,7 +219,7 @@
     }
 
     .skills-grid {
-      grid-template-columns: 1fr;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 1rem;
     }
 

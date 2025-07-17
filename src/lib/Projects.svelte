@@ -9,7 +9,7 @@
     {
       id: 'iquhack-2025',
       title: 'Quantum Error Correction with Cat Qubits',
-      organization: 'MIT iQuHACK 2025 - Alice & Bob Challenge',
+      organization: 'MIT iQuHACK 2025',
       date: 'January 2025',
       status: 'completed',
       description: 'Implemented advanced quantum error correction using superconducting cat qubits and DynamiQ library, exploring buffer vs bufferless quantum systems and Zeno gate implementations for robust quantum computation.',

@@ -15,7 +15,7 @@
     {
       id: 'mit-quantum-2025',
       place: '1st', 
-      title: '2025 MIT Quantum Hackathon (iQuHACK) - Alice & Bob Challenge',
+      title: '2025 MIT Quantum Hackathon (iQuHACK)',
       description: 'Simulated superconducting cat qubit dynamics using GPU-accelerated dynamiqs software at both effective Hamiltonian and hardware levels. Explored circuit-level quantum error correction with cat qubits to reduce hardware overhead and increase robustness against quantum errors.',
       date: '2025',
       participants: 'Top 1 out of 200+ participants',
