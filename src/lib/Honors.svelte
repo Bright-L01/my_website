@@ -15,13 +15,13 @@
     {
       id: 'mit-quantum-2025',
       place: '1st', 
-      title: '2025 MIT Quantum Hackathon (iQuHACK)',
-      description: 'Developed variational quantum eigensolver (VQE) for portfolio optimization on IBM quantum hardware',
+      title: '2025 MIT Quantum Hackathon (iQuHACK) - Alice & Bob Challenge',
+      description: 'Simulated superconducting cat qubit dynamics using GPU-accelerated dynamiqs software at both effective Hamiltonian and hardware levels. Explored circuit-level quantum error correction with cat qubits to reduce hardware overhead and increase robustness against quantum errors.',
       date: '2025',
       participants: 'Top 1 out of 200+ participants',
       category: 'Quantum Computing',
       medal: '🥇',
-      details: 'Achieved 15% speedup over classical solvers for 20-asset portfolios'
+      details: 'Presented innovative quantum computing scalability solutions addressing hardware overhead reduction'
     },
     {
       id: 'mit-puzzle-2023',
@@ -129,6 +129,7 @@
     justify-content: space-between;
     align-items: flex-start;
     margin-bottom: 1.5rem;
+    min-height: 60px;
   }
 
   .medal-section {
@@ -157,12 +158,16 @@
   .category-badge {
     background: var(--accent-primary);
     color: white;
-    padding: 0.25rem 0.75rem;
-    border-radius: 12px;
-    font-size: 0.8rem;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-size: 0.75rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.05em;
+    white-space: nowrap;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
+    flex-shrink: 0;
   }
 
   .honor-content {
@@ -242,9 +247,16 @@
     }
 
     .honor-header {
-      flex-direction: column;
+      flex-direction: row;
+      flex-wrap: wrap;
       gap: 1rem;
       align-items: flex-start;
+      min-height: auto;
+    }
+
+    .category-badge {
+      order: 3;
+      align-self: flex-end;
     }
 
     .medal {

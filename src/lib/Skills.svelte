@@ -2,76 +2,70 @@
 
   const skillCategories = [
     {
-      id: 'languages',
-      title: 'Programming Languages',
-      icon: '🚀',
-      skills: [
-        { name: 'Python', experience: 'Proficient', frameworks: ['NumPy', 'Pandas', 'SciPy', 'PyTorch'] },
-        { name: 'C++', experience: 'Intermediate', frameworks: ['STL', 'CUDA', 'Eigen'] },
-        { name: 'JavaScript/TypeScript', experience: 'Intermediate', frameworks: ['React', 'Node.js', 'Svelte'] },
-        { name: 'SQL', experience: 'Intermediate', frameworks: ['PostgreSQL', 'SQLite'] },
-        { name: 'MATLAB/R', experience: 'Familiar', frameworks: ['Statistics Toolbox', 'Tidyverse'] }
-      ]
+      id: 'programming',
+      title: 'Programming & Development',
+      skills: ['Python', 'C++', 'JavaScript/TypeScript', 'SQL', 'MATLAB', 'R', 'Git', 'Linux/Unix']
     },
     {
       id: 'ml-ai',
       title: 'Machine Learning & AI',
-      icon: '🤖',
-      skills: [
-        { name: 'Deep Learning', experience: 'Intermediate', frameworks: ['PyTorch', 'TensorFlow', 'JAX'] },
-        { name: 'Statistical ML', experience: 'Proficient', frameworks: ['Scikit-learn', 'XGBoost', 'Statsmodels'] },
-        { name: 'Computer Vision', experience: 'Familiar', frameworks: ['OpenCV', 'PIL', 'Torchvision'] },
-        { name: 'NLP', experience: 'Familiar', frameworks: ['Transformers', 'spaCy', 'NLTK'] },
-        { name: 'MLOps', experience: 'Learning', frameworks: ['Weights & Biases', 'MLflow', 'Docker'] }
-      ]
+      skills: ['PyTorch', 'TensorFlow', 'Scikit-learn', 'JAX', 'Transformers', 'OpenCV', 'CUDA', 'Docker']
     },
     {
-      id: 'quant-finance',
+      id: 'finance',
       title: 'Quantitative Finance',
-      icon: '📈',
-      skills: [
-        { name: 'Derivatives Pricing', experience: 'Intermediate', frameworks: ['Black-Scholes', 'Monte Carlo', 'Binomial Trees'] },
-        { name: 'Portfolio Theory', experience: 'Intermediate', frameworks: ['Markowitz', 'CAPM', 'Factor Models'] },
-        { name: 'Risk Management', experience: 'Familiar', frameworks: ['VaR', 'CVaR', 'Greeks'] },
-        { name: 'Time Series Analysis', experience: 'Proficient', frameworks: ['ARIMA', 'GARCH', 'Kalman Filters'] },
-        { name: 'Algorithmic Trading', experience: 'Learning', frameworks: ['Backtesting', 'Strategy Development'] }
-      ]
+      skills: ['Options Pricing', 'Portfolio Optimization', 'Risk Management', 'Time Series Analysis', 'Monte Carlo Methods', 'Backtesting']
     },
     {
       id: 'mathematics',
-      title: 'Mathematical Foundations',
-      icon: '🧮',
-      skills: [
-        { name: 'Stochastic Calculus', experience: 'Intermediate', frameworks: ['Ito Calculus', 'SDEs', 'Martingales'] },
-        { name: 'Statistics & Probability', experience: 'Proficient', frameworks: ['Bayesian Methods', 'Hypothesis Testing', 'Regression'] },
-        { name: 'Optimization', experience: 'Intermediate', frameworks: ['Convex Optimization', 'Linear Programming'] },
-        { name: 'Linear Algebra', experience: 'Proficient', frameworks: ['Matrix Theory', 'Eigenanalysis', 'SVD'] },
-        { name: 'Real Analysis', experience: 'Intermediate', frameworks: ['Measure Theory', 'Functional Analysis'] }
-      ]
+      title: 'Mathematical Methods',
+      skills: ['Stochastic Calculus', 'Linear Algebra', 'Statistics & Probability', 'Optimization Theory', 'Numerical Analysis']
     },
     {
-      id: 'systems',
-      title: 'Systems & Infrastructure',
-      icon: '⚡',
-      skills: [
-        { name: 'Cloud Computing', experience: 'Intermediate', frameworks: ['AWS', 'Docker', 'Kubernetes'] },
-        { name: 'Databases', experience: 'Familiar', frameworks: ['PostgreSQL', 'MongoDB', 'Redis'] },
-        { name: 'Version Control', experience: 'Proficient', frameworks: ['Git', 'GitHub', 'GitLab'] },
-        { name: 'Linux/Unix', experience: 'Intermediate', frameworks: ['Bash', 'SSH', 'System Administration'] },
-        { name: 'High Performance Computing', experience: 'Learning', frameworks: ['CUDA', 'Parallel Computing'] }
-      ]
+      id: 'tools',
+      title: 'Tools & Platforms',
+      skills: ['AWS', 'PostgreSQL', 'Jupyter', 'LaTeX', 'Tableau', 'Bloomberg Terminal']
     }
   ];
 
-  const activities = [
-    'Harvard Mathematics Coursework & Research',
-    'AWS Intern - Machine Learning Infrastructure',
-    'Harvard Kempner Institute - AI Research Assistant',
-    'Personal Trading & Market Analysis',
-    'Open Source Contributions',
-    'Academic Paper Reading & Implementation',
-    'Mathematics Tutoring & Teaching',
-    'Competitive Programming Practice'
+  const activitiesGroups = [
+    {
+      title: 'Academic Leadership & Organizations',
+      activities: [
+        'Captain of Computer Science Peer Concentration Advisors',
+        'Undergraduate Advisory Board Member - Harvard SEAS',
+        'Harvard Wolfram Ambassador (2023-2024)',
+        'Event Organizer & Test Writer - Harvard Science Olympiad',
+        'Social Committee Member - Harvard College in Asia Program',
+        'Founder of Harvard Book Club'
+      ]
+    },
+    {
+      title: 'Athletic & Recreational Activities',
+      activities: [
+        'Harvard Ultimate Frisbee Team',
+        'Cambridge Half Marathon Runner',
+        'Harvard Poker Club Member',
+        'Harvard MIT Mathematics Tournament Participant'
+      ]
+    },
+    {
+      title: 'Technical & Research Interests',
+      activities: [
+        'Open Source Contributions & Development',
+        'AI Safety & Interpretability Research',
+        'Teaching Mathematics, Computer Science & Statistics',
+        'Algorithmic Trading & Financial Analysis'
+      ]
+    },
+    {
+      title: 'Creative & Personal Interests',
+      activities: [
+        'Choir, Guitar & Piano Performance',
+        'Backyard Astronomy & Stargazing',
+        'Meditation, Reading & Hiking'
+      ]
+    }
   ];
 </script>
 
@@ -79,34 +73,33 @@
   <h2>Technical Skills & Interests</h2>
   
   <div class="skills-container">
-    <!-- All Skills Displayed -->
-    {#each skillCategories as category}
-      <div class="skill-category">
-        <h3 class="category-title">{category.title}</h3>
-        <div class="skills-list">
-          {#each category.skills as skill}
-            <div class="skill-item">
-              <div class="skill-header">
-                <span class="skill-name">{skill.name}</span>
-                <span class="skill-experience">{skill.experience}</span>
-              </div>
-              <div class="skill-frameworks">
-                {#each skill.frameworks as framework}
-                  <span class="framework-tag">{framework}</span>
-                {/each}
-              </div>
-            </div>
-          {/each}
+    <!-- Technical Skills Grid -->
+    <div class="skills-grid">
+      {#each skillCategories as category}
+        <div class="skill-category">
+          <h3 class="category-title">{category.title}</h3>
+          <div class="skills-tags">
+            {#each category.skills as skill}
+              <span class="skill-tag">{skill}</span>
+            {/each}
+          </div>
         </div>
-      </div>
-    {/each}
+      {/each}
+    </div>
 
     <!-- Activities Section -->
     <div class="activities-section">
       <h3>Activities & Interests</h3>
-      <div class="activities-list">
-        {#each activities as activity}
-          <div class="activity-item">{activity}</div>
+      <div class="activities-groups">
+        {#each activitiesGroups as group}
+          <div class="activity-group">
+            <h4 class="group-title">{group.title}</h4>
+            <div class="group-activities">
+              {#each group.activities as activity}
+                <div class="activity-item">{activity}</div>
+              {/each}
+            </div>
+          </div>
         {/each}
       </div>
     </div>
@@ -117,73 +110,52 @@
   .skills-container {
     display: flex;
     flex-direction: column;
-    gap: 3rem;
+    gap: 2rem;
+  }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
   }
 
   .skill-category {
-    border-bottom: 1px solid var(--border-color);
-    padding-bottom: 2rem;
-  }
-
-  .skill-category:last-child {
-    border-bottom: none;
-    padding-bottom: 0;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1.5rem;
   }
 
   .category-title {
-    font-size: 1.125rem;
-    font-weight: 500;
-    margin-bottom: 1.5rem;
-    color: var(--text-primary);
-  }
-
-  .skills-list {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .skill-item {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-
-  .skill-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .skill-name {
     font-size: 1rem;
-    font-weight: 500;
+    font-weight: 600;
+    margin-bottom: 1rem;
     color: var(--text-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
   }
 
-  .skill-experience {
-    font-size: 0.875rem;
-    color: var(--accent-primary);
-    font-weight: 500;
-    background: var(--bg-secondary);
-    padding: 0.25rem 0.75rem;
-    border-radius: 4px;
-    border: 1px solid var(--border-color);
-  }
-
-  .skill-frameworks {
+  .skills-tags {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
   }
 
-  .framework-tag {
-    background: var(--bg-secondary);
+  .skill-tag {
+    background: var(--bg-primary);
     color: var(--text-secondary);
-    padding: 0.125rem 0.5rem;
-    border-radius: 4px;
-    font-size: 0.8rem;
-    font-weight: 400;
+    padding: 0.375rem 0.75rem;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border: 1px solid var(--border-color);
+    transition: all 0.2s ease;
+  }
+
+  .skill-tag:hover {
+    background: var(--accent-primary);
+    color: white;
+    border-color: var(--accent-primary);
   }
 
   .activities-section {
@@ -199,7 +171,28 @@
     font-weight: 500;
   }
 
-  .activities-list {
+  .activities-groups {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+  }
+
+  .activity-group {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .group-title {
+    color: var(--text-primary);
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .group-activities {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
@@ -207,23 +200,37 @@
 
   .activity-item {
     color: var(--text-secondary);
-    font-size: 0.95rem;
-    line-height: 1.6;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    position: relative;
+    padding-left: 1rem;
+  }
+
+  .activity-item::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--accent-primary);
+    font-size: 0.8rem;
   }
 
   @media (max-width: 768px) {
     .skills-container {
-      gap: 2rem;
+      gap: 1.5rem;
+    }
+
+    .skills-grid {
+      grid-template-columns: 1fr;
+      gap: 1rem;
     }
 
     .skill-category {
-      padding-bottom: 1.5rem;
+      padding: 1rem;
     }
 
-    .skill-header {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 0.25rem;
+    .activities-groups {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
     }
   }
 </style>

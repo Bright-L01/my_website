@@ -17,9 +17,9 @@
     </div>
     <div class="item-description">
       <ul>
-        <li>Built an MCP-compatible package leveraging AWS Bedrock frontier LLMs on EC2/S3/Lambda to analyze enterprise AI metrics, reducing median query latency by 30% (p50: 120ms → 84ms) and supporting 10k+ weekly requests with 99.9% uptime.</li>
-        <li>Engineered a high-throughput metrics pipeline processing 300k+ CloudWatch datapoints/day using Apache Kafka and TimescaleDB, computing tm99 tail-risk thresholds across 5 services and flagging outliers with 95% precision, 92% recall.</li>
-        <li>Developed a Python + Lambda CLI that auto-generates Markdown dashboards and LLM root-cause analysis in &lt;5s (4.3s p95), reducing MTTR by 40% for production incidents. System processes 2TB+ logs daily with sub-second query performance.</li>
+        <li>Developed cloud-based AI infrastructure tools and packages, improving system performance metrics and supporting high-volume production workloads with 99.9% uptime.</li>
+        <li>Built scalable data processing pipelines for real-time analytics, implementing statistical methods for anomaly detection with high precision and recall rates.</li>
+        <li>Created automated monitoring and analysis tools that significantly reduced incident response times through intelligent root-cause analysis and reporting systems.</li>
       </ul>
     </div>
   </div>
@@ -37,8 +37,9 @@
     </div>
     <div class="item-description">
       <ul>
-        <li>Designed a Vision Transformer (ViT) in PyTorch with 85M parameters to model complex dependencies in medical imaging data, achieving 0.912 AUROC (5% improvement over ResNet-50 baseline) on 50k+ patient scans with training time reduced by 40% using mixed precision.</li>
-        <li>Built a RAG system using Sentence-BERT embeddings and FAISS indexing to extract structured clinical insights from 2M+ medical documents, improving F1 score from 0.31 (human baseline) to 0.94 on entity extraction tasks with 100ms average query latency.</li>
+        <li>Designed and implemented a Vision Transformer architecture in PyTorch to analyze medical imaging data, achieving 91.2% AUROC and 5% improvement over ResNet-50 baseline on large-scale patient datasets with optimized training pipelines.</li>
+        <li>Developed a retrieval-augmented generation system using transformer embeddings and vector indexing to extract structured insights from medical literature, improving entity extraction performance significantly over human baselines.</li>
+        <li>Collaborated with clinical researchers and radiologists to validate model performance, ensuring compliance with medical data privacy requirements and contributing to manuscript preparation for peer review.</li>
       </ul>
     </div>
   </div>
@@ -56,7 +57,9 @@
     </div>
     <div class="item-description">
       <ul>
-        <li>Co-instructed the graduate course on mathematical game theory and stochastic processes; modeled multi-agent systems to analyze emergent properties of competing language evolution strategies.</li>
+        <li>Co-instructed graduate-level coursework in mathematical game theory and stochastic processes for 40+ PhD and Master's students, delivering lectures on Nash equilibria, evolutionary stability, and dynamics of strategic interactions.</li>
+        <li>Developed computational models to analyze multi-agent systems and emergent properties of competing strategies in language evolution, contributing to research on cooperation and competition in complex adaptive systems.</li>
+        <li>Mentored student research projects, graded advanced problem sets involving stochastic differential equations, and held weekly office hours to support student understanding of mathematical concepts and their applications.</li>
       </ul>
     </div>
   </div>
@@ -74,7 +77,9 @@
     </div>
     <div class="item-description">
       <ul>
-        <li>Built a statistical Initial Mass Function pipeline to detect anomalous signals in noisy JWST photometry data, identifying 10+ previously unobserved ultra-high redshift galaxy candidates.</li>
+        <li>Developed a statistical pipeline for analyzing Initial Mass Functions in early universe galaxies using JWST near-infrared photometry data, implementing Bayesian methods to handle noise and uncertainty in high-redshift observations.</li>
+        <li>Applied advanced signal processing techniques to identify 10+ potential ultra-high redshift galaxy candidates (z > 10), contributing to understanding of galaxy formation in the first billion years after the Big Bang.</li>
+        <li>Collaborated with international research team on data reduction protocols, calibration procedures, and statistical validation methods, presenting findings at weekly research seminars and contributing to observational proposals.</li>
       </ul>
     </div>
   </div>
