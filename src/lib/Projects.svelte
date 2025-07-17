@@ -2,6 +2,73 @@
 
   const projects = [
     {
+      id: 'iquhack-2025',
+      title: 'Quantum Error Correction with Cat Qubits',
+      organization: 'MIT iQuHACK 2025 - Alice & Bob Challenge',
+      date: 'January 2025',
+      status: 'completed',
+      description: 'Implemented advanced quantum error correction using superconducting cat qubits and DynamiQ library, exploring buffer vs bufferless quantum systems and Zeno gate implementations for robust quantum computation.',
+      technologies: ['Python', 'DynamiQ', 'JAX', 'NumPy', 'Matplotlib', 'Quantum Computing'],
+      impact: 'Won 1st place at MIT iQuHACK 2025 quantum computing hackathon',
+      metrics: {
+        gateFidelity: '99%+ for optimized control sequences',
+        coherenceTime: 'Significant improvement demonstrated',
+        qubitReduction: 'Reduced physical qubits required for error correction'
+      },
+      category: 'Quantum Computing',
+      featured: true,
+      githubUrl: 'https://github.com/brightlikethelight/iQuHACK_2025'
+    },
+    {
+      id: 'networkx-mcp-server',
+      title: 'NetworkX MCP Server',
+      organization: 'Personal Project',
+      date: 'December 2024 - Present',
+      status: 'active',
+      description: 'Developed a production-ready graph analysis server using NetworkX and Model Context Protocol (MCP), featuring modular architecture with enterprise-grade security, monitoring, and horizontal scaling capabilities.',
+      technologies: ['Python', 'NetworkX', 'FastMCP', 'Docker', 'Kubernetes', 'Graph Theory'],
+      impact: 'Production-ready graph analysis platform with 80%+ test coverage',
+      metrics: {
+        testCoverage: '80%+',
+        architecture: 'Modular 4-layer design',
+        scalability: 'Horizontal scaling supported'
+      },
+      category: 'Systems Engineering',
+      featured: true,
+      githubUrl: 'https://github.com/brightlikethelight/networkx-mcp-server'
+    },
+    {
+      id: 'academic-portfolio',
+      title: 'Academic Portfolio Website',
+      organization: 'MIT 6.S898 Graduate Deep Learning',
+      date: 'Fall 2024',
+      status: 'completed',
+      description: 'Built responsive academic portfolio using Jekyll and al-folio theme, featuring blog functionality, publication management, and Docker deployment for showcasing deep learning research and projects.',
+      technologies: ['Jekyll', 'HTML', 'JavaScript', 'Docker', 'GitHub Actions'],
+      impact: 'Professional academic portfolio with responsive design and CI/CD integration',
+      category: 'Web Development',
+      featured: false,
+      githubUrl: 'https://github.com/brightlikethelight/elephantfish.github.io'
+    },
+    {
+      id: 'music-gen-ai',
+      title: 'AI Music Generation System',
+      organization: 'Personal Project',
+      date: 'November 2024 - Present',
+      status: 'active',
+      description: 'Implemented transformer-based text-to-music generation system using PyTorch and EnCodec, supporting multi-instrument composition, real-time streaming, and professional audio mixing with REST API interface.',
+      technologies: ['Python', 'PyTorch', 'Transformers', 'FastAPI', 'Docker', 'CUDA'],
+      impact: 'High-quality music generation with real-time streaming capabilities',
+      metrics: {
+        audioQuality: 'Professional-grade output',
+        realTime: 'Streaming audio generation',
+        multiInstrument: 'Multi-track composition support'
+      },
+      category: 'AI/ML',
+      featured: true,
+      githubUrl: 'https://github.com/brightlikethelight/music-gen-ai'
+    },
+    {
       id: 'kempner',
       title: 'AI Resource Optimization Research',
       organization: 'Kempner Institute for Artificial Intelligence',
@@ -45,7 +112,15 @@
       <div class="item">
         <div class="item-header">
           <div>
-            <div class="item-title">{project.title}</div>
+            <div class="item-title">
+              {#if project.githubUrl}
+                <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" class="project-link">
+                  {project.title}
+                </a>
+              {:else}
+                {project.title}
+              {/if}
+            </div>
             <div class="item-org">{project.organization}</div>
           </div>
           <div class="item-right">
@@ -87,6 +162,17 @@
     font-size: 1rem;
     margin-bottom: 3rem;
     font-weight: 400;
+  }
+
+  .project-link {
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .project-link:hover {
+    color: var(--accent-primary);
+    text-decoration: underline;
   }
 
   .item-right {
