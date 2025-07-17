@@ -1,23 +1,11 @@
 <script lang="ts">
   import { slide } from 'svelte/transition';
-  import ResumeDownload from './ResumeDownload.svelte';
   import ContactForm from './ContactForm.svelte';
   
   let showContactForm = false;
-  let showResumeDownload = false;
   
   function toggleContactForm() {
     showContactForm = !showContactForm;
-    if (showContactForm) {
-      showResumeDownload = false;
-    }
-  }
-  
-  function toggleResumeDownload() {
-    showResumeDownload = !showResumeDownload;
-    if (showResumeDownload) {
-      showContactForm = false;
-    }
   }
 </script>
 
@@ -43,14 +31,6 @@
       >
         Contact
       </button>
-      <button 
-        on:click={toggleResumeDownload} 
-        class="contact-link"
-        class:active={showResumeDownload}
-        aria-label="Toggle resume download options"
-      >
-        Resume
-      </button>
       <a href="https://www.linkedin.com/in/bright-liu-701174216" target="_blank" rel="noopener" class="contact-link">LinkedIn</a>
       <a href="https://github.com/brightlikethelight" target="_blank" rel="noopener" class="contact-link">GitHub</a>
     </div>
@@ -64,11 +44,6 @@
   </div>
 {/if}
 
-{#if showResumeDownload}
-  <div class="dynamic-section" transition:slide>
-    <ResumeDownload />
-  </div>
-{/if}
 
 <style>
   .hero {
