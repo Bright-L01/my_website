@@ -12,6 +12,46 @@
   import { measureWebVitals } from './lib/utils/intersectionObserver';
   import analytics from './lib/utils/analytics';
 
+  let showKeyboardHelp = false;
+  let currentSectionIndex = 0;
+  
+  const sections = ['home', 'education', 'experience', 'projects', 'publications', 'honors', 'skills'];
+  
+  function handleKeyPress(event: KeyboardEvent) {
+    // Ignore if user is typing in an input/textarea
+    if (event.target instanceof HTMLInputElement || event.target instanceof HTMLTextAreaElement) {
+      return;
+    }
+    
+    switch (event.key.toLowerCase()) {
+      case 'j':
+        // Next section
+        currentSectionIndex = Math.min(currentSectionIndex + 1, sections.length - 1);
+        scrollToSection(sections[currentSectionIndex]);
+        break;
+      case 'k':
+        // Previous section
+        currentSectionIndex = Math.max(currentSectionIndex - 1, 0);
+        scrollToSection(sections[currentSectionIndex]);
+        break;
+      case '?':
+        // Toggle help
+        showKeyboardHelp = !showKeyboardHelp;
+        break;
+      case 'escape':
+        // Close help
+        showKeyboardHelp = false;
+        break;
+    }
+  }
+  
+  function scrollToSection(sectionId: string) {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+  
   onMount(() => {
     // Initialize web vitals monitoring
     measureWebVitals();
@@ -19,11 +59,18 @@
     // Track initial page view
     analytics.trackPageView('home');
     
+    // Add keyboard navigation
+    window.addEventListener('keydown', handleKeyPress);
+    
     // Log current performance metrics
     setTimeout(() => {
       const metrics = analytics.getMetrics();
       console.log('📊 Performance Metrics:', metrics);
     }, 2000);
+    
+    return () => {
+      window.removeEventListener('keydown', handleKeyPress);
+    };
   });
 </script>
 
@@ -79,54 +126,94 @@
   />
 </main>
 
+<!-- Keyboard Help Overlay -->
+{#if showKeyboardHelp}
+  <div 
+    class="keyboard-help-overlay" 
+    on:click={() => showKeyboardHelp = false}
+    on:keydown={(e) => e.key === 'Escape' && (showKeyboardHelp = false)}
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="keyboard-help-title"
+  >
+    <div 
+      class="keyboard-help-modal" 
+      on:click|stopPropagation
+      on:keydown|stopPropagation
+      role="document"
+    >
+      <h3 id="keyboard-help-title">Keyboard Shortcuts</h3>
+      <div class="shortcuts-grid">
+        <div class="shortcut-item">
+          <kbd>J</kbd>
+          <span>Next section</span>
+        </div>
+        <div class="shortcut-item">
+          <kbd>K</kbd>
+          <span>Previous section</span>
+        </div>
+        <div class="shortcut-item">
+          <kbd>?</kbd>
+          <span>Show this help</span>
+        </div>
+        <div class="shortcut-item">
+          <kbd>Esc</kbd>
+          <span>Close help</span>
+        </div>
+      </div>
+      <p class="help-tip">Press any key to navigate quickly through the portfolio</p>
+    </div>
+  </div>
+{/if}
+
 <style>
   /* CSS Custom Properties for Theming */
   :global(:root) {
-    /* Light Theme - Ultra-Minimal & Professional */
-    --bg-primary: #ffffff;
-    --bg-secondary: #fafafa;
-    --bg-tertiary: #f5f5f5;
-    --text-primary: #111111;
-    --text-secondary: #555555;
-    --text-tertiary: #888888;
-    --accent-primary: #000000;
-    --accent-secondary: #333333;
-    --accent-tertiary: #666666;
-    --accent-warm: #000000;
-    --accent-gradient: linear-gradient(135deg, #000000 0%, #333333 100%);
-    --accent-gradient-warm: linear-gradient(135deg, #000000 0%, #333333 100%);
-    --accent-gradient-cool: linear-gradient(135deg, #000000 0%, #666666 100%);
-    --border-color: #e5e5e5;
-    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.04);
-    --shadow-md: 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    --shadow-lg: 0 4px 8px -2px rgba(0, 0, 0, 0.08);
-    --shadow-xl: 0 8px 16px -4px rgba(0, 0, 0, 0.1);
-    --glass-bg: rgba(255, 255, 255, 0.98);
-    --glass-border: rgba(229, 229, 229, 0.8);
+    /* Modern Professional Light Theme */
+    --bg-primary: #fafbfc;
+    --bg-secondary: #f8f9fa;
+    --bg-tertiary: #e9ecef;
+    --text-primary: #2c3e50;
+    --text-secondary: #5a6c7d;
+    --text-tertiary: #8b9ab0;
+    --accent-primary: #2c3e50;
+    --accent-secondary: #34495e;
+    --accent-tertiary: #7f8c8d;
+    --accent-warm: #3498db;
+    --accent-gradient: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    --accent-gradient-warm: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+    --accent-gradient-cool: linear-gradient(135deg, #2c3e50 0%, #7f8c8d 100%);
+    --border-color: #dee2e6;
+    --shadow-sm: 0 1px 3px 0 rgba(44, 62, 80, 0.06);
+    --shadow-md: 0 4px 6px -1px rgba(44, 62, 80, 0.08);
+    --shadow-lg: 0 10px 15px -3px rgba(44, 62, 80, 0.10);
+    --shadow-xl: 0 20px 25px -5px rgba(44, 62, 80, 0.12);
+    --glass-bg: rgba(248, 249, 250, 0.98);
+    --glass-border: rgba(222, 226, 230, 0.8);
   }
 
   :global([data-theme="dark"]) {
-    /* Dark Theme - Ultra-Minimal Dark */
-    --bg-primary: #000000;
-    --bg-secondary: #111111;
-    --bg-tertiary: #1a1a1a;
-    --text-primary: #ffffff;
-    --text-secondary: #cccccc;
-    --text-tertiary: #999999;
-    --accent-primary: #ffffff;
-    --accent-secondary: #e5e5e5;
-    --accent-tertiary: #cccccc;
-    --accent-warm: #ffffff;
-    --accent-gradient: linear-gradient(135deg, #ffffff 0%, #e5e5e5 100%);
-    --accent-gradient-warm: linear-gradient(135deg, #ffffff 0%, #e5e5e5 100%);
-    --accent-gradient-cool: linear-gradient(135deg, #ffffff 0%, #cccccc 100%);
-    --border-color: #333333;
-    --shadow-sm: 0 1px 2px 0 rgba(255, 255, 255, 0.04);
-    --shadow-md: 0 2px 4px -1px rgba(255, 255, 255, 0.06);
-    --shadow-lg: 0 4px 8px -2px rgba(255, 255, 255, 0.08);
-    --shadow-xl: 0 8px 16px -4px rgba(255, 255, 255, 0.1);
-    --glass-bg: rgba(0, 0, 0, 0.98);
-    --glass-border: rgba(51, 51, 51, 0.8);
+    /* Modern Professional Dark Theme */
+    --bg-primary: #0f1419;
+    --bg-secondary: #1a1f24;
+    --bg-tertiary: #252a30;
+    --text-primary: #f8f9fa;
+    --text-secondary: #e9ecef;
+    --text-tertiary: #adb5bd;
+    --accent-primary: #74b9ff;
+    --accent-secondary: #a29bfe;
+    --accent-tertiary: #fd79a8;
+    --accent-warm: #fdcb6e;
+    --accent-gradient: linear-gradient(135deg, #74b9ff 0%, #a29bfe 100%);
+    --accent-gradient-warm: linear-gradient(135deg, #fdcb6e 0%, #fd79a8 100%);
+    --accent-gradient-cool: linear-gradient(135deg, #74b9ff 0%, #81ecec 100%);
+    --border-color: #373e47;
+    --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.6);
+    --glass-bg: rgba(15, 20, 25, 0.98);
+    --glass-border: rgba(55, 62, 71, 0.8);
   }
 
   /* Global Styles */
@@ -158,7 +245,7 @@
 
   main section {
     min-height: auto;
-    padding: 6rem 0;
+    padding: 8rem 0;
     max-width: 800px;
     margin: 0 auto;
     padding-left: 2rem;
@@ -167,6 +254,19 @@
 
   main section:first-child {
     padding-top: 0;
+  }
+
+  /* Section-specific spacing for better visual hierarchy */
+  main section#publications {
+    padding: 10rem 0;
+  }
+  
+  main section#honors {
+    padding: 12rem 0;
+  }
+
+  main section#skills {
+    padding: 10rem 0;
   }
 
   /* Typography */
@@ -312,8 +412,8 @@
     main section {
       padding-left: 1.5rem;
       padding-right: 1.5rem;
-      padding-top: 4rem;
-      padding-bottom: 4rem;
+      padding-top: 6rem;
+      padding-bottom: 6rem;
     }
   }
 
@@ -321,8 +421,8 @@
     main section {
       padding-left: 1rem;
       padding-right: 1rem;
-      padding-top: 3rem;
-      padding-bottom: 3rem;
+      padding-top: 5rem;
+      padding-bottom: 5rem;
       max-width: 100%;
     }
 
@@ -341,8 +441,8 @@
     main section {
       padding-left: 1rem;
       padding-right: 1rem;
-      padding-top: 2rem;
-      padding-bottom: 2rem;
+      padding-top: 4rem;
+      padding-bottom: 4rem;
     }
   }
 
@@ -371,6 +471,97 @@
     background: var(--accent-secondary);
   }
 
+  /* Keyboard Help Overlay */
+  .keyboard-help-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    animation: fadeIn 0.2s ease;
+  }
+  
+  .keyboard-help-modal {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    padding: 2rem;
+    max-width: 400px;
+    width: 90%;
+    animation: slideIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  
+  .keyboard-help-modal h3 {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    color: var(--text-primary);
+    text-align: center;
+  }
+  
+  .shortcuts-grid {
+    display: grid;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .shortcut-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem;
+    background: var(--bg-secondary);
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+  }
+  
+  kbd {
+    background: var(--accent-primary);
+    color: var(--bg-primary);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.875rem;
+    font-weight: 600;
+    min-width: 1.5rem;
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .shortcut-item span {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+  }
+  
+  .help-tip {
+    color: var(--text-tertiary);
+    font-size: 0.8rem;
+    text-align: center;
+    margin: 0;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  @keyframes slideIn {
+    from { 
+      opacity: 0;
+      transform: scale(0.9) translateY(-20px);
+    }
+    to { 
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+  }
+
   /* Smooth Animations */
   @media (prefers-reduced-motion: reduce) {
     :global(*) {
@@ -378,6 +569,14 @@
       animation-iteration-count: 1 !important;
       transition-duration: 0.01ms !important;
       scroll-behavior: auto !important;
+    }
+    
+    .keyboard-help-modal {
+      animation: none;
+    }
+    
+    .keyboard-help-overlay {
+      animation: none;
     }
   }
 </style>
