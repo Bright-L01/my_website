@@ -256,17 +256,11 @@
     padding-top: 0;
   }
 
-  /* Section-specific spacing for better visual hierarchy */
-  main section#publications {
-    padding: 5rem 0;
-  }
-  
-  main section#honors {
-    padding: 6rem 0;
-  }
-
+  /* Consistent section spacing for better visual hierarchy */
+  main section#publications,
+  main section#honors,
   main section#skills {
-    padding: 5rem 0;
+    padding: 4rem 0;
   }
 
   /* Typography */
