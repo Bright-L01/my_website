@@ -6,14 +6,12 @@
   
   <div class="item">
     <div class="item-header">
-      <div>
-        <div class="item-title">Amazon Web Services (AWS)</div>
-        <div class="item-org">AI/ML Software Engineering Intern</div>
-      </div>
-      <div class="item-right">
-        <div class="item-location">New York, NY</div>
-        <div class="item-date">May 2025 - Present</div>
-      </div>
+      <div class="item-title">Amazon Web Services (AWS)</div>
+      <div class="item-location">New York, NY</div>
+    </div>
+    <div class="item-header">
+      <div class="item-org">AI/ML Software Engineering Intern</div>
+      <div class="item-date">May 2025 - Present</div>
     </div>
     <div class="item-description">
       <ul>
@@ -26,14 +24,12 @@
 
   <div class="item">
     <div class="item-header">
-      <div>
-        <div class="item-title">Massachusetts General Hospital & Harvard Medical School</div>
-        <div class="item-org">Deep Learning Researcher</div>
-      </div>
-      <div class="item-right">
-        <div class="item-location">Boston, MA</div>
-        <div class="item-date">January 2024 - August 2024</div>
-      </div>
+      <div class="item-title">Massachusetts General Hospital & Harvard Medical School</div>
+      <div class="item-location">Boston, MA</div>
+    </div>
+    <div class="item-header">
+      <div class="item-org">Deep Learning Researcher</div>
+      <div class="item-date">January 2024 - August 2024</div>
     </div>
     <div class="item-description">
       <ul>
@@ -46,14 +42,12 @@
 
   <div class="item">
     <div class="item-header">
-      <div>
-        <div class="item-title">Harvard University (Prof. Martin Nowak)</div>
-        <div class="item-org">Graduate TA – Evolutionary Dynamics & Game Theory</div>
-      </div>
-      <div class="item-right">
-        <div class="item-location">Cambridge, MA</div>
-        <div class="item-date">February 2023 - May 2024</div>
-      </div>
+      <div class="item-title">Harvard University (Prof. Martin Nowak)</div>
+      <div class="item-location">Cambridge, MA</div>
+    </div>
+    <div class="item-header">
+      <div class="item-org">Graduate TA – Evolutionary Dynamics & Game Theory</div>
+      <div class="item-date">February 2023 - May 2024</div>
     </div>
     <div class="item-description">
       <ul>
@@ -66,14 +60,12 @@
 
   <div class="item">
     <div class="item-header">
-      <div>
-        <div class="item-title">University of Copenhagen & Niels Bohr Institute (Prof. Charles Steinhardt)</div>
-        <div class="item-org">Astrophysics Data Scientist</div>
-      </div>
-      <div class="item-right">
-        <div class="item-location">Copenhagen, Denmark</div>
-        <div class="item-date">January 2023 - September 2023</div>
-      </div>
+      <div class="item-title">University of Copenhagen & Niels Bohr Institute (Prof. Charles Steinhardt)</div>
+      <div class="item-location">Copenhagen, Denmark</div>
+    </div>
+    <div class="item-header">
+      <div class="item-org">Astrophysics Data Scientist</div>
+      <div class="item-date">January 2023 - September 2023</div>
     </div>
     <div class="item-description">
       <ul>
