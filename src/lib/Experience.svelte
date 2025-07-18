@@ -15,9 +15,8 @@
     </div>
     <div class="item-description">
       <ul>
-        <li>Developed cloud-based AI infrastructure tools and packages, improving system performance metrics and supporting high-volume production workloads with 99.9% uptime.</li>
-        <li>Built scalable data processing pipelines for real-time analytics, implementing statistical methods for anomaly detection with high precision and recall rates.</li>
-        <li>Created automated monitoring and analysis tools that significantly reduced incident response times through intelligent root-cause analysis and reporting systems.</li>
+        <li>Engineered a MCP compatible analytics package on EC2/S3/Lambda that harnesses AWS Bedrock frontier LLMs to ingest 300k+ infrastructure metrics, compute tm99 tail risk thresholds, and diagnose latency shocks.</li>
+        <li>Developed a Lambda CLI that auto-generates root cause analysis, reducing manual investigation time from 5 hours to under 5 minutes, enabling real time algorithm calibration.</li>
       </ul>
     </div>
   </div>
@@ -33,9 +32,8 @@
     </div>
     <div class="item-description">
       <ul>
-        <li>Designed and implemented a Vision Transformer architecture in PyTorch to analyze medical imaging data, achieving 91.2% AUROC and 5% improvement over ResNet-50 baseline on large-scale patient datasets with optimized training pipelines.</li>
-        <li>Developed a retrieval-augmented generation system using transformer embeddings and vector indexing to extract structured insights from medical literature, improving entity extraction performance significantly over human baselines.</li>
-        <li>Collaborated with clinical researchers and radiologists to validate model performance, ensuring compliance with medical data privacy requirements and contributing to manuscript preparation for peer review.</li>
+        <li>Designed a Vision Transformer (ViT) in PyTorch to model complex dependencies in medical imaging data, achieving a 0.7 AUROC for long term lung cancer risk prediction.</li>
+        <li>Engineered a Retrieval-Augmented Generation (RAG) system to extract structured features from unstructured clinical notes, boosting downstream predictive model performance by 300%.</li>
       </ul>
     </div>
   </div>

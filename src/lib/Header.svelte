@@ -21,8 +21,8 @@
         </div>
         
         <p class="hero-description">
-          Harvard CS & Statistics student building production AI infrastructure at AWS. <br/>
-          Specializing in deep learning, quantitative finance, and high-performance computing.
+          Harvard Mathematics & Statistics student with AWS AI/ML engineering experience. <br/>
+          Specializing in quantitative finance, deep learning, and high-performance computing.
         </p>
         
         <div class="hero-links">

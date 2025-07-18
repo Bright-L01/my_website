@@ -79,15 +79,9 @@
       organization: 'Kempner Institute for Artificial Intelligence',
       date: 'January 2025 - Present',
       status: 'active',
-      description: 'Researched optimal resource allocation for large-scale inference by analyzing the trade-off between model complexity and performance under a fixed compute budget, improving efficiency on math reasoning tasks.',
+      description: 'Quantified the optimal trade off between generator/verifier model sizes and search complexity (e.g., beam search) for large scale inference under a fixed compute budget, improving performance on mathematical reasoning tasks.',
       technologies: ['Python', 'PyTorch', 'CUDA', 'JAX', 'Distributed Computing'],
-      impact: 'Improved inference efficiency by 23% while maintaining 95% accuracy on GSM8K benchmark',
-      metrics: {
-        speedup: '1.23x',
-        accuracy: '95.2% on GSM8K',
-        flopsReduction: '31%',
-        memoryEfficiency: '42% reduction'
-      },
+      impact: 'Research ongoing on optimal resource allocation for large-scale inference',
       category: 'AI Research',
       featured: true
     },
@@ -97,9 +91,9 @@
       organization: 'Harvard AI Safety Team',
       date: 'September 2022 - May 2023',
       status: 'completed',
-      description: 'Analyzed failure modes of complex models, focusing on interpretability and alignment, presenting research at the Harvard-MIT Existential Risks Summit.',
+      description: 'Conducted quantitative analysis of LLM failure modes by examining model logits and attention patterns to identify triggers for out-of-distribution hallucinations; presented findings at Harvard-MIT Existential Risks Summit.',
       technologies: ['Python', 'TensorFlow', 'Interpretability Tools', 'Statistical Analysis'],
-      impact: 'Presented research to 200+ attendees at Harvard-MIT Summit',
+      impact: 'Presented research at Harvard-MIT Existential Risks Summit',
       category: 'AI Safety',
       featured: true
     }
