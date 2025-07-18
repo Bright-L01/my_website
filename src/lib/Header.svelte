@@ -11,29 +11,41 @@
 
 <div class="hero">
   <div class="hero-content">
-    <h1 class="hero-title">Bright Liu</h1>
-    
-    <div class="hero-subtitle">
-      <span class="education">Harvard University</span>
-      <span class="degree">Mathematics & Computer Science + Master of Science in Statistics</span>
-    </div>
-    
-    <p class="hero-description">
-      Harvard CS & Statistics student building production AI infrastructure at AWS. <br/>
-      Specializing in deep learning, quantitative finance, and high-performance computing.
-    </p>
-    
-    <div class="hero-links">
-      <button 
-        on:click={toggleContactForm} 
-        class="contact-link"
-        class:active={showContactForm}
-        aria-label="Toggle contact form"
-      >
-        Contact
-      </button>
-      <a href="https://www.linkedin.com/in/bright-liu-701174216" target="_blank" rel="noopener" class="contact-link">LinkedIn</a>
-      <a href="https://github.com/brightlikethelight" target="_blank" rel="noopener" class="contact-link">GitHub</a>
+    <div class="hero-main">
+      <div class="hero-text">
+        <h1 class="hero-title">Bright Liu</h1>
+        
+        <div class="hero-subtitle">
+          <span class="education">Harvard University</span>
+          <span class="degree">Mathematics & Computer Science + Master of Science in Statistics</span>
+        </div>
+        
+        <p class="hero-description">
+          Harvard CS & Statistics student building production AI infrastructure at AWS. <br/>
+          Specializing in deep learning, quantitative finance, and high-performance computing.
+        </p>
+        
+        <div class="hero-links">
+          <button 
+            on:click={toggleContactForm} 
+            class="contact-link"
+            class:active={showContactForm}
+            aria-label="Toggle contact form"
+          >
+            Contact
+          </button>
+          <a href="https://www.linkedin.com/in/bright-liu-701174216" target="_blank" rel="noopener" class="contact-link">LinkedIn</a>
+          <a href="https://github.com/brightlikethelight" target="_blank" rel="noopener" class="contact-link">GitHub</a>
+        </div>
+      </div>
+      
+      <div class="hero-image">
+        <img 
+          src="/profile.jpg" 
+          alt="Bright Liu - Professional headshot" 
+          class="profile-photo"
+        />
+      </div>
     </div>
   </div>
 </div>
@@ -52,33 +64,60 @@
     text-align: center;
   }
 
-
-
-
   .hero-content {
-    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .hero-main {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    text-align: left;
+  }
+
+  .hero-text {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .hero-image {
+    flex: 0 0 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .profile-photo {
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--accent-primary);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .profile-photo:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.15);
   }
 
   .hero-title {
-    font-size: clamp(3rem, 8vw, 6rem);
+    font-size: clamp(2.5rem, 6vw, 4rem);
     font-weight: 900;
     line-height: 1.2;
     margin-bottom: 1.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
+    color: var(--text-primary);
   }
-
-
 
   .hero-subtitle {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     gap: 0.5rem;
     margin-bottom: 2rem;
-    text-align: center;
   }
 
   .education {
@@ -100,14 +139,14 @@
     font-size: clamp(1rem, 2vw, 1.2rem);
     color: var(--text-secondary);
     max-width: 600px;
-    margin: 0 auto 3rem;
+    margin: 0 0 3rem 0;
     line-height: 1.6;
   }
 
   .hero-links {
     display: flex;
     gap: 1rem;
-    justify-content: center;
+    justify-content: flex-start;
     margin-bottom: 2rem;
   }
 
@@ -169,10 +208,40 @@
       padding: 4rem 1rem;
     }
 
+    .hero-main {
+      flex-direction: column;
+      gap: 2rem;
+      text-align: center;
+    }
+
+    .hero-text {
+      order: 2;
+    }
+
+    .hero-image {
+      order: 1;
+      flex: none;
+    }
+
+    .profile-photo {
+      width: 200px;
+      height: 200px;
+    }
+
+    .hero-subtitle {
+      align-items: center;
+    }
+
+    .hero-description {
+      text-align: center;
+      margin: 0 auto 3rem;
+    }
+
     .hero-links {
       flex-direction: column;
       gap: 0.75rem;
       align-items: center;
+      justify-content: center;
     }
 
     .contact-link {
@@ -183,6 +252,11 @@
   }
 
   @media (max-width: 480px) {
+    .profile-photo {
+      width: 160px;
+      height: 160px;
+    }
+
     .hero-subtitle {
       gap: 0.25rem;
     }
