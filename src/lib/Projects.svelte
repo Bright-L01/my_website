@@ -52,7 +52,7 @@
       technologies: ['Jekyll', 'HTML', 'JavaScript', 'Docker', 'GitHub Actions'],
       impact: 'Professional academic portfolio with responsive design and CI/CD integration',
       category: 'Web Development',
-      featured: false,
+      featured: true,
       githubUrl: 'https://github.com/brightlikethelight/elephantfish.github.io'
     },
     {
@@ -170,6 +170,11 @@
     </div>
   </div>
   
+  <div class="featured-projects-indicator">
+    <span class="indicator-dot"></span>
+    <span class="indicator-text">Featured projects highlighted with gradient accents</span>
+  </div>
+  
   <div class="projects-grid">
     {#each filteredProjects as project (project.id)}
       <ProjectCard {project} />
@@ -264,6 +269,39 @@
     clip: rect(0, 0, 0, 0);
     white-space: nowrap;
     border: 0;
+  }
+  
+  .featured-projects-indicator {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 1rem 0;
+    padding: 0.75rem 1rem;
+    background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+  }
+  
+  .indicator-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent-gradient-warm);
+    box-shadow: 0 0 8px rgba(52, 152, 219, 0.4);
+    animation: pulse 2s infinite;
+  }
+  
+  @keyframes pulse {
+    0%, 100% { 
+      transform: scale(1);
+      opacity: 1;
+    }
+    50% { 
+      transform: scale(1.1);
+      opacity: 0.8;
+    }
   }
 
 
