@@ -170,12 +170,16 @@
   }
 
   /* Section-specific spacing for better visual hierarchy */
-  main section#honors {
+  main section#publications {
     padding: 10rem 0;
+  }
+  
+  main section#honors {
+    padding: 12rem 0;
   }
 
   main section#skills {
-    padding: 7rem 0;
+    padding: 10rem 0;
   }
 
   /* Typography */

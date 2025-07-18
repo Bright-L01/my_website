@@ -15,7 +15,7 @@
     
     <div class="hero-subtitle">
       <span class="education">Harvard University</span>
-      <span class="degree">Mathematics & Computer Science + Statistics MA</span>
+      <span class="degree">Mathematics & Computer Science + Master of Science in Statistics</span>
     </div>
     
     <p class="hero-description">

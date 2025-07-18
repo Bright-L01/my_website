@@ -34,7 +34,7 @@
       activities: [
         'Captain of Computer Science Peer Concentration Advisors',
         'Undergraduate Advisory Board Member - Harvard SEAS',
-        'Harvard Wolfram Ambassador (2023-2024)',
+        'Harvard Wolfram Ambassador',
         'Event Organizer & Test Writer - Harvard Science Olympiad',
         'Founder of Harvard Book Club'
       ]
