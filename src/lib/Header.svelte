@@ -19,7 +19,8 @@
     </div>
     
     <p class="hero-description">
-      Harvard mathematician developing high-performance trading algorithms and scalable ML systems. Building production AI infrastructure at AWS while researching model optimization at the Kempner Institute. Specializing in statistical arbitrage, deep learning architectures, and low-latency computing with Python, C++, and cloud platforms.
+      Harvard CS & Statistics student building production AI infrastructure at AWS. <br/>
+      Specializing in deep learning, quantitative finance, and high-performance computing.
     </p>
     
     <div class="hero-links">

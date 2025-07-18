@@ -169,21 +169,21 @@
 <style>
   /* CSS Custom Properties for Theming */
   :global(:root) {
-    /* Modern Professional Light Theme */
-    --bg-primary: #fafbfc;
+    /* Modern Professional Light Theme - Enhanced Contrast */
+    --bg-primary: #ffffff;
     --bg-secondary: #f8f9fa;
-    --bg-tertiary: #e9ecef;
-    --text-primary: #2c3e50;
-    --text-secondary: #5a6c7d;
-    --text-tertiary: #8b9ab0;
-    --accent-primary: #2c3e50;
-    --accent-secondary: #34495e;
-    --accent-tertiary: #7f8c8d;
-    --accent-warm: #3498db;
-    --accent-gradient: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
-    --accent-gradient-warm: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
-    --accent-gradient-cool: linear-gradient(135deg, #2c3e50 0%, #7f8c8d 100%);
-    --border-color: #dee2e6;
+    --bg-tertiary: #e3e8ef;
+    --text-primary: #1a202c;
+    --text-secondary: #4a5568;
+    --text-tertiary: #718096;
+    --accent-primary: #1e40af;
+    --accent-secondary: #2563eb;
+    --accent-tertiary: #3b82f6;
+    --accent-warm: #0891b2;
+    --accent-gradient: linear-gradient(135deg, #1e40af 0%, #2563eb 100%);
+    --accent-gradient-warm: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%);
+    --accent-gradient-cool: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+    --border-color: #e2e8f0;
     --shadow-sm: 0 1px 3px 0 rgba(44, 62, 80, 0.06);
     --shadow-md: 0 4px 6px -1px rgba(44, 62, 80, 0.08);
     --shadow-lg: 0 10px 15px -3px rgba(44, 62, 80, 0.10);
@@ -193,21 +193,21 @@
   }
 
   :global([data-theme="dark"]) {
-    /* Modern Professional Dark Theme */
-    --bg-primary: #0f1419;
-    --bg-secondary: #1a1f24;
-    --bg-tertiary: #252a30;
-    --text-primary: #f8f9fa;
-    --text-secondary: #e9ecef;
-    --text-tertiary: #adb5bd;
-    --accent-primary: #74b9ff;
-    --accent-secondary: #a29bfe;
-    --accent-tertiary: #fd79a8;
-    --accent-warm: #fdcb6e;
-    --accent-gradient: linear-gradient(135deg, #74b9ff 0%, #a29bfe 100%);
-    --accent-gradient-warm: linear-gradient(135deg, #fdcb6e 0%, #fd79a8 100%);
-    --accent-gradient-cool: linear-gradient(135deg, #74b9ff 0%, #81ecec 100%);
-    --border-color: #373e47;
+    /* Modern Professional Dark Theme - Enhanced Contrast */
+    --bg-primary: #0f172a;
+    --bg-secondary: #1e293b;
+    --bg-tertiary: #334155;
+    --text-primary: #f1f5f9;
+    --text-secondary: #cbd5e1;
+    --text-tertiary: #94a3b8;
+    --accent-primary: #60a5fa;
+    --accent-secondary: #3b82f6;
+    --accent-tertiary: #2563eb;
+    --accent-warm: #06b6d4;
+    --accent-gradient: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%);
+    --accent-gradient-warm: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+    --accent-gradient-cool: linear-gradient(135deg, #60a5fa 0%, #2563eb 100%);
+    --border-color: #475569;
     --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.3);
     --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
     --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
@@ -245,7 +245,7 @@
 
   main section {
     min-height: auto;
-    padding: 8rem 0;
+    padding: 4rem 0;
     max-width: 800px;
     margin: 0 auto;
     padding-left: 2rem;
@@ -258,15 +258,15 @@
 
   /* Section-specific spacing for better visual hierarchy */
   main section#publications {
-    padding: 10rem 0;
+    padding: 5rem 0;
   }
   
   main section#honors {
-    padding: 12rem 0;
+    padding: 6rem 0;
   }
 
   main section#skills {
-    padding: 10rem 0;
+    padding: 5rem 0;
   }
 
   /* Typography */
@@ -420,8 +420,8 @@
     main section {
       padding-left: 1.5rem;
       padding-right: 1.5rem;
-      padding-top: 6rem;
-      padding-bottom: 6rem;
+      padding-top: 3rem;
+      padding-bottom: 3rem;
     }
   }
 
@@ -429,8 +429,8 @@
     main section {
       padding-left: 1rem;
       padding-right: 1rem;
-      padding-top: 5rem;
-      padding-bottom: 5rem;
+      padding-top: 2.5rem;
+      padding-bottom: 2.5rem;
       max-width: 100%;
     }
 
@@ -451,8 +451,8 @@
     main section {
       padding-left: 1rem;
       padding-right: 1rem;
-      padding-top: 4rem;
-      padding-bottom: 4rem;
+      padding-top: 2rem;
+      padding-bottom: 2rem;
     }
   }
 
@@ -554,6 +554,22 @@
     font-size: 0.8rem;
     text-align: center;
     margin: 0;
+  }
+  
+  /* Focus styles for keyboard navigation */
+  :global(*:focus) {
+    outline: none;
+  }
+  
+  :global(*:focus-visible) {
+    outline: 2px solid var(--accent-primary);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+  
+  :global(button:focus-visible),
+  :global(a:focus-visible) {
+    outline-offset: 4px;
   }
   
   @keyframes fadeIn {

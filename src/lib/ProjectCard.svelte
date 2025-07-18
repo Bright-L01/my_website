@@ -235,16 +235,39 @@
     padding: 1.5rem;
     margin-bottom: 1.5rem;
     cursor: pointer;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     opacity: 1;
-    transform: translateY(0) scale(1);
+    transform: translateY(0);
     overflow: hidden;
   }
   
+  .project-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--accent-gradient);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+  
   .project-card:hover {
-    transform: translateY(-4px) scale(1.02);
-    box-shadow: var(--shadow-xl);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
     border-color: var(--accent-primary);
+    background: var(--bg-primary);
+  }
+  
+  .project-card:hover::before {
+    transform: scaleX(1);
+  }
+  
+  .project-card:focus-visible {
+    outline: 2px solid var(--accent-primary);
+    outline-offset: 4px;
   }
   
   .project-card.featured {
@@ -382,21 +405,21 @@
   }
   
   .tech-tag {
-    background: var(--bg-tertiary);
-    color: var(--text-secondary);
+    background: var(--accent-primary);
+    color: white;
     padding: 0.25rem 0.75rem;
-    border-radius: 4px;
+    border-radius: 6px;
     font-size: 0.8rem;
     font-weight: 500;
-    border: 1px solid var(--border-color);
+    border: none;
     transition: all 0.2s ease;
     cursor: default;
   }
   
   .tech-tag:hover {
-    background: var(--bg-secondary);
-    border-color: var(--accent-primary);
+    background: var(--accent-secondary);
     transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
   
   .expanded-content {
