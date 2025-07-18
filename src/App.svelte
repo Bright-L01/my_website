@@ -12,6 +12,46 @@
   import { measureWebVitals } from './lib/utils/intersectionObserver';
   import analytics from './lib/utils/analytics';
 
+  let showKeyboardHelp = false;
+  let currentSectionIndex = 0;
+  
+  const sections = ['home', 'education', 'experience', 'projects', 'publications', 'honors', 'skills'];
+  
+  function handleKeyPress(event: KeyboardEvent) {
+    // Ignore if user is typing in an input/textarea
+    if (event.target instanceof HTMLInputElement || event.target instanceof HTMLTextAreaElement) {
+      return;
+    }
+    
+    switch (event.key.toLowerCase()) {
+      case 'j':
+        // Next section
+        currentSectionIndex = Math.min(currentSectionIndex + 1, sections.length - 1);
+        scrollToSection(sections[currentSectionIndex]);
+        break;
+      case 'k':
+        // Previous section
+        currentSectionIndex = Math.max(currentSectionIndex - 1, 0);
+        scrollToSection(sections[currentSectionIndex]);
+        break;
+      case '?':
+        // Toggle help
+        showKeyboardHelp = !showKeyboardHelp;
+        break;
+      case 'escape':
+        // Close help
+        showKeyboardHelp = false;
+        break;
+    }
+  }
+  
+  function scrollToSection(sectionId: string) {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+  
   onMount(() => {
     // Initialize web vitals monitoring
     measureWebVitals();
@@ -19,11 +59,18 @@
     // Track initial page view
     analytics.trackPageView('home');
     
+    // Add keyboard navigation
+    window.addEventListener('keydown', handleKeyPress);
+    
     // Log current performance metrics
     setTimeout(() => {
       const metrics = analytics.getMetrics();
       console.log('📊 Performance Metrics:', metrics);
     }, 2000);
+    
+    return () => {
+      window.removeEventListener('keydown', handleKeyPress);
+    };
   });
 </script>
 
@@ -78,6 +125,46 @@
     rootMargin="100px"
   />
 </main>
+
+<!-- Keyboard Help Overlay -->
+{#if showKeyboardHelp}
+  <div 
+    class="keyboard-help-overlay" 
+    on:click={() => showKeyboardHelp = false}
+    on:keydown={(e) => e.key === 'Escape' && (showKeyboardHelp = false)}
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="keyboard-help-title"
+  >
+    <div 
+      class="keyboard-help-modal" 
+      on:click|stopPropagation
+      on:keydown|stopPropagation
+      role="document"
+    >
+      <h3 id="keyboard-help-title">Keyboard Shortcuts</h3>
+      <div class="shortcuts-grid">
+        <div class="shortcut-item">
+          <kbd>J</kbd>
+          <span>Next section</span>
+        </div>
+        <div class="shortcut-item">
+          <kbd>K</kbd>
+          <span>Previous section</span>
+        </div>
+        <div class="shortcut-item">
+          <kbd>?</kbd>
+          <span>Show this help</span>
+        </div>
+        <div class="shortcut-item">
+          <kbd>Esc</kbd>
+          <span>Close help</span>
+        </div>
+      </div>
+      <p class="help-tip">Press any key to navigate quickly through the portfolio</p>
+    </div>
+  </div>
+{/if}
 
 <style>
   /* CSS Custom Properties for Theming */
@@ -384,6 +471,97 @@
     background: var(--accent-secondary);
   }
 
+  /* Keyboard Help Overlay */
+  .keyboard-help-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    animation: fadeIn 0.2s ease;
+  }
+  
+  .keyboard-help-modal {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    padding: 2rem;
+    max-width: 400px;
+    width: 90%;
+    animation: slideIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  
+  .keyboard-help-modal h3 {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    color: var(--text-primary);
+    text-align: center;
+  }
+  
+  .shortcuts-grid {
+    display: grid;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .shortcut-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem;
+    background: var(--bg-secondary);
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+  }
+  
+  kbd {
+    background: var(--accent-primary);
+    color: var(--bg-primary);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.875rem;
+    font-weight: 600;
+    min-width: 1.5rem;
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .shortcut-item span {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+  }
+  
+  .help-tip {
+    color: var(--text-tertiary);
+    font-size: 0.8rem;
+    text-align: center;
+    margin: 0;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  @keyframes slideIn {
+    from { 
+      opacity: 0;
+      transform: scale(0.9) translateY(-20px);
+    }
+    to { 
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+  }
+
   /* Smooth Animations */
   @media (prefers-reduced-motion: reduce) {
     :global(*) {
@@ -391,6 +569,14 @@
       animation-iteration-count: 1 !important;
       transition-duration: 0.01ms !important;
       scroll-behavior: auto !important;
+    }
+    
+    .keyboard-help-modal {
+      animation: none;
+    }
+    
+    .keyboard-help-overlay {
+      animation: none;
     }
   }
 </style>
