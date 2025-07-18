@@ -7,6 +7,7 @@
   let isExpanded = false;
   let isHovered = false;
   let cardElement: HTMLElement;
+  let animatedMetrics: { [key: string]: number } = {};
   
   function toggleExpanded() {
     isExpanded = !isExpanded;
@@ -43,17 +44,74 @@
     }
   }
   
+  function extractNumber(text: string): number {
+    const match = text.match(/(\d+\.?\d*)/);
+    return match ? parseFloat(match[1]) : 0;
+  }
+  
+  function animateNumber(key: string, target: number, suffix: string = '') {
+    const start = animatedMetrics[key] || 0;
+    const duration = 2000; // 2 seconds
+    const startTime = performance.now();
+    
+    function updateNumber(currentTime: number) {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      
+      // Easing function for smooth animation
+      const easeOutCubic = 1 - Math.pow(1 - progress, 3);
+      animatedMetrics[key] = start + (target - start) * easeOutCubic;
+      
+      if (progress < 1) {
+        requestAnimationFrame(updateNumber);
+      } else {
+        animatedMetrics[key] = target;
+      }
+    }
+    
+    requestAnimationFrame(updateNumber);
+  }
+  
+  function formatMetricValue(key: string, originalValue: string): string {
+    if (animatedMetrics[key] !== undefined) {
+      const number = animatedMetrics[key];
+      const suffix = originalValue.replace(/[\d.]/g, '');
+      
+      if (suffix.includes('%')) {
+        return `${number.toFixed(1)}%`;
+      } else if (suffix.includes('x')) {
+        return `${number.toFixed(2)}x`;
+      } else {
+        return `${Math.round(number)}${suffix}`;
+      }
+    }
+    return originalValue;
+  }
+  
   onMount(() => {
-    // Add intersection observer for animation
+    // Add intersection observer for animation with delay
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('animate-in');
+            // Add staggered delay based on card position
+            const delay = Math.random() * 200; // Random delay up to 200ms for organic feel
+            setTimeout(() => {
+              entry.target.classList.add('animate-in');
+              // Start number animations for metrics
+              if (project.metrics) {
+                Object.entries(project.metrics).forEach(([key, value]) => {
+                  const numericValue = extractNumber(value as string);
+                  if (numericValue > 0) {
+                    animateNumber(key, numericValue);
+                  }
+                });
+              }
+            }, delay);
           }
         });
       },
-      { threshold: 0.1 }
+      { threshold: 0.1, rootMargin: '50px' }
     );
     
     if (cardElement) {
@@ -72,6 +130,7 @@
   class="project-card"
   class:expanded={isExpanded}
   class:hovered={isHovered}
+  class:featured={project.featured}
   bind:this={cardElement}
   on:mouseenter={() => isHovered = true}
   on:mouseleave={() => isHovered = false}
@@ -163,7 +222,7 @@
             {#each Object.entries(project.metrics) as [key, value]}
               <div class="metric-item">
                 <span class="metric-label">{key.replace(/([A-Z])/g, ' $1').trim()}:</span>
-                <span class="metric-value">{value}</span>
+                <span class="metric-value">{formatMetricValue(key, value)}</span>
               </div>
             {/each}
           </div>
@@ -200,20 +259,43 @@
     margin-bottom: 1.5rem;
     cursor: pointer;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    opacity: 1;
-    transform: translateY(0);
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
     overflow: hidden;
   }
   
   .project-card.animate-in {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
+    transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
   }
   
-  .project-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-lg);
+  .project-card.animate-in:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: var(--shadow-xl);
     border-color: var(--accent-primary);
+  }
+  
+  .project-card.featured {
+    position: relative;
+  }
+  
+  .project-card.featured::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: var(--accent-gradient-warm);
+    border-radius: 14px;
+    z-index: -1;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+  }
+  
+  .project-card.featured:hover::before {
+    opacity: 1;
   }
   
   .project-card.expanded {
@@ -336,6 +418,14 @@
     font-size: 0.8rem;
     font-weight: 500;
     border: 1px solid var(--border-color);
+    transition: all 0.2s ease;
+    cursor: default;
+  }
+  
+  .tech-tag:hover {
+    background: var(--bg-secondary);
+    border-color: var(--accent-primary);
+    transform: translateY(-1px);
   }
   
   .expanded-content {

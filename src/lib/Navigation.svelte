@@ -168,23 +168,41 @@
     cursor: pointer;
     padding: 0.5rem 0;
     position: relative;
-    transition: color 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
-
-  .nav-link:hover,
-  .nav-link.active {
-    color: var(--accent-primary);
-  }
-
-  .nav-link.active::after {
+  
+  .nav-link::after {
     content: '';
     position: absolute;
     bottom: 0;
-    left: 0;
-    right: 0;
+    left: 50%;
+    right: 50%;
     height: 2px;
     background: var(--accent-primary);
     border-radius: 1px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0;
+  }
+
+  .nav-link:hover {
+    color: var(--accent-primary);
+    transform: translateY(-1px);
+  }
+  
+  .nav-link:hover::after {
+    opacity: 0.5;
+    left: 20%;
+    right: 20%;
+  }
+
+  .nav-link.active {
+    color: var(--accent-primary);
+  }
+  
+  .nav-link.active::after {
+    opacity: 1;
+    left: 0;
+    right: 0;
   }
 
 

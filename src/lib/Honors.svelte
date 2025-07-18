@@ -47,6 +47,7 @@
       <div 
         class="honor-card"
         class:hovered={hoveredHonor === honor.id}
+        class:first-place={honor.place === '1st'}
         on:mouseenter={() => hoveredHonor = honor.id}
         on:mouseleave={() => hoveredHonor = null}
         role="button"
@@ -106,6 +107,7 @@
     cursor: pointer;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     overflow: hidden;
+    transform-origin: center;
   }
 
   .honor-card::before {
@@ -120,8 +122,25 @@
   }
 
   .honor-card:hover {
-    box-shadow: var(--shadow-lg);
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 40px -12px rgba(255, 215, 0, 0.3), var(--shadow-xl);
     border-color: #ffd700;
+  }
+  
+  .honor-card.first-place {
+    background: linear-gradient(135deg, 
+      rgba(255, 215, 0, 0.05) 0%, 
+      rgba(248, 249, 250, 0.98) 20%, 
+      rgba(248, 249, 250, 0.98) 80%, 
+      rgba(255, 179, 71, 0.05) 100%);
+  }
+  
+  :global([data-theme="dark"]) .honor-card.first-place {
+    background: linear-gradient(135deg, 
+      rgba(255, 215, 0, 0.08) 0%, 
+      rgba(15, 20, 25, 0.98) 20%, 
+      rgba(15, 20, 25, 0.98) 80%, 
+      rgba(255, 179, 71, 0.08) 100%);
   }
 
   .honor-header {

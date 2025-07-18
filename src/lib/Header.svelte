@@ -118,13 +118,36 @@
     border-radius: 8px;
     font-weight: 500;
     font-size: 0.9rem;
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+  }
+  
+  .contact-link::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: var(--accent-primary);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+    z-index: -1;
   }
 
   .contact-link:hover {
-    background: var(--accent-primary);
     color: white;
     border-color: var(--accent-primary);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .contact-link:hover::before {
+    width: 300%;
+    height: 300%;
   }
 
   .contact-link.active {

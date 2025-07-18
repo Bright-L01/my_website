@@ -148,13 +148,16 @@
     font-size: 0.875rem;
     font-weight: 500;
     border: 1px solid var(--border-color);
-    transition: all 0.2s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
   }
 
   .skill-tag:hover {
     background: var(--accent-primary);
     color: white;
     border-color: var(--accent-primary);
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: var(--shadow-md);
   }
 
   .activities-section {
