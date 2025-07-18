@@ -342,8 +342,12 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
     gap: 1rem;
+  }
+  
+  :global(.item-header:last-of-type) {
+    margin-bottom: 1rem;
   }
 
   :global(.item-title) {
@@ -365,6 +369,8 @@
     color: var(--text-tertiary);
     font-size: 0.9rem;
     font-weight: 500;
+    margin-left: auto;
+    text-align: right;
   }
 
   :global(.item-date) {
@@ -376,6 +382,8 @@
     padding: 0.25rem 0.75rem;
     border-radius: 8px;
     border: 1px solid var(--border-color);
+    margin-left: auto;
+    text-align: right;
   }
 
   :global(.item-description) {
@@ -431,9 +439,11 @@
       align-items: flex-start;
       gap: 0.5rem;
     }
-
+    
+    :global(.item-location),
     :global(.item-date) {
-      align-self: flex-start;
+      margin-left: 0;
+      text-align: left;
     }
   }
 
