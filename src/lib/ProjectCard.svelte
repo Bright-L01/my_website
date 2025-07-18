@@ -89,40 +89,17 @@
   }
   
   onMount(() => {
-    // Add intersection observer for animation with delay
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            // Add staggered delay based on card position
-            const delay = Math.random() * 200; // Random delay up to 200ms for organic feel
-            setTimeout(() => {
-              entry.target.classList.add('animate-in');
-              // Start number animations for metrics
-              if (project.metrics) {
-                Object.entries(project.metrics).forEach(([key, value]) => {
-                  const numericValue = extractNumber(value as string);
-                  if (numericValue > 0) {
-                    animateNumber(key, numericValue);
-                  }
-                });
-              }
-            }, delay);
+    // Initialize metric animations with a slight delay for better UX
+    setTimeout(() => {
+      if (project.metrics) {
+        Object.entries(project.metrics).forEach(([key, value]) => {
+          const numericValue = extractNumber(value as string);
+          if (numericValue > 0) {
+            animateNumber(key, numericValue);
           }
         });
-      },
-      { threshold: 0.1, rootMargin: '50px' }
-    );
-    
-    if (cardElement) {
-      observer.observe(cardElement);
-    }
-    
-    return () => {
-      if (cardElement) {
-        observer.unobserve(cardElement);
       }
-    };
+    }, 500);
   });
 </script>
 
@@ -259,18 +236,12 @@
     margin-bottom: 1.5rem;
     cursor: pointer;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    opacity: 0;
-    transform: translateY(30px) scale(0.95);
+    opacity: 1;
+    transform: translateY(0) scale(1);
     overflow: hidden;
   }
   
-  .project-card.animate-in {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-    transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
-  }
-  
-  .project-card.animate-in:hover {
+  .project-card:hover {
     transform: translateY(-4px) scale(1.02);
     box-shadow: var(--shadow-xl);
     border-color: var(--accent-primary);

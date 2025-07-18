@@ -8,9 +8,9 @@
     <div class="item-header">
       <div>
         <div class="item-title">Harvard University</div>
-        <div class="item-org">Master of Arts in Statistics</div>
       </div>
       <div class="item-right">
+        <div class="item-org">Master of Science in Statistics</div>
         <div class="item-location">Cambridge, MA</div>
         <div class="item-date">August 2024 - May 2026</div>
       </div>
@@ -21,9 +21,9 @@
     <div class="item-header">
       <div>
         <div class="item-title">Harvard University</div>
-        <div class="item-org">Bachelor of Arts in Mathematics and Computer Science</div>
       </div>
       <div class="item-right">
+        <div class="item-org">Bachelor of Arts in Mathematics and Computer Science</div>
         <div class="item-location">Cambridge, MA</div>
         <div class="item-date">August 2022 - May 2026</div>
       </div>

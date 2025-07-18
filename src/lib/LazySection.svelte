@@ -31,6 +31,29 @@
           analytics.trackSectionView(sectionId);
         });
       });
+
+      // Fallback: check if element is already visible or if we're in development
+      setTimeout(() => {
+        if (!isVisible && sectionElement) {
+          const rect = sectionElement.getBoundingClientRect();
+          const isVisibleNow = rect.top < window.innerHeight + 200 && rect.bottom > -200;
+          // In development or if element is close to viewport, show it immediately
+          if (isVisibleNow || import.meta.env.DEV) {
+            isVisible = true;
+            hasLoaded = true;
+          }
+        }
+      }, 100);
+      
+      // Additional fallback for development
+      if (import.meta.env.DEV) {
+        setTimeout(() => {
+          if (!isVisible) {
+            isVisible = true;
+            hasLoaded = true;
+          }
+        }, 1000);
+      }
     }
   });
 
