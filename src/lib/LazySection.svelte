@@ -81,7 +81,7 @@
   }
 
   .section-placeholder {
-    padding: 6rem 0;
+    padding: 8rem 0;
     animate-pulse: true;
   }
 

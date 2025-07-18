@@ -82,51 +82,51 @@
 <style>
   /* CSS Custom Properties for Theming */
   :global(:root) {
-    /* Light Theme - Ultra-Minimal & Professional */
-    --bg-primary: #ffffff;
-    --bg-secondary: #fafafa;
-    --bg-tertiary: #f5f5f5;
-    --text-primary: #111111;
-    --text-secondary: #555555;
-    --text-tertiary: #888888;
-    --accent-primary: #000000;
-    --accent-secondary: #333333;
-    --accent-tertiary: #666666;
-    --accent-warm: #000000;
-    --accent-gradient: linear-gradient(135deg, #000000 0%, #333333 100%);
-    --accent-gradient-warm: linear-gradient(135deg, #000000 0%, #333333 100%);
-    --accent-gradient-cool: linear-gradient(135deg, #000000 0%, #666666 100%);
-    --border-color: #e5e5e5;
-    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.04);
-    --shadow-md: 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    --shadow-lg: 0 4px 8px -2px rgba(0, 0, 0, 0.08);
-    --shadow-xl: 0 8px 16px -4px rgba(0, 0, 0, 0.1);
-    --glass-bg: rgba(255, 255, 255, 0.98);
-    --glass-border: rgba(229, 229, 229, 0.8);
+    /* Modern Professional Light Theme */
+    --bg-primary: #fafbfc;
+    --bg-secondary: #f8f9fa;
+    --bg-tertiary: #e9ecef;
+    --text-primary: #2c3e50;
+    --text-secondary: #5a6c7d;
+    --text-tertiary: #8b9ab0;
+    --accent-primary: #2c3e50;
+    --accent-secondary: #34495e;
+    --accent-tertiary: #7f8c8d;
+    --accent-warm: #3498db;
+    --accent-gradient: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    --accent-gradient-warm: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+    --accent-gradient-cool: linear-gradient(135deg, #2c3e50 0%, #7f8c8d 100%);
+    --border-color: #dee2e6;
+    --shadow-sm: 0 1px 3px 0 rgba(44, 62, 80, 0.06);
+    --shadow-md: 0 4px 6px -1px rgba(44, 62, 80, 0.08);
+    --shadow-lg: 0 10px 15px -3px rgba(44, 62, 80, 0.10);
+    --shadow-xl: 0 20px 25px -5px rgba(44, 62, 80, 0.12);
+    --glass-bg: rgba(248, 249, 250, 0.98);
+    --glass-border: rgba(222, 226, 230, 0.8);
   }
 
   :global([data-theme="dark"]) {
-    /* Dark Theme - Ultra-Minimal Dark */
-    --bg-primary: #000000;
-    --bg-secondary: #111111;
-    --bg-tertiary: #1a1a1a;
-    --text-primary: #ffffff;
-    --text-secondary: #cccccc;
-    --text-tertiary: #999999;
-    --accent-primary: #ffffff;
-    --accent-secondary: #e5e5e5;
-    --accent-tertiary: #cccccc;
-    --accent-warm: #ffffff;
-    --accent-gradient: linear-gradient(135deg, #ffffff 0%, #e5e5e5 100%);
-    --accent-gradient-warm: linear-gradient(135deg, #ffffff 0%, #e5e5e5 100%);
-    --accent-gradient-cool: linear-gradient(135deg, #ffffff 0%, #cccccc 100%);
-    --border-color: #333333;
-    --shadow-sm: 0 1px 2px 0 rgba(255, 255, 255, 0.04);
-    --shadow-md: 0 2px 4px -1px rgba(255, 255, 255, 0.06);
-    --shadow-lg: 0 4px 8px -2px rgba(255, 255, 255, 0.08);
-    --shadow-xl: 0 8px 16px -4px rgba(255, 255, 255, 0.1);
-    --glass-bg: rgba(0, 0, 0, 0.98);
-    --glass-border: rgba(51, 51, 51, 0.8);
+    /* Modern Professional Dark Theme */
+    --bg-primary: #0f1419;
+    --bg-secondary: #1a1f24;
+    --bg-tertiary: #252a30;
+    --text-primary: #f8f9fa;
+    --text-secondary: #e9ecef;
+    --text-tertiary: #adb5bd;
+    --accent-primary: #74b9ff;
+    --accent-secondary: #a29bfe;
+    --accent-tertiary: #fd79a8;
+    --accent-warm: #fdcb6e;
+    --accent-gradient: linear-gradient(135deg, #74b9ff 0%, #a29bfe 100%);
+    --accent-gradient-warm: linear-gradient(135deg, #fdcb6e 0%, #fd79a8 100%);
+    --accent-gradient-cool: linear-gradient(135deg, #74b9ff 0%, #81ecec 100%);
+    --border-color: #373e47;
+    --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.6);
+    --glass-bg: rgba(15, 20, 25, 0.98);
+    --glass-border: rgba(55, 62, 71, 0.8);
   }
 
   /* Global Styles */
@@ -158,7 +158,7 @@
 
   main section {
     min-height: auto;
-    padding: 6rem 0;
+    padding: 8rem 0;
     max-width: 800px;
     margin: 0 auto;
     padding-left: 2rem;
@@ -167,6 +167,15 @@
 
   main section:first-child {
     padding-top: 0;
+  }
+
+  /* Section-specific spacing for better visual hierarchy */
+  main section#honors {
+    padding: 10rem 0;
+  }
+
+  main section#skills {
+    padding: 7rem 0;
   }
 
   /* Typography */
@@ -312,8 +321,8 @@
     main section {
       padding-left: 1.5rem;
       padding-right: 1.5rem;
-      padding-top: 4rem;
-      padding-bottom: 4rem;
+      padding-top: 6rem;
+      padding-bottom: 6rem;
     }
   }
 
@@ -321,8 +330,8 @@
     main section {
       padding-left: 1rem;
       padding-right: 1rem;
-      padding-top: 3rem;
-      padding-bottom: 3rem;
+      padding-top: 5rem;
+      padding-bottom: 5rem;
       max-width: 100%;
     }
 
@@ -341,8 +350,8 @@
     main section {
       padding-left: 1rem;
       padding-right: 1rem;
-      padding-top: 2rem;
-      padding-bottom: 2rem;
+      padding-top: 4rem;
+      padding-bottom: 4rem;
     }
   }
 

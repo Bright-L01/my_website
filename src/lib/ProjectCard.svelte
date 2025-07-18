@@ -200,8 +200,8 @@
     margin-bottom: 1.5rem;
     cursor: pointer;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    opacity: 0;
-    transform: translateY(30px);
+    opacity: 1;
+    transform: translateY(0);
     overflow: hidden;
   }
   
