@@ -257,10 +257,16 @@
   }
 
   /* Consistent section spacing for better visual hierarchy */
-  main section#publications,
-  main section#honors,
+  main section#publications {
+    padding: 6rem 0;
+  }
+  
+  main section#honors {
+    padding: 6rem 0;
+  }
+  
   main section#skills {
-    padding: 4rem 0;
+    padding: 6rem 0;
   }
 
   /* Typography */

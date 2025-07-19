@@ -94,6 +94,7 @@
     height: 280px;
     border-radius: 50%;
     object-fit: cover;
+    object-position: center 25%;
     border: 4px solid var(--accent-primary);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -148,6 +149,7 @@
     gap: 1rem;
     justify-content: flex-start;
     margin-bottom: 2rem;
+    align-items: center;
   }
 
   .contact-link {
@@ -162,6 +164,8 @@
     position: relative;
     overflow: hidden;
     z-index: 1;
+    text-align: center;
+    min-width: 100px;
   }
   
   .contact-link::before {
