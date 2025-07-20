@@ -2,10 +2,10 @@
   import { onMount } from 'svelte';
   import { writable } from 'svelte/store';
 
-  // Create a theme store
-  export const theme = writable('light');
+  // Create a theme store with dark as default
+  export const theme = writable('dark');
   
-  let currentTheme = 'light';
+  let currentTheme = 'dark';
   let isToggling = false;
 
   // Subscribe to theme changes
@@ -14,16 +14,18 @@
   });
 
   onMount(() => {
-    // Check for saved theme preference or default to light
-    const savedTheme = localStorage.getItem('theme') || 'light';
+    // Check current theme from body element (our default is dark)
+    const currentBodyTheme = document.body.getAttribute('data-theme') || 'dark';
     
-    // Check for system preference if no saved theme
-    if (!localStorage.getItem('theme')) {
-      const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      const initialTheme = systemPrefersDark ? 'dark' : 'light';
-      setTheme(initialTheme);
-    } else {
+    // Check for saved theme preference
+    const savedTheme = localStorage.getItem('theme');
+    
+    if (savedTheme) {
+      // Use saved preference
       setTheme(savedTheme);
+    } else {
+      // Use current body theme as default (which is dark)
+      setTheme(currentBodyTheme);
     }
 
     // Listen for system theme changes
@@ -45,12 +47,8 @@
     currentTheme = newTheme;
     theme.set(newTheme);
     
-    // Apply theme to document
-    if (newTheme === 'dark') {
-      document.documentElement.setAttribute('data-theme', 'dark');
-    } else {
-      document.documentElement.removeAttribute('data-theme');
-    }
+    // Apply theme to document body (matching our HTML)
+    document.body.setAttribute('data-theme', newTheme);
     
     // Save to localStorage
     localStorage.setItem('theme', newTheme);
