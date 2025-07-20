@@ -168,7 +168,8 @@
 
 <style>
   /* CSS Custom Properties for Theming */
-  :global(:root) {
+  :global(:root),
+  :global([data-theme="light"]) {
     /* Modern Professional Light Theme - Enhanced Contrast */
     --bg-primary: #ffffff;
     --bg-secondary: #f8f9fa;
