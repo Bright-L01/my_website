@@ -184,16 +184,11 @@
     --accent-gradient: linear-gradient(135deg, #1e40af 0%, #2563eb 100%);
     --accent-gradient-warm: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%);
     --accent-gradient-cool: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
-    --accent-gradient-metallic: linear-gradient(135deg, #1e40af 0%, #60a5fa 50%, #2563eb 100%);
-    --accent-gradient-chrome: linear-gradient(180deg, #94a3b8 0%, #e2e8f0 50%, #94a3b8 100%);
-    --accent-gradient-ocean: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
     --border-color: #e2e8f0;
     --shadow-sm: 0 1px 3px 0 rgba(44, 62, 80, 0.06);
     --shadow-md: 0 4px 6px -1px rgba(44, 62, 80, 0.08);
     --shadow-lg: 0 10px 15px -3px rgba(44, 62, 80, 0.10);
     --shadow-xl: 0 20px 25px -5px rgba(44, 62, 80, 0.12);
-    --shadow-3d: 0 1px 3px rgba(0, 0, 0, 0.05), 0 5px 15px rgba(0, 0, 0, 0.08), 0 15px 35px rgba(0, 0, 0, 0.1);
-    --shadow-3d-hover: 0 5px 10px rgba(0, 0, 0, 0.08), 0 15px 30px rgba(0, 0, 0, 0.15), 0 25px 50px rgba(0, 0, 0, 0.2);
     --glass-bg: rgba(248, 249, 250, 0.98);
     --glass-border: rgba(222, 226, 230, 0.8);
   }
@@ -213,16 +208,11 @@
     --accent-gradient: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%);
     --accent-gradient-warm: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
     --accent-gradient-cool: linear-gradient(135deg, #60a5fa 0%, #2563eb 100%);
-    --accent-gradient-metallic: linear-gradient(135deg, #60a5fa 0%, #3b82f6 50%, #2563eb 100%);
-    --accent-gradient-chrome: linear-gradient(180deg, #475569 0%, #64748b 50%, #475569 100%);
-    --accent-gradient-ocean: linear-gradient(135deg, #0c4a6e 0%, #075985 50%, #0369a1 100%);
     --border-color: #475569;
     --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.3);
     --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
     --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
     --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.6);
-    --shadow-3d: 0 1px 3px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.3), 0 15px 35px rgba(0, 0, 0, 0.4);
-    --shadow-3d-hover: 0 5px 10px rgba(0, 0, 0, 0.3), 0 15px 30px rgba(0, 0, 0, 0.4), 0 25px 50px rgba(0, 0, 0, 0.5);
     --glass-bg: rgba(15, 20, 25, 0.98);
     --glass-border: rgba(55, 62, 71, 0.8);
   }
@@ -235,26 +225,12 @@
   :global(html) {
     scroll-behavior: smooth;
   }
-  
-  /* Performance optimization with reduced motion support */
-  @media (prefers-reduced-motion: reduce) {
-    :global(html) {
-      scroll-behavior: auto;
-    }
-    
-    :global(*) {
-      animation-duration: 0.01ms !important;
-      animation-iteration-count: 1 !important;
-      transition-duration: 0.01ms !important;
-    }
-  }
 
   :global(body) {
     margin: 0;
     padding: 0;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
     font-feature-settings: 'cv05', 'cv01', 'cv03', 'cv04';
-    font-variation-settings: 'wght' 400;
     line-height: 1.5;
     color: var(--text-primary);
     background: var(--bg-primary);
@@ -262,62 +238,6 @@
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-  }
-  
-  /* Fluid typography with clamp() */
-  :global(h1) {
-    font-size: clamp(2rem, 5vw, 3.5rem);
-    font-variation-settings: 'wght' 700;
-    line-height: 1.2;
-  }
-  
-  :global(h2) {
-    font-size: clamp(1.5rem, 4vw, 2.5rem);
-    font-variation-settings: 'wght' 600;
-    line-height: 1.3;
-  }
-  
-  :global(h3) {
-    font-size: clamp(1.2rem, 3vw, 1.8rem);
-    font-variation-settings: 'wght' 500;
-    line-height: 1.4;
-  }
-  
-  /* Enhanced focus states for accessibility */
-  :global(:focus-visible) {
-    outline: 2px solid var(--accent-primary);
-    outline-offset: 4px;
-    border-radius: 4px;
-  }
-  
-  /* GPU acceleration for animated elements */
-  :global(.animated) {
-    will-change: transform, opacity;
-    transform: translateZ(0);
-  }
-  
-  /* Gradient text effect for headers */
-  :global(.gradient-text) {
-    background: var(--accent-gradient-metallic);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    position: relative;
-    display: inline-block;
-  }
-  
-  /* Spring-like button animations */
-  :global(.btn-spring) {
-    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  }
-  
-  :global(.btn-spring:hover) {
-    transform: translateY(-2px) scale(1.05);
-    box-shadow: 0 10px 20px -5px var(--accent-primary);
-  }
-  
-  :global(.btn-spring:active) {
-    transform: translateY(0) scale(0.98);
   }
 
   main {
